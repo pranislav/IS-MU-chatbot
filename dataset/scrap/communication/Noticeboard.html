@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html class="whatinput-types-initial whatinput-types-keyboard" lang="en" data-whatinput="keyboard" data-whatintent="keyboard"><head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>Noticeboard</title>
+<link href="https://is.muni.cz/favicon.ico" rel="icon" sizes="32x32">
+<link href="https://is.muni.cz/favicon.svg" rel="icon" type="image/svg+xml">
+<link href="Noticeboard_files/foundation.min.css" media="screen,print" rel="stylesheet" type="text/css">
+<link href="Noticeboard_files/foundation-icons.css" media="screen,print" rel="stylesheet" type="text/css">
+<link href="Noticeboard_files/prvky.css" media="screen,print" rel="stylesheet" type="text/css">
+<link href="Noticeboard_files/r6.css" media="screen,print" rel="stylesheet" type="text/css">
+<link href="Noticeboard_files/1.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Noticeboard_files/r6-print.css" media="print" rel="stylesheet" type="text/css">
+<link href="Noticeboard_files/napoveda.css" media="screen,print" rel="stylesheet" type="text/css">
+<script src="Noticeboard_files/jquery.js"></script>
+<script src="Noticeboard_files/error.js"></script>
+<script src="Noticeboard_files/foundation.js"></script>
+<meta class="foundation-mq"></head>
+<body class="en noauth skola_14 motiv-1 motiv-svetly">
+<a href="#sticky_panel" class="show-on-focus print-hide">Skip to top bar</a><a href="#hlavicka" class="show-on-focus print-hide">Skip to header</a><a href="#app_content" class="show-on-focus print-hide">Skip to content</a><a href="#paticka" class="show-on-focus print-hide">Skip to footer</a>
+<div id="content" class="">
+	<div id="zdurazneni-sticky" class="zdurazneni-sticky print-hide" role="alert" aria-atomic="true"></div>
+	<div id="rows_wrapper">
+		<div class="foundation-design-z">
+			<nav id="sticky_panel">
+	<div class="row">
+		<div class="column">
+			<div class="ikony">
+				<a href="https://is.muni.cz/?lang=en" class="sticky_home" title="Masaryk University Information System" aria-label="Masaryk University Information System"></a>
+				<a href="https://is.muni.cz/?lang=en" class="sticky-icon" title="Home" aria-label="Home"><i class="house isi-home" aria-hidden="true"></i></a><a href="#" class="sticky-icon prepinac-vyhl float-right" title="Search" aria-label="Search" data-toggle="is_search" aria-controls="is_search" data-is-focus="false" data-yeti-box="is_search" aria-haspopup="true" aria-expanded="false"><i class="isi-lupa" aria-hidden="true"></i></a><div id="is_search" class="dropdown-pane bottom search-dropdown" data-dropdown="nijevt-dropdown" data-close-on-click="true" aria-hidden="true" data-yeti-box="is_search" aria-labelledby="f8ym49-dd-anchor">
+	<form method="POST" action="/vyhledavani/" role="search"><input type="hidden" name="lang" value="en">
+		<div class="input-group">
+			<input class="input-group-field input_text" type="search" name="search" autocomplete="off" role="searchbox">
+			<div id="is_search_x" class="is_input_x input-group-button"><i class="isi-x"></i></div>
+			<div class="input-group-button">
+				<input type="submit" class="button" value="Search">
+			</div>
+		</div>
+	</form>
+	<div id="is_search_results"></div>
+</div><span><a href="https://is.muni.cz/help/komunikace/vyveska?lang=cs" class="sticky-item prepinac-jazyk jazyk-cs" aria-label="Přepnout do češtiny" title="Přepnout do češtiny">CS</a></span><a href="https://is.muni.cz/auth/help/komunikace/vyveska?lang=en" class="sticky-icon float-right" title="IS MU Login" aria-label="IS MU Login"><i class="isi-postava" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+</nav>
+			
+			<header class="row hlavicka" id="hlavicka">
+	<div class="small-5 medium-3 columns znak skola14">
+		
+	</div>
+	<div id="is-prepinace" class="small-7 medium-9 columns">
+		
+		<div id="prepinace">
+        <ul aria-hidden="true" class="is-switch dropdown menu" data-dropdown-menu="nut06d-dropdown-menu" data-click-open="true" data-closing-time="0" data-autoclose="false" data-disable-hover="true" data-close-on-click="true" data-force-follow="false" data-close-on-click-inside="false" data-alignment="right" role="menubar">
+                
+                
+                
+        </ul>
+        <ul class="show-for-sr">
+                
+                
+                
+        </ul>
+</div>
+	</div>
+</header>
+<div class="row" aria-hidden="true">
+	<div class="column">
+		<a href="#" class="app_header_motiv_switch show-for-medium" title="Change theme" aria-label="Change theme" data-open="motiv_reveal"><i class="isi-nastaveni isi-inline" aria-hidden="true"></i></a>
+		
+	</div>
+</div><div id="drobecky" class="row">
+	<div class="column">
+		<span class="wrap"><a href="https://is.muni.cz/?lang=en" class="drobecek_logo" title="MU Information System" accesskey="0"> </a><span class="sep"> <i class="isi-zobacek-vpravo"></i><span class="show-for-sr">&gt;</span> </span><a href="https://is.muni.cz/help?lang=en" title="Help" accesskey="1">Help</a><span class="sep"> <i class="isi-zobacek-vpravo"></i><span class="show-for-sr">&gt;</span> </span><a href="https://is.muni.cz/help/komunikace?lang=en" title="Communication" accesskey="2">Communication</a><span class="sep last"> <i class="isi-zobacek-vpravo"></i><span class="show-for-sr">&gt;</span> </span><a class="drobecek_app" title="Noticeboard" accesskey="3">Noticeboard</a></span>
+	</div>
+</div><div id="app_header_wrapper" class="row align-justify show-for-medium">
+	<div class="medium-12 column">
+		<h1 id="app_header"><div class="large-9 xlarge-9"><span id="app_name">Noticeboard</span></div></h1>
+	</div>
+	<div class="shrink column">
+		<div id="app_header_image" style="width: 1360px;"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="column">
+		<div id="app_menu" class="empty">
+			
+		</div>
+	</div>
+</div><!--[if lt IE 9]><div class="zdurazneni varovani ie_warning"  ><h3 class="zdurazneni-nadpis">Warning:</h3><h3>Your browser Internet Explorer is out of date.</h3><p>It has known security flaws and may not display all features of this and other websites.</p></div>
+<![endif]-->
+		</div>
+		<div id="app_content_row" class="row"><main id="app_content" class="column" role="main"><a name="komunikace/vyveska"></a>
+
+
+<!-- Nasleduje adresar='komunikace', soubor='vyveska' -->
+
+<div class="row accordion-cover">
+	<div class="column"></div>
+	<div class="small-12 large-shrink accordion-sbalit-rozbalit column"><a href="#" class="accordion-sbalit print-hide"><i class="isi-sbalit-vse isi-inline" aria-hidden="true"></i>Hide</a><a href="#" class="accordion-rozbalit print-hide"><i class="isi-rozbalit-vse isi-inline" aria-hidden="true"></i>Show</a></div>
+	<div class="small-12 column"></div>
+	<div class="small-12 column"><ul data-allow-all-closed="true" class="accordion  " data-accordion="3a7pwu-accordion" data-update-history="true" data-multi-expand="true" role="tablist"><li id="k_vyv_cteni" data-accordion-item="" class="accordion-item  "><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="g2fxfl-accordion" role="tab" id="k_vyv_cteni" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">1.</span>Important messages on the Noticeboard<a href="#k_vyv_cteni" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="k_vyv_cteni" aria-hidden="true" id="g2fxfl-accordion">The
+ IS users are expected to read the messages of high importance (i.e. 
+those that are marked as red).
+      They are notified of these via their main IS page. The other 
+messages posted on the Noticeboard are of lower importance and their 
+reading is optional.
+      <p>
+
+</p><figure class="img"><div class="bgbarva-seda1"><img src="Noticeboard_files/vyveska01en.png" border="1"></div></figure>
+<figcaption><p><span class="cislo">1</span> High importance message notified via main IS page.</p></figcaption>
+<p>
+
+
+The „Messages of high importance“ section is displayed on the 
+Noticeboard main page. There are both red messages (important for each 
+IS MU user) and blue messages (important for a certain group of people 
+for whom they are primarily intended).
+
+</p><figure class="img"><div class="bgbarva-seda1"><img src="Noticeboard_files/vyveska03en.png" border="1"></div></figure>
+<figcaption><p><span class="cislo">1</span> Důležité (červené) zprávy na vývěsce jsou významné pro každého uživatele IS MU.</p>
+      <p><span class="cislo">2</span> Modře zvýrazněná zpráva se v sekci „Důležité zprávy“ objeví jen určité skupině osob, pro které je primárně určena.</p></figcaption>
+<p>
+
+To make it easier to keep track of messages that concern the user, it is
+ useful to add the message board, or just a section of it, to the list 
+by clicking on the heart icon next to the section. Entries will be 
+listed and automatically counted on the title page of Noticeboard and 
+will be in the „Favourites“ section.
+
+
+</p><figure class="img"><div class="bgbarva-seda1"><img src="Noticeboard_files/vyveska04en.png" border="1"></div></figure>
+<figcaption><p><span class="cislo">1</span> Mark noticeboard as favourite.</p></figcaption>
+<p>
+
+      </p><p></p></div></li><li data-accordion-item="" class="accordion-item  " id="k_vyv_druhy"><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="2xhb1g-accordion" role="tab" id="k_vyv_druhy" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">2.</span>Who can post messages on the Noticeboard and of what kind should these be?<a href="#k_vyv_druhy" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="k_vyv_druhy" aria-hidden="true" id="2xhb1g-accordion">In IS MU we operate <strong>faculty</strong> notice boards, <strong>notice boards for Invitations</strong>, <strong>otice boards for Advertising</strong>  and <strong>Thematic notice boards</strong>.
+ Individual messages can be listed directly on the Noticeboard, or it 
+can be divided into several sections. For individual sections, access 
+can be restricted to certain persons / groups of persons only, and 
+sections can also have a special range of sections to be filled in when 
+inserting a report.
+      If we divide the Message Board into several levels of sections, it
+ is always possible to insert messages at the lowest level.
+      <p>
+      You may not have the right to post messages in a particular section or message board, only to read them.
+      </p><p>
+      Holders of the "manage" right for a given section can move, edit, delete, etc. the section and the messages in it.
+      </p><p></p></div></li><li data-accordion-item="" class="accordion-item  " id="k_vyv_zakaz"><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="3tssuj-accordion" role="tab" id="k_vyv_zakaz" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">3.</span>What are the rules for using the Noticeoard?<a href="#k_vyv_zakaz" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="k_vyv_zakaz" aria-hidden="true" id="3tssuj-accordion">The aim of the Noticeboard is to support communication within the academic community of the school.
+      <p>
+              Before using the Noticeboard, please make sure you are are
+ familiar with the rules governing the use of MU Information System. If 
+this is not the case, please <a href="https://is.muni.cz/napoveda/jine/pravidla?lang=en">read them through now</a>.
+      </p><p> </p><div class="pruvodce_rozklik"><span class="barva3"><i class="isi-vykricnik" aria-hidden="true"></i>Note</span><p>All
+ the operations performed by all the IS users are recorded. The 
+violation of any of the rules may consequently lead to penalties and a 
+serious violation even to being expelled from the University.</p></div>
+      <p>
+  You should refrain from posting the messages promoting racial, , 
+religious and political discrimination, making confidential information 
+(this concerns, for instance, students' grades) and illegally obtained 
+material public (also applies to that which you are not authorized to 
+distribute), using vulgar expression and those violating basic 
+principles of decency. The users will be held fully liable for any 
+damage caused by someone else using their user name and password. 
+Moreover, it is every IS user's duty to select the password that is hard
+ to guess and do his/her best to protect it from any possible misuse.
+      </p><p>
+      The Noticeboard is used for posting messages intended for academic
+ community. For the purpose of posting advertisements and private 
+messages, please use the advertisements sections.
+      </p><p>
+
+      </p><ul><li>The Noticeboard users are not allowed to post their 
+messages in unrelated sections making them irrelevant to the visitors to
+ these.
+</li><li>You can add copies of messages to other noticeboards at the 
+same time. However, it is forbidden to insert messages into other 
+sections separately.
+
+</li><li>For seminar group exchange requests, use the Seminar Group Exchange (for more see <a href="https://is.muni.cz/napoveda/student/rozvrh?lang=en#s_rozvrh_sem_burza">Help</a>).
+
+
+</li><li>Advertisements (incl. Copies – crossposting) may only be inserted into the Classifieds section.
+</li><li>General invitations having the same meaning for all faculties belong only to the Invitations section.
+
+</li><li>It is forbidden to overuse the Noticeboard by duplicating the same or similar messages (spam).
+<p>
+    </p><div class="pruvodce_rozklik"><span class="barva4"><i class="isi-tipy" aria-hidden="true"></i>Tip</span><p>Users with access rights vyveska_zpravy can insert similar messages in justified cases.</p></div></li></ul>
+      <p>
+      Crossposting: when inserting a message, it is allowed to check 
+more sections where the message should be displayed to readers. It is 
+forbidden to insert the same message
+several times in a row in different sections (IS MU would not know that 
+it is the same message, and the reader would have to read it 
+repeatedly).
+
+      </p><p>
+      Please ensure that you specify a reasonable expiration date for 
+your message since the messages that are not up-to-date prove to be a 
+nuisance. When selecting the group of users to whom your message should 
+be displayed as „blue“, please proceed with prudence since the messages 
+the users find irrelevant are annoying.
+      Messages in the Invitations / Advertisement <strong>section cannot be highlighted</strong>.
+      </p><p>
+      Important: The messages posted on the Noticeboard expire after 
+some time. The texts that you want to keep displayed for a long time 
+should be placed in the Documents section.
+      </p><p>
+      The IS administrators reserve the right to move the messages the 
+users have posted in wrong sections into the right ones, correct the 
+messages containing mistakes, and remove the messages violating the 
+rules governing the IS use. If any of the aforementioned changes is 
+made, the users are always informed about it by e-mail.
+      </p><p></p></div></li><li id="k_vyv_vlozit" class="accordion-item  " data-accordion-item=""><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="azt318-accordion" role="tab" id="k_vyv_vlozit" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">4.</span>How can I post a message on the Noticeboard?<a href="#k_vyv_vlozit" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="k_vyv_vlozit" aria-hidden="true" id="azt318-accordion">To
+ post a message on the Noticeboard, please click on post a new message. 
+Please ensure that you do so in the appropriate section or
+create your own Topic-based noticeboard section.
+
+   <figure class="img"><div class="bgbarva-seda1"><img src="Noticeboard_files/vyveska05_en.png" border="1"></div></figure>
+<figcaption><p><span class="cislo">1</span> Post a message on the Noticeboard.</p></figcaption>
+<p>
+
+
+Text fields and options:
+      </p><p>
+      </p><dl><dt><strong>Subject of message</strong></dt><dd>Use this 
+field to enter a name (headline) for your message. Please make sure that
+ the name is meaningful and indicates what the message is about. Minimum
+ 10 and maximum 100 characters long. The name must start with a capital 
+letter.
+      </dd><dt><strong>Krátký úvod</strong></dt><dd>Optional text that 
+appears above the image when the message is opened. It is displayed in a
+ larger font than the rest of the message. The number of characters is 
+limited to 512.
+      </dd><dt><strong>Image</strong></dt><dd>It attracts the attention 
+of readers, it is a mandatory item. You can insert your own image or 
+choose a suitable image from the gallery.
+      </dd><dt><strong>Message</strong></dt><dd>The main text of the message. It can be formatted using the bar at the top.
+      </dd><dt><strong>Internet address</strong></dt><dd>The url can be entered in the message, where, for example, there is more information about the announced event.
+      </dd><dt><strong>Attach files</strong></dt><dd>You can attach a file from your computer to the message. Just drag it from a folder on the disk or select it via the menu.
+      </dd><dt><strong>Expirace zprávy</strong></dt><dd>The date when 
+the message will be automatically deleted from the Noticeboard (it will 
+be moved to the special „canceled message“ message board). It is usually
+ set for the day after the deadline
+holding an announced event. Exceptionally, persons who have the right to
+ manage a given section on a bulletin board do not have to enter an 
+expiration date (if the message is a permanent notification).
+      </dd><dt><strong>Date of event</strong></dt><dd>Click on the calendar icon and select the date and time of the event. Do not fill in for general messages.
+       </dd><dt><strong>Barevné zvýraznění zprávy</strong></dt><dd>All 
+messages on message boards are typically readable by all IS users. 
+Highlight (blue) to specify the people to whom the message is primarily
+determined. Select the category of people and the faculty / department 
+for which the report will be highlighted in blue. If you want to reach 
+all students, use the "students" option, doctoral students are already 
+included in the "students" option. The <em>n_manip</em> owner will highlight "Important" in red – it is then written to the user on the title page of the IS.
+
+   <figure class="img"><div class="bgbarva-seda1"><img src="Noticeboard_files/vyveska06_en.png" border="1"></div></figure>
+<figcaption><p><span class="cislo">1</span>
+Select which category of people the message will be highlighted.</p></figcaption>
+<p>
+
+     </p></dd><dt><strong>Kopii zprávy přidat do dalších vývěskových sekcí</strong></dt><dd>It
+ is allowed to add one message to more sections of the message board 
+only through the form and only to the message boards where you have the 
+right
+insert messages. As soon as the reader reads this message on one of the 
+message boards, the readability is also marked for all other messages 
+inserted in this way. However, it is forbidden to add a message to more 
+than one section
+message boards individually!
+      </dd><dt><strong>URL code of the message</strong></dt><dd>It is 
+used for a quick link directly to the message, it can have a maximum of 
+16 characters. The url will look like: 
+https://is.muni.cz/auth/noticeboard/code_noticeboard/code_section/
+code_message.</dd></dl>
+
+      <p></p></div></li><li class="accordion-item  " data-accordion-item="" id="k_vyv_prectene"><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="0chvu4-accordion" role="tab" id="k_vyv_prectene" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">5.</span>Where can I find the messages I have already read or marked as "read"?<a href="#k_vyv_prectene" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="k_vyv_prectene" aria-hidden="true" id="0chvu4-accordion">The
+ system records the reading of the message. The messages that are read 
+by the user no longer appear on the title page of the IS MU, nor in the 
+list of messages on the title page of the Message Board. However, they 
+are still in the overview on the message board, only moved down, except 
+for unread messages. <p>
+You can return a specific message to unread by clicking on the eye icon:
+
+</p><figure class="img"><div class="bgbarva-seda1"><img src="Noticeboard_files/vyveska07_en.png" border="1"></div></figure>
+<figcaption><p><span class="cislo">1</span>
+A message the user has already read.</p>
+<p><span class="cislo">2</span>
+Messages that have not yet been read. They are either new or have been returned as unread.</p></figcaption>
+<p></p></div></li><li data-accordion-item="" class="accordion-item  " id="k_vyv_hvezdicka"><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="dg19lz-accordion" role="tab" id="k_vyv_hvezdicka" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">6.</span>Where can I find messages that I want to return to later?<a href="#k_vyv_hvezdicka" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="k_vyv_hvezdicka" aria-hidden="true" id="dg19lz-accordion">Read messages that you want to return to later can be marked with an <strong>star</strong>. Click the gray star next to the message title to add the message to the starred list. The asterisk changes color to orange.
+
+  <figure class="img"><div class="bgbarva-seda1"><img src="Noticeboard_files/vyveska08_en.png" border="1"></div></figure>
+<figcaption><p><span class="cislo">1</span> Message marked with an asterisk.</p></figcaption>
+
+
+These are then listed in the top bar in the IS MU:
+
+       <figure class="img"><div class="bgbarva-seda1"><img src="Noticeboard_files/vyveska09en.png" border="1"></div></figure>
+<figcaption><p><span class="cislo">1</span> List of starred messages and posts.</p></figcaption></div></li><li class="accordion-item  " data-accordion-item="" id="k_vyv_stitky"><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="u02wnk-accordion" role="tab" id="k_vyv_stitky" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">7.</span>What are the tags on the Noticeboard for?<a href="#k_vyv_stitky" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="k_vyv_stitky" aria-hidden="true" id="u02wnk-accordion">Tags
+ (notes) can be used to indicate interesting messages or to promote 
+messages on the Noticeboard. To add tags to a foreign message, click on 
+the handling key in the upper corner
+      messages and select "Set tags". Here you can create a new public 
+or private tag, or use another one that has already been created. Tags 
+can be inserted by any system user for each message  (except Tržiště 
+práce ) .
+      Public tags that have been used to mark a message will be offered 
+in the selected Zprávy se štítkem section:
+      <div class="ok aplikaceisu">The Information system <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Noticeboard <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> (Other application) <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Zprávy se štítkem</div>
+      <p></p></div></li><li id="k_vyv_uprava_old" class="accordion-item  " data-accordion-item=""><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="kxew36-accordion" role="tab" id="k_vyv_uprava_old" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">8.</span>Can I still edit the message after pasting?<a href="#k_vyv_uprava_old" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="k_vyv_uprava_old" aria-hidden="true" id="kxew36-accordion">Yes, you can at any time. You can find it using:
+      <p>
+            </p><div class="ok aplikaceisu">The Information system <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Noticeboard <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> My Messages</div>
+      <p>
+      All your messages will be listed. Find the one you want to edit 
+and click. Click on the manipulation key icon in the upper right corner 
+of the message and select "edit message" in the menu that expands it. 
+Finally, confirm the changes in the form with the "Save" button.
+
+      </p><figure class="img"><div class="bgbarva-seda1"><img src="Noticeboard_files/vyveska10en.png" border="1"></div></figure>
+<figcaption><p><span class="cislo">1</span> Offer handling key.</p></figcaption>
+<p></p></div></li><li id="k_vyv_obnova" data-accordion-item="" class="accordion-item  "><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="jw6w1r-accordion" role="tab" id="k_vyv_obnova" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">9.</span>Is it possible to restore an old / expired message?<a href="#k_vyv_obnova" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="k_vyv_obnova" aria-hidden="true" id="jw6w1r-accordion">Yes, you can restore older messages as follows:
+      <p>
+</p><div class="ok aplikaceisu">The Information system <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Noticeboard <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> My messages</div>
+      <p>
+
+In the "My Messages" section, select the message you want to restore and click the "restore message" link.
+      Then select the section in which you want to insert the message.
+      If a message is too old to appear in the "My Messages" list, it can no longer be recovered.
+      </p><p></p></div></li><li data-accordion-item="" class="accordion-item  " id="k_vyv_sekce"><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="zlu29f-accordion" role="tab" id="k_vyv_sekce" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">10.</span>How do I create a new section on the Noticeboard?<a href="#k_vyv_sekce" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="k_vyv_sekce" aria-hidden="true" id="zlu29f-accordion">From the site
+      <p>
+      </p><div class="ok aplikaceisu">The Information system <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Noticeboard</div>
+      <p>
+      enter the desired board (by clicking on its name) and use the 
+"Section settings" option (gear icon). A form will open where you can 
+add a section. </p><p>
+      The section name should be concise, up to 64 characters long, and 
+should begin with a capital letter. It is also mandatory to fill in the 
+abbreviation of the newly emerging section.
+To create a new section, confirm the form by clicking the "Save" button.
+ You can adjust the order of this new section by dragging it in the 
+section list.
+      </p><p></p></div></li><li data-accordion-item="" class="accordion-item  " id="k_vyv_expirace"><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="jpp1ei-accordion" role="tab" id="k_vyv_expirace" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">11.</span>Message cancellation and expiration<a href="#k_vyv_expirace" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="k_vyv_expirace" aria-hidden="true" id="jpp1ei-accordion">Messages from the bulletin board can be canceled by their depositor and the person with the right to <em>manage</em>
+ the given section, or the messages will automatically expire 
+(disappear).
+      The submitter cancels the message by clicking on the manipulation 
+key in the upper right corner of the message by selecting "delete 
+message".
+      <p>
+      The expiration date (expiration) must be set for messages on 
+Noticeboards, usually the day after the notification event has expired. 
+Expired messages are moved to a special message board
+<strong>Zrušené zprávy z vývěsky</strong>. 
+On the 3-day advertising bulletin board, the expiration of messages is 
+automatically set to 3 days (expiration can later be manually extended 
+by another
+    three days).
+      </p><p>
+
+
+     Exceptionally, persons with the right to <em>administer</em> the 
+section have the option to keep the message of a permanent nature on the
+ Notice Board without entering an expiration date. This message then 
+remains on the Message Board indefinitely.
+      </p><p></p></div></li><li data-accordion-item="" class="accordion-item  " id="k_vyv_inzerce"><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="dxrp06-accordion" role="tab" id="k_vyv_inzerce" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">12.</span>What is the difference between Inzerce and 3denní inzerce?<a href="#k_vyv_inzerce" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="k_vyv_inzerce" aria-hidden="true" id="dxrp06-accordion">The advertising board is divided into two parts to ensure the timeliness of the advertisements:
+        <dl><dt><strong>3denní inzerce</strong>
+           </dt><dd>Message expiration on this bulletin board is 
+automatically set to 3 days. Advertisers are notified by automatic email
+ and before the expiration date
+              they can extend the expiration any number of times by 
+filling out the form in the IS (always for a maximum of 3 days).
+          </dd><dt><strong>Inzerce</strong>
+            </dt><dd>The abbreviated expiration of messages does not apply to this message board.</dd></dl>
+       <p>
+
+The reader of an advertisement placed in a 3denní inzerce will have 
+greater certainty that the advertisement is currently valid. Conversely,
+ old and often on the Inzerce noticeboard can remain displayed
+       outdated ads.
+       </p><p>
+
+
+If the contribution to the other noticeboard is inserted simultaneously 
+(using the crossposting function) into several groups and at least one 
+of these groups is a 3denní inzerce,
+      a reduced expiration date applies to the contribution.
+      </p><p></p></div></li><li data-accordion-item="" class="accordion-item  " id="k_vyv_ignore"><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="qzes5g-accordion" role="tab" id="k_vyv_ignore" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">13.</span>Messages from certain people bother me<a href="#k_vyv_ignore" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="k_vyv_ignore" aria-hidden="true" id="qzes5g-accordion">If
+ you don't want to read bulletin board messages from a specific person, 
+you can have that person ignore you. On the selected bulletin board next
+ to the author's report, click on the manipulation key in the top right 
+and select from the menu the "Ignore the author of the message" option. 
+Ignoring is tied to a person, so all messages of that person on all 
+message boards will be ignored.
+
+      <figure class="img"><div class="bgbarva-seda1"><img src="Noticeboard_files/vyveska11en.png" border="1"></div></figure>
+<figcaption><p><span class="cislo">1</span>
+The option to ignore the person is in the menu of the manipulation key.</p></figcaption>
+<p>
+
+      </p><p>
+
+Ignoring messages from school staff will only take effect after 
+administrators have acknowledged that ignoring is justified (eg many 
+people ask to ignore a person's messages).
+      </p><p>
+
+For a list of people you ignore, see:
+      </p><div class="ok aplikaceisu">The Information system <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Noticeboard <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> (Other applications) <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Moje ignorované osoby</div>
+      <p>
+
+
+It is possible to cancel the ignoring of a person from your list (cross 
+next to the name of the person) and confirm the cancellation by 
+selecting "Save".</p></div></li><li id="k_vyv_tematicke" data-accordion-item="" class="accordion-item  "><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="3gdv5e-accordion" role="tab" id="k_vyv_tematicke" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">14.</span>What is topic-based noticeboard section for?<a href="#k_vyv_tematicke" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="k_vyv_tematicke" aria-hidden="true" id="3gdv5e-accordion">Topic-
+based noticeboard section is offer their founders a wider range of 
+settings (adding new items for inserting messages) and moderation 
+according to their own rules (the owner of the bulletin board can e.g.
+delete inappropriate messages).
+      <p>
+      These message boards can also be used only for a certain closed group of people, by restricting the <em>right to read</em>
+ the message board to this group only in the settings. The thematic 
+message board can be used, for example, for
+operation of a bazaar with the possibility of deleting advertisements or
+ as an interface for entering messages that can be downloaded to other 
+websites outside the IS MU.
+      </p><p>
+      Detailed help on thematic bulletin boards can be found in:
+      </p><p>
+      </p><div class="ok aplikaceisu">The Information system<span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Help <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> (Communication) <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Thematic Noticeboard Used as an Interface for External Editorial Systems</div>
+      <p></p></div></li><li class="accordion-item  " data-accordion-item="" id="k_vyv_obrazek"><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="11k9z2-accordion" role="tab" id="k_vyv_obrazek" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">15.</span>I want to insert my own picture for the message on the Noticeboard, how big should it be?<a href="#k_vyv_obrazek" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="k_vyv_obrazek" aria-hidden="true" id="11k9z2-accordion">The
+ picture for each message is mandatory on the Noticeboard. If the user 
+does not choose from the IS Gallery, he can upload his own image from 
+his device.
+     <figure class="img"><div class="bgbarva-seda1"><img src="Noticeboard_files/vyveska12en.png" border="1"></div></figure>
+<figcaption><p><span class="cislo">1</span>You can upload an image from your device or choose from the IS Gallery.</p></figcaption>
+<p>
+The ideal parameters of your own image are:
+</p><ul><li>minimum size 1200x450 px, but for best results 1600x620 px, larger is not recommended;
+</li><li>the ideal format is JPG;
+</li><li>the ideal file size is 200 KB, then it will load quickly, the maximum file size is 1 MB.</li></ul></div></li></ul></div>
+	<div class="small-12 text-right column"><a href="#" class="accordion-sbalit print-hide"><i class="isi-sbalit-vse isi-inline" aria-hidden="true"></i>Hide</a><a href="#" class="accordion-rozbalit print-hide"><i class="isi-rozbalit-vse isi-inline" aria-hidden="true"></i>Show</a></div>
+</div><p>
+</p><hr><p>Provided you have failed to find the information you were searching for, you can contact us at <nobr class="postovni_adresa"><a href="mailto:istech@fi.muni.cz">istech@fi.muni.cz</a></nobr>.</p>
+</main></div>
+		
+		<div class="foundation-design-z foot_clear">
+			
+	<div class="row">
+		
+	</div>
+	<footer id="paticka" class="">
+		<div class="row">
+			<div class="columns small-12 medium-6 paticka_logo">
+	<a href="https://is.muni.cz/?lang=en"><span class="show-for-sr">IS MU</span></a>
+	<div>
+		The Information&nbsp;System of Masaryk University
+		<div class="footer_about">
+			<a href="https://is.muni.cz/nas_system/?lang=en">More about IS MU</a>, administered by <a href="https://www.fi.muni.cz/">Faculty of Informatics, MU</a>
+		</div>
+		
+	</div>
+</div>
+<div class="columns small-6 medium-3">
+	<div class="footer_podpora">
+	<a href="https://is.muni.cz/podpora/?lang=en">Do you need help?</a>
+	<span class="kont_email"><nobr class="postovni_adresa"><a href="mailto:istech@fi.muni.cz">istech@fi.muni.cz</a></nobr></span>
+</div>
+	<div class="footer_napoveda">
+		<a href="https://is.muni.cz/help/?lang=en">Help</a>
+	</div>
+	<div class="row">
+		<div class="columns small-12 display-none">
+			<div class="footer_zoomy">
+				<a href="" rel="nofollow"></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="columns small-6 medium-3 nastaveni_col">
+	<div class="footer_datum">
+		<span title="Today is 10. (even) week.">9/3/2025 <span style="padding: 0 0.6em">|</span> 20:34</span>
+		<a href="https://is.muni.cz/system/cas?lang=en" title="Today is 10. (even) week." class="footer_cas">Current date and&nbsp;time</a>
+	</div>
+	<div>
+	
+	<div class="footer_nastaveni"><a href="https://is.muni.cz/nas_system/ochrana_informaci?lang=en">Use of cookies</a><a href="https://is.muni.cz/system/pristupnost" class="footer_about">Accessibility</a></div>
+</div>
+</div>
+			<div class="right-border"></div>
+			<div class="left-border"></div>
+		</div>
+		<a href="#hlavicka" class="skip_up" title="takes you to the top of the page">
+			Go to top
+		</a>
+	</footer>
+
+		</div>
+	</div>
+</div>
+
+
+<script src="Noticeboard_files/is.js"></script>
+<script src="Noticeboard_files/jquery-ui-1.12.1-sortable-r6.min.js"></script>
+<script src="Noticeboard_files/log-kliknuto.js"></script>
+<script>
+(function() {
+
+"use strict";
+
+is.Design.init({
+   "ldb" : {
+      "byl_jste_odhlasen_prihlasit" : "Log in",
+      "modal_full" : "Full-screen view",
+      "chyba" : "An error has occurred. Try again or refresh the page.",
+      "chyba_503" : "The application is temporarily unavailable due to the System being overloaded.",
+      "byl_jste_odhlasen_zavrit" : "Close",
+      "sbalit" : "Hide",
+      "rozbalit" : "Show",
+      "byl_jste_odhlasen" : "You have been logged out."
+   },
+   "js_init" : [
+      {
+         "module" : "MailTo",
+         "method" : "decode_mail",
+         "params" : []
+      },
+      {
+         "module" : "Accordion",
+         "method" : "init",
+         "params" : []
+      },
+      {
+         "method" : "init",
+         "module" : "HashNavigation",
+         "params" : []
+      },
+      {
+         "module" : "Drobecky",
+         "method" : "init",
+         "params" : []
+      },
+      {
+         "method" : "init",
+         "module" : "Forms",
+         "params" : []
+      },
+      {
+         "method" : "init_header",
+         "module" : "Design",
+         "params" : []
+      },
+      {
+         "method" : "init_toolkit",
+         "module" : "Design",
+         "params" : []
+      }
+   ],
+   "svatky" : {
+      "20141227" : 1,
+      "20090928" : 1,
+      "20041231" : 1,
+      "20180101" : 1,
+      "20201231" : 1,
+      "20080101" : 1,
+      "20160328" : 1,
+      "20241230" : 1,
+      "20041225" : 1,
+      "20061228" : 1,
+      "20010705" : 1,
+      "20011229" : 1,
+      "20251226" : 1,
+      "20231117" : 1,
+      "20191230" : 1,
+      "20121223" : 1,
+      "20050705" : 1,
+      "20161223" : 1,
+      "20261229" : 1,
+      "20200508" : 1,
+      "20230706" : 1,
+      "20240705" : 1,
+      "20010928" : 1,
+      "20180705" : 1,
+      "20011230" : 1,
+      "20261117" : 1,
+      "20021224" : 1,
+      "20261028" : 1,
+      "20221224" : 1,
+      "20200410" : 1,
+      "20231231" : 1,
+      "20040501" : 1,
+      "20021230" : 1,
+      "20030706" : 1,
+      "20181227" : 1,
+      "20121226" : 1,
+      "20040928" : 1,
+      "20061226" : 1,
+      "20071228" : 1,
+      "20191228" : 1,
+      "20061230" : 1,
+      "20041028" : 1,
+      "20230410" : 1,
+      "20021228" : 1,
+      "20181028" : 1,
+      "20121228" : 1,
+      "20061225" : 1,
+      "20081028" : 1,
+      "20190419" : 1,
+      "20080705" : 1,
+      "20170501" : 1,
+      "20150705" : 1,
+      "20250705" : 1,
+      "20191028" : 1,
+      "20101229" : 1,
+      "20260928" : 1,
+      "20161117" : 1,
+      "20181230" : 1,
+      "20211228" : 1,
+      "20201225" : 1,
+      "20001227" : 1,
+      "20251230" : 1,
+      "20241228" : 1,
+      "20071226" : 1,
+      "20111223" : 1,
+      "20141224" : 1,
+      "20240706" : 1,
+      "20040705" : 1,
+      "20201228" : 1,
+      "20210405" : 1,
+      "20190422" : 1,
+      "20250928" : 1,
+      "20100501" : 1,
+      "20011227" : 1,
+      "20090705" : 1,
+      "20100928" : 1,
+      "20250706" : 1,
+      "20051230" : 1,
+      "20070706" : 1,
+      "20060417" : 1,
+      "20250501" : 1,
+      "20060508" : 1,
+      "20140421" : 1,
+      "20230407" : 1,
+      "20151231" : 1,
+      "20150508" : 1,
+      "20231225" : 1,
+      "20130928" : 1,
+      "20181117" : 1,
+      "20260403" : 1,
+      "20051228" : 1,
+      "20011028" : 1,
+      "20131225" : 1,
+      "20141223" : 1,
+      "20241224" : 1,
+      "20140101" : 1,
+      "20111228" : 1,
+      "20060501" : 1,
+      "20180330" : 1,
+      "20260101" : 1,
+      "20261230" : 1,
+      "20021229" : 1,
+      "20121229" : 1,
+      "20061117" : 1,
+      "20170706" : 1,
+      "20061227" : 1,
+      "20211226" : 1,
+      "20131223" : 1,
+      "20160508" : 1,
+      "20121028" : 1,
+      "20101228" : 1,
+      "20100508" : 1,
+      "20231230" : 1,
+      "20231228" : 1,
+      "20240501" : 1,
+      "20151028" : 1,
+      "20071229" : 1,
+      "20120409" : 1,
+      "20200101" : 1,
+      "20161229" : 1,
+      "20121117" : 1,
+      "20180402" : 1,
+      "20101028" : 1,
+      "20230705" : 1,
+      "20090501" : 1,
+      "20211230" : 1,
+      "20200501" : 1,
+      "20221117" : 1,
+      "20161226" : 1,
+      "20210706" : 1,
+      "20101224" : 1,
+      "20191229" : 1,
+      "20171223" : 1,
+      "20210928" : 1,
+      "20011117" : 1,
+      "20120501" : 1,
+      "20241028" : 1,
+      "20001229" : 1,
+      "20151225" : 1,
+      "20241117" : 1,
+      "20191231" : 1,
+      "20010706" : 1,
+      "20181226" : 1,
+      "20151226" : 1,
+      "20081225" : 1,
+      "20050101" : 1,
+      "20111231" : 1,
+      "20030508" : 1,
+      "20251231" : 1,
+      "20100705" : 1,
+      "20031028" : 1,
+      "20031117" : 1,
+      "20021117" : 1,
+      "20150101" : 1,
+      "20191224" : 1,
+      "20080501" : 1,
+      "20130501" : 1,
+      "20091117" : 1,
+      "20251228" : 1,
+      "20151224" : 1,
+      "20201223" : 1,
+      "20140705" : 1,
+      "20201221" : 1,
+      "20091225" : 1,
+      "20120508" : 1,
+      "20171028" : 1,
+      "20020706" : 1,
+      "20141225" : 1,
+      "20261227" : 1,
+      "20010501" : 1,
+      "20120928" : 1,
+      "20250508" : 1,
+      "20181229" : 1,
+      "20121231" : 1,
+      "20151223" : 1,
+      "20111225" : 1,
+      "20001225" : 1,
+      "20261226" : 1,
+      "20110508" : 1,
+      "20140508" : 1,
+      "20191117" : 1,
+      "20180928" : 1,
+      "20091224" : 1,
+      "20201117" : 1,
+      "20180706" : 1,
+      "20261225" : 1,
+      "20131231" : 1,
+      "20241223" : 1,
+      "20111224" : 1,
+      "20261224" : 1,
+      "20131224" : 1,
+      "20080928" : 1,
+      "20001230" : 1,
+      "20021225" : 1,
+      "20171226" : 1,
+      "20130101" : 1,
+      "20131117" : 1,
+      "20071224" : 1,
+      "20200928" : 1,
+      "20170101" : 1,
+      "20210402" : 1,
+      "20141028" : 1,
+      "20251117" : 1,
+      "20090101" : 1,
+      "20100101" : 1,
+      "20111227" : 1,
+      "20111230" : 1,
+      "20161230" : 1,
+      "20090706" : 1,
+      "20090413" : 1,
+      "20180501" : 1,
+      "20121230" : 1,
+      "20111229" : 1,
+      "20101226" : 1,
+      "20211028" : 1,
+      "20190508" : 1,
+      "20050328" : 1,
+      "20260508" : 1,
+      "20200705" : 1,
+      "20190501" : 1,
+      "20111028" : 1,
+      "20231226" : 1,
+      "20030101" : 1,
+      "20111226" : 1,
+      "20011225" : 1,
+      "20110928" : 1,
+      "20050928" : 1,
+      "20151229" : 1,
+      "20241229" : 1,
+      "20041230" : 1,
+      "20031225" : 1,
+      "20171117" : 1,
+      "20171230" : 1,
+      "20161228" : 1,
+      "20201222" : 1,
+      "20191227" : 1,
+      "20100706" : 1,
+      "20141226" : 1,
+      "20251227" : 1,
+      "20020101" : 1,
+      "20050501" : 1,
+      "20220508" : 1,
+      "20091028" : 1,
+      "20191223" : 1,
+      "20251229" : 1,
+      "20131227" : 1,
+      "20220101" : 1,
+      "20121224" : 1,
+      "20231028" : 1,
+      "20130401" : 1,
+      "20120706" : 1,
+      "20171231" : 1,
+      "20041227" : 1,
+      "20220418" : 1,
+      "20201230" : 1,
+      "20030501" : 1,
+      "20240329" : 1,
+      "20241226" : 1,
+      "20101227" : 1,
+      "20101231" : 1,
+      "20261228" : 1,
+      "20110501" : 1,
+      "20041224" : 1,
+      "20141231" : 1,
+      "20011231" : 1,
+      "20051225" : 1,
+      "20071117" : 1,
+      "20081226" : 1,
+      "20071231" : 1,
+      "20061028" : 1,
+      "20070101" : 1,
+      "20021227" : 1,
+      "20240401" : 1,
+      "20161224" : 1,
+      "20161028" : 1,
+      "20030421" : 1,
+      "20230101" : 1,
+      "20071028" : 1,
+      "20021028" : 1,
+      "20190101" : 1,
+      "20051117" : 1,
+      "20221231" : 1,
+      "20061229" : 1,
+      "20260501" : 1,
+      "20250421" : 1,
+      "20030928" : 1,
+      "20131228" : 1,
+      "20101223" : 1,
+      "20001228" : 1,
+      "20141117" : 1,
+      "20201224" : 1,
+      "20060928" : 1,
+      "20170705" : 1,
+      "20031224" : 1,
+      "20191226" : 1,
+      "20011224" : 1,
+      "20151228" : 1,
+      "20020928" : 1,
+      "20150706" : 1,
+      "20211117" : 1,
+      "20110101" : 1,
+      "20131028" : 1,
+      "20250101" : 1,
+      "20010508" : 1,
+      "20211227" : 1,
+      "20240928" : 1,
+      "20160706" : 1,
+      "20170928" : 1,
+      "20010101" : 1,
+      "20160101" : 1,
+      "20220705" : 1,
+      "20150501" : 1,
+      "20241225" : 1,
+      "20071230" : 1,
+      "20180508" : 1,
+      "20181225" : 1,
+      "20221229" : 1,
+      "20020501" : 1,
+      "20241227" : 1,
+      "20211229" : 1,
+      "20171229" : 1,
+      "20161225" : 1,
+      "20020508" : 1,
+      "20051224" : 1,
+      "20181228" : 1,
+      "20160928" : 1,
+      "20210101" : 1,
+      "20081117" : 1,
+      "20160501" : 1,
+      "20190706" : 1,
+      "20210508" : 1,
+      "20171227" : 1,
+      "20190928" : 1,
+      "20221028" : 1,
+      "20061224" : 1,
+      "20151230" : 1,
+      "20021223" : 1,
+      "20070705" : 1,
+      "20050706" : 1,
+      "20170417" : 1,
+      "20110705" : 1,
+      "20060101" : 1,
+      "20101230" : 1,
+      "20141228" : 1,
+      "20080324" : 1,
+      "20201229" : 1,
+      "20230508" : 1,
+      "20220928" : 1,
+      "20120705" : 1,
+      "20051227" : 1,
+      "20001231" : 1,
+      "20251028" : 1,
+      "20131226" : 1,
+      "20130706" : 1,
+      "20150928" : 1,
+      "20041229" : 1,
+      "20011228" : 1,
+      "20050508" : 1,
+      "20021226" : 1,
+      "20211231" : 1,
+      "20160705" : 1,
+      "20051229" : 1,
+      "20250418" : 1,
+      "20041226" : 1,
+      "20140706" : 1,
+      "20060706" : 1,
+      "20070501" : 1,
+      "20201028" : 1,
+      "20231224" : 1,
+      "20040508" : 1,
+      "20101117" : 1,
+      "20001224" : 1,
+      "20090508" : 1,
+      "20101225" : 1,
+      "20080706" : 1,
+      "20211224" : 1,
+      "20241231" : 1,
+      "20100405" : 1,
+      "20141222" : 1,
+      "20211225" : 1,
+      "20251224" : 1,
+      "20251225" : 1,
+      "20141229" : 1,
+      "20120101" : 1,
+      "20210501" : 1,
+      "20110425" : 1,
+      "20221228" : 1,
+      "20020401" : 1,
+      "20260706" : 1,
+      "20200413" : 1,
+      "20181224" : 1,
+      "20070928" : 1,
+      "20021231" : 1,
+      "20201226" : 1,
+      "20030705" : 1,
+      "20210705" : 1,
+      "20260406" : 1,
+      "20231227" : 1,
+      "20070409" : 1,
+      "20230501" : 1,
+      "20121227" : 1,
+      "20020705" : 1,
+      "20190705" : 1,
+      "20131230" : 1,
+      "20170414" : 1,
+      "20051028" : 1,
+      "20080508" : 1,
+      "20221230" : 1,
+      "20240508" : 1,
+      "20221227" : 1,
+      "20221226" : 1,
+      "20191225" : 1,
+      "20171225" : 1,
+      "20091226" : 1,
+      "20041228" : 1,
+      "20150406" : 1,
+      "20130705" : 1,
+      "20071225" : 1,
+      "20121225" : 1,
+      "20140928" : 1,
+      "20051226" : 1,
+      "20071227" : 1,
+      "20081224" : 1,
+      "20141230" : 1,
+      "20070508" : 1,
+      "20200706" : 1,
+      "20230928" : 1,
+      "20260705" : 1,
+      "20220415" : 1,
+      "20111117" : 1,
+      "20130508" : 1,
+      "20151227" : 1,
+      "20221225" : 1,
+      "20181231" : 1,
+      "20040412" : 1,
+      "20160325" : 1,
+      "20040101" : 1,
+      "20110706" : 1,
+      "20220706" : 1,
+      "20151117" : 1,
+      "20060705" : 1,
+      "20011226" : 1,
+      "20220501" : 1,
+      "20231229" : 1,
+      "20010416" : 1,
+      "20041117" : 1,
+      "20001226" : 1,
+      "20040706" : 1,
+      "20261231" : 1,
+      "20161231" : 1,
+      "20001028" : 1,
+      "20131229" : 1,
+      "20171224" : 1,
+      "20031226" : 1,
+      "20140501" : 1,
+      "20240101" : 1,
+      "20170508" : 1,
+      "20171228" : 1,
+      "20161227" : 1
+   },
+   "session" : {
+      "session_id" : "3352224700",
+      "vidim_kazdeho" : null,
+      "debug" : 1,
+      "cgipar" : {
+         "lang" : [
+            "en"
+         ]
+      },
+      "is_muni_cz" : "is.muni.cz",
+      "sn" : "/napoveda/index.pl",
+      "login" : null,
+      "uco" : null,
+      "ekurz" : false,
+      "auth" : "",
+      "remote_user" : null,
+      "is_design_z" : "",
+      "w_log_id" : "20591405472",
+      "server_time" : "9. 3. 2025 20:34:53",
+      "pouzit_neoverene_udaje" : null,
+      "lang" : "en",
+      "skola_id" : "14",
+      "skola_zkratka" : "MU"
+   }
+}
+);
+})();
+</script>
+
+
+
+</body></html>

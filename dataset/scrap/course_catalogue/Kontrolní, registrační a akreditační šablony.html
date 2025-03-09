@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html class="whatinput-types-initial whatinput-types-keyboard" lang="en" data-whatinput="keyboard" data-whatintent="mouse"><head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>Kontrolní, registrační a akreditační šablony</title>
+<link href="https://is.muni.cz/favicon.ico" rel="icon" sizes="32x32">
+<link href="https://is.muni.cz/favicon.svg" rel="icon" type="image/svg+xml">
+<link href="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/foundation.min.css" media="screen,print" rel="stylesheet" type="text/css">
+<link href="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/foundation-icons.css" media="screen,print" rel="stylesheet" type="text/css">
+<link href="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/prvky.css" media="screen,print" rel="stylesheet" type="text/css">
+<link href="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/r6.css" media="screen,print" rel="stylesheet" type="text/css">
+<link href="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/1.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/r6-print.css" media="print" rel="stylesheet" type="text/css">
+<link href="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/napoveda.css" media="screen,print" rel="stylesheet" type="text/css">
+<script src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/jquery.js"></script>
+<script src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/error.js"></script>
+<script src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/foundation.js"></script>
+<meta class="foundation-mq"></head>
+<body class="en noauth skola_14 motiv-1 motiv-svetly">
+<a href="#sticky_panel" class="show-on-focus print-hide">Skip to top bar</a><a href="#hlavicka" class="show-on-focus print-hide">Skip to header</a><a href="#app_content" class="show-on-focus print-hide">Skip to content</a><a href="#paticka" class="show-on-focus print-hide">Skip to footer</a>
+<div id="content" class="">
+	<div id="zdurazneni-sticky" class="zdurazneni-sticky print-hide" role="alert" aria-atomic="true"></div>
+	<div id="rows_wrapper">
+		<div class="foundation-design-z">
+			<nav id="sticky_panel">
+	<div class="row">
+		<div class="column">
+			<div class="ikony">
+				<a href="https://is.muni.cz/?lang=en" class="sticky_home" title="Masaryk University Information System" aria-label="Masaryk University Information System"></a>
+				<a href="https://is.muni.cz/?lang=en" class="sticky-icon" title="Home" aria-label="Home"><i class="house isi-home" aria-hidden="true"></i></a><a href="#" class="sticky-icon prepinac-vyhl float-right" title="Search" aria-label="Search" data-toggle="is_search" aria-controls="is_search" data-is-focus="false" data-yeti-box="is_search" aria-haspopup="true" aria-expanded="false"><i class="isi-lupa" aria-hidden="true"></i></a><div id="is_search" class="dropdown-pane bottom search-dropdown" data-dropdown="lhaifr-dropdown" data-close-on-click="true" aria-hidden="true" data-yeti-box="is_search" aria-labelledby="snpadg-dd-anchor">
+	<form method="POST" action="/vyhledavani/" role="search"><input type="hidden" name="lang" value="en">
+		<div class="input-group">
+			<input class="input-group-field input_text" type="search" name="search" autocomplete="off" role="searchbox">
+			<div id="is_search_x" class="is_input_x input-group-button"><i class="isi-x"></i></div>
+			<div class="input-group-button">
+				<input type="submit" class="button" value="Search">
+			</div>
+		</div>
+	</form>
+	<div id="is_search_results"></div>
+</div><span><a href="https://is.muni.cz/help/predmety/sablony?lang=cs" class="sticky-item prepinac-jazyk jazyk-cs" aria-label="Přepnout do češtiny" title="Přepnout do češtiny">CS</a></span><a href="https://is.muni.cz/auth/help/predmety/sablony?lang=en" class="sticky-icon float-right" title="IS MU Login" aria-label="IS MU Login"><i class="isi-postava" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+</nav>
+			
+			<header class="row hlavicka" id="hlavicka">
+	<div class="small-5 medium-3 columns znak skola14">
+		
+	</div>
+	<div id="is-prepinace" class="small-7 medium-9 columns">
+		
+		<div id="prepinace">
+        <ul aria-hidden="true" class="is-switch dropdown menu" data-dropdown-menu="c9luvi-dropdown-menu" data-click-open="true" data-closing-time="0" data-autoclose="false" data-disable-hover="true" data-close-on-click="true" data-force-follow="false" data-close-on-click-inside="false" data-alignment="right" role="menubar">
+                
+                
+                
+        </ul>
+        <ul class="show-for-sr">
+                
+                
+                
+        </ul>
+</div>
+	</div>
+</header>
+<div class="row" aria-hidden="true">
+	<div class="column">
+		<a href="#" class="app_header_motiv_switch show-for-medium" title="Change theme" aria-label="Change theme" data-open="motiv_reveal"><i class="isi-nastaveni isi-inline" aria-hidden="true"></i></a>
+		
+	</div>
+</div><div id="drobecky" class="row">
+	<div class="column">
+		<span class="wrap"><a href="https://is.muni.cz/?lang=en" accesskey="0" title="MU Information System" class="drobecek_logo"> </a><span class="sep"> <i class="isi-zobacek-vpravo"></i><span class="show-for-sr">&gt;</span> </span><a href="https://is.muni.cz/help?lang=en" accesskey="1" title="Help">Help</a><span class="sep"> <i class="isi-zobacek-vpravo"></i><span class="show-for-sr">&gt;</span> </span><a href="https://is.muni.cz/help/predmety?lang=en" accesskey="2" title="Course Catalogue">Course Catalogue</a><span class="sep last"> <i class="isi-zobacek-vpravo"></i><span class="show-for-sr">&gt;</span> </span><a accesskey="3" title="Kontrolní, registrační a akreditační šablony" class="drobecek_app">Kontrolní, registrační a akreditační šablony</a></span>
+	</div>
+</div><div id="app_header_wrapper" class="row align-justify show-for-medium">
+	<div class="medium-12 column">
+		<h1 id="app_header"><div class="large-9 xlarge-9"><span id="app_name">Kontrolní, registrační a akreditační šablony</span></div></h1>
+	</div>
+	<div class="shrink column">
+		<div id="app_header_image" style="width: 1360px;"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="column">
+		<div id="app_menu" class="empty">
+			
+		</div>
+	</div>
+</div><!--[if lt IE 9]><div class="zdurazneni varovani ie_warning"  ><h3 class="zdurazneni-nadpis">Warning:</h3><h3>Your browser Internet Explorer is out of date.</h3><p>It has known security flaws and may not display all features of this and other websites.</p></div>
+<![endif]-->
+		</div>
+		<div id="app_content_row" class="row"><main id="app_content" class="column" role="main"><a name="predmety/sablony"></a>
+
+
+<!-- Nasleduje adresar='predmety', soubor='sablony' -->
+
+<div class="row accordion-cover">
+	<div class="column"></div>
+	<div class="small-12 large-shrink accordion-sbalit-rozbalit column"><a href="#" class="accordion-sbalit print-hide"><i class="isi-sbalit-vse isi-inline" aria-hidden="true"></i>Hide</a><a href="#" class="accordion-rozbalit print-hide"><i class="isi-rozbalit-vse isi-inline" aria-hidden="true"></i>Show</a></div>
+	<div class="small-12 column"></div>
+	<div class="small-12 column"><ul data-multi-expand="true" data-accordion="4l8zd0-accordion" data-update-history="true" data-allow-all-closed="true" class="accordion  " role="tablist"><li data-accordion-item="" id="pr_sab_typy" class="accordion-item  "><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="y6rq7v-accordion" role="tab" id="pr_sab_typy" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">1.</span>Jaký je rozdíl mezi kontrolní a registrační šablonou?<a href="#pr_sab_typy" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="pr_sab_typy" aria-hidden="true" id="y6rq7v-accordion"><p><strong>Registrační šablona</strong>
+ slouží pro registraci studentů, obsahuje pouze aktuálně vyučované 
+předměty,
+	případně předměty vyučované v pravidelných (dvouletých) cyklech. 
+Registrační šablona je výhradně jedna, společná celému oboru, bez ohledu
+ na imatrikulační ročník.</p>
+	<p><strong>Kontrolní šablona</strong> slouží pro kontrolu průchodu 
+studiem (zda došlo ke splnění podmínek pro přístup ke státní závěrečné 
+zkoušce).
+	Obsahuje nejrůznější kombinace předmětů z minulosti i ze současnosti. 
+Může existovat více kontrolních šablon (dle imatrikulačních ročníků).</p>
+	
+	<p><strong>Akreditační šablona</strong> neboli šablona průchodu slouží pro proces vnitřního hodnocení programu a je veřejně přístupná
+	mj. uchazečů o studium. Garant programu prostřednictvím šablony udržuje doporučený průchod studijním plánem.
+	
+	Předměty (P a PV) se v rozdělení po semestrech prezentují uchazečům na webu MU, případně na webu fakulty.</p></div></li><li id="pr_sab_plneni" class="accordion-item  " data-accordion-item=""><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="3bilwr-accordion" role="tab" id="pr_sab_plneni" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">2.</span>Kde mohu šablony plnit a kontrolovat?<a href="#pr_sab_plneni" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="pr_sab_plneni" aria-hidden="true" id="3bilwr-accordion">Plnění šablon
+	<div class="ok aplikaceisu">Informační systém <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Studium <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Plnění šablon</div>
+	Prohlídka šablon
+	<div class="ok aplikaceisu">Informační systém <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Studium <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Prohlídka šablon</div>
+	
+	Akreditační šablony lze upravovat zjednodušeným rozhraním, které mají
+	garanti programu k dispozici v aplikaci
+	<div class="ok aplikaceisu">Informační systém <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Garant <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Programy <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Studijní plány <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Rozbalit vše <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Editace šablony průchodu</div>
+	V této aplikaci je skrytá  většina voleb týkajících se kontrolních šablon.
+	<p>
+	Akreditační šablony můžete také spravovat běžnou aplikací Plnění šablon.
+	Akreditační šablony mají svůj separátní strom šablon. V názvu šablony je v
+	hranatých závorkách uveden kód studijního plánu, k němuž daná šablona patří.
+	
+	</p><p></p></div></li><li id="pr_sab_postup" class="accordion-item  " data-accordion-item=""><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="xkffkz-accordion" role="tab" id="pr_sab_postup" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">3.</span>Jaký je doporučený postup plnění kontrolních šablon?<a href="#pr_sab_postup" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="pr_sab_postup" aria-hidden="true" id="xkffkz-accordion">Při přípravě kontrolních šablon lze vyjít z šablon registračních, které jsou obvykle členěné na povinné a
+      povinně volitelné předměty. Šablony vytváříme pro studijní obory nebo oborové kombinace. Jelikož se
+      podmínky studia jednotlivých oborů mohou v průběhu let měnit, je rozumné kontrolní šablony oborů navíc
+      dělit na imatrikulační ročníky (např. Politologie → Bakalářská prezenční jednooborová → Imatrikulační
+      ročník 2012/2013). Při přípravě kontrolních šablon je obvyklý tento postup:
+      <ul><li>Vytvořte nový imatrikulační ročník (nová sekce/podúroveň), nastavte příznak „Zde začíná kontrolní
+            šablona“ a vyplňte pole „Nutno splnit podmínek/předmětů z obsahu šablony“ hodnotou „vše“.
+        <p>
+	</p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony01.png" border="1"></div></figure>
+	<figcaption><p><span class="cislo">1</span> Nastaveni podmínek.</p></figcaption>
+        </li><li>Vytvořte novou sekci (podúroveň) „Povinné předměty“, u které nastavte pole „Nutno splnit podmínek/
+            předmětů z obsahu šablony“ na hodnotu „vše“.
+        </li><li>Vytvořte novou sekci (podúroveň) „Povinně volitelné předměty“, u které upřesněte počet potřebných kreditů
+             nastavením podmínky „Nutno splnit kreditů z předmětů šablony“.</li></ul> 
+      <p>
+      Přiřazení kontrolních šablon studentům provádí Studijní oddělení ve speciální aplikaci. Změna obsahu
+      šablony se automaticky projeví u všech studentů, kteří mají danou šablonu přiřazenu. Dbejte prosím na
+      to, abyste kontrolní šablony ukládali v konzistentním stavu. 
+       </p><p></p></div></li><li data-accordion-item="" id="pr_sab_akred" class="accordion-item  "><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="od8cxf-accordion" role="tab" id="pr_sab_akred" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">4.</span>Jak mohu předvyplnit akreditační šablony?<a href="#pr_sab_akred" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="pr_sab_akred" aria-hidden="true" id="od8cxf-accordion">Při prvním vstupu do šablony určitého studijního plánu přes aplikaci
+	<div class="ok aplikaceisu">Informační systém <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Garant <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Programy <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Studijní plány <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Editace šablony průchodu</div>
+       se do šablony automaticky předvyplní vhodné sekce. Předvyplnění se řídí stromem šablon, který
+       je umístěn ve fakultních šablonách (typicky Akreditační šablony → Vzor B+N).
+       Při předvyplnění akreditační šablony je důležitá forma studia studijního plánu, podle níž je
+       následně zvolena předloha.
+       <p></p></div></li><li class="accordion-item  " id="pr_sab_obory" data-accordion-item=""><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="oxc2gr-accordion" role="tab" id="pr_sab_obory" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">5.</span>Jak přiřadím šablony k oborům?<a href="#pr_sab_obory" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="pr_sab_obory" aria-hidden="true" id="oxc2gr-accordion">Přiřadit šablony k oboru můžete přímo v aplikaci pro plnění šablon
+        <div class="ok aplikaceisu">Informační systém <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Studium <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Plnění šablon</div>
+        V místě, kde kontrolní šablona začíná, zaškrtněte „Zde začíná kontrolní šablona“ a označte obory, které k šabloně patří.
+        Stejným způsobem je možno i jednotlivě kontrolovat přiřazení šablon k oborům. <p>
+	</p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony02.png" border="1"></div></figure>
+        <p>
+        
+        </p><p>
+        Hromadně zkontrolovat přiřazení šablon k oborům mohou osoby s právem s_studium v aplikaci
+        </p><div class="ok aplikaceisu">Informační systém <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Studijní <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Kontrolní šablony <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> přehled k oborům</div>
+        <p>
+	</p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony03.png" border="1"></div></figure>
+	<figcaption><p><span class="cislo">1</span> Počet studentů oboru bez přiřazené šablony.</p>
+                    <p><span class="cislo">2</span> Proklik na hromadný výběr studentů oboru bez přiřazené šablony.</p>
+                    <p><span class="cislo">3</span> Seznam kontrolních 
+šablon, které mají přiřazen daný obor (s proklikem na editaci dané 
+šablony - možnost úpravy přiřazení šablony k oboru).</p>
+                    <p><span class="cislo">4</span> Počty studií, které mají přiřazenu šablonu (delěno dle aktivních/všech studentů daného/všech oborů).</p>
+		    <p><span class="cislo">5</span> Počet aktivních studí daného oboru (bez ohledu na přiřazení šablony studiím).</p></figcaption>
+        <p></p></div></li><li data-accordion-item="" id="pr_sab_podminky" class="accordion-item  "><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="8rrpuu-accordion" role="tab" id="pr_sab_podminky" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">6.</span>Jak přidám sekci a předměty? Jaké jsou kontrolované podmínky?<a href="#pr_sab_podminky" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="pr_sab_podminky" aria-hidden="true" id="8rrpuu-accordion">Novou
+ sekci je možné přidat do aktuální úrovně šablony pomocí volby „Přidat: 
+sekci“. Otevře se dialogové okno pro vyplnění potřebných informací. 
+Vložení potvrdíte tlačítkem „Vložit sekci“, popř. „Vložit sekci a zadat 
+další“, jestliže chcete vložit více sekcí najednou. Nově přidané sekce 
+jsou zobrazeny šedě, změny je tedy potřeba potvrdit uložením. <br>
+	<p>
+
+	</p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony04.png" border="1"></div></figure>
+	<figcaption><p>Zadání podmínek sekce.</p></figcaption>
+	<p>
+	   Při kontrole podmínek sekce se vychází vždy ze seznamu předmětů. Lze upřesnit:
+        </p><ul><li>Kolik je v rámci sekce  třeba úspěšně absolvovat předmětů (v Plnění šablon zadejte číslem, nebo vepište
+                „vše“ ci „vse“, např. u seznamu povinných předmětů).
+          </li><li>Kolik je v rámci sekce třeba získat souhrnně kreditů.
+         </li><li>Přiřazení k oboru (blíže v otázce <a href="https://is.muni.cz/napoveda/predmety/sablony?lang=en#pr_sab_obory">Jak přiřadím šablony k oborům?</a>).
+	 </li><li>Požadované ukončení hromadně všem předmětům šablony/úrovně. <div class="pruvodce_rozklik"><span class="barva3"><i class="isi-vykricnik" aria-hidden="true"></i>Note</span><p>hromadně
+ lze nastavit pouze ukončení dostupné u všech předmětů. Je-li nastaveno 
+požadované ukončení předmětu, započítávají se do opakování či získaných 
+kreditů pouze ty zápisy, kde je předmět ukončen daným nebo vyšším 
+ukončením.</p></div></li></ul>
+         <br>
+
+	Nový předmět můžete přidat do aktuální úrovně šablony obdobně jako 
+novou sekci pomocí volby „Přidat: předmět“. Otevře se dialogové okno pro
+ vyplnění potřebných informací. <br>
+	<p>
+
+	</p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony05.png" border="1"></div></figure>
+	<figcaption><p>Přidání předmětů do sekce.</p></figcaption>
+        <p>
+	Předměty je možné vkládat jednotlivě nebo hromadně (pomocí kódů předmětů oddělených mezerou). Změny je potřeba uložit.
+	<br>
+	</p><p>
+	 K jednotlivým předmětům vyžadovaným v šabloně pak lze pomocí volby „více“ zadat tyto podmínky:
+          </p><ul><li>Vyžadovaný počet opakování předmětu - pokud 
+nastavíte počet opakování na více než 1, bude šablona vyžadovat 
+odpovídající počet absolvování předmětu.
+                 </li><li>Počet splněných kreditů - počet kreditů 
+získaných absolvováním předmětu např. vhodné u předmětů, kde si student 
+volí kreditovou hodnotu,
+                     přičemž není podstatný počet opakování, ale celkový
+ počet získaných kreditů.
+                 </li><li>U jednotlivého předmětu lze také požadovat určitý typ ukončení - pokud si lze předmět zapsat např. se zápočtem nebo se zkouškou,
+                     ale pro určitý obor je vyžadováno ukončení zkouškou, vyznačte „zk“. Obvykle se nevyplňuje.</li></ul>
+         <p>
+         </p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony_vice.png" border="1"></div></figure>
+	 <figcaption><p>Zadání podmínek k jednotlivým předmětům v šabloně.</p></figcaption>
+         <p>
+	 </p><div class="pruvodce_rozklik"><span class="barva3"><i class="isi-vykricnik" aria-hidden="true"></i>Note</span><p>Textové pokyny nepatří mezi kontrolované podmínky, mají pouze informativní charakter.</p></div>
+        <p></p></div></li><li id="pr_sab_rubrika" class="accordion-item  " data-accordion-item=""><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="jloib3-accordion" role="tab" id="pr_sab_rubrika" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">7.</span>Jak postupovat při vyplnění specifických rubrik pro akreditační šablony?<a href="#pr_sab_rubrika" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="pr_sab_rubrika" aria-hidden="true" id="jloib3-accordion"><strong>Povinnost</strong>
+     <br>
+     V návaznostech agendy vnitřního hodnocení je důležité určit povinnost
+     předmětů, tedy stanovit, které předměty jsou pro daný studijní plán
+     povinné (P) a povinně volitelné (PV). Povinnost předmětů lze nastavit
+     pouze pro celou sekci společně v editaci sekce (při přístupu z Garanta
+     je potřeba zobrazit Více možností). Předměty z povinných a povinně
+     volitelných sekcí se vypisují do podkladů pro akreditace do sekce 2.1
+     Cíle předmětu, výukové a hodnotící metody předmětů.
+     <p>
+      <strong>Profilace</strong>
+     <br>
+     Pro vnitřní hodnocení se dále používá rubrika Profilace, která se nachází v
+     editaci konkrétního předmětu v dané šabloně. V rámci profilace lze zvolit P
+     (profilující předmět), nebo Z (základní teoretický předmět profilujícího
+     základu).
+     </p><ul><li>Profilujícím předmětem (P) se rozumí povinný nebo povinně volitelný
+      předmět, jehož absolvováním student získává znalosti nebo dovednosti
+      podstatné pro dosažení výstupů z učení studijního programu, tzn. že obsah
+      těchto předmětů je zahrnut ve státní závěrečné zkoušce.
+      </li><li>Základní teoretický předmět (Z) profilujícího základu je podmnožinou
+      předmětů profilujícího základu, které jsou pro dosažení profilu absolventa
+      natolik významné, že tvoří základní jádro všech studijních plánů studijního
+      programu. Tyto předměty jsou zpravidla vyučovány ve všech typech studijních
+      plánů, které jsou ve studijním programu zařazeny.</li></ul>
+    <p>
+    Pozn.: Z jsou podmnožina P.
+    </p><p>
+    <strong>Pokyny</strong>
+    <br>
+    Rubrika Pokyny slouží pro slovní popis dalších podmínek, které má student
+    dodržet, nebo dalších významných okolností. Pokyny se vyplňují v aplikaci
+    Plnění šablon, je možné je vyplnit i v angličtině.
+    </p><p></p></div></li><li data-accordion-item="" id="pr_sab_duplicit" class="accordion-item  "><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="wpzaa8-accordion" role="tab" id="pr_sab_duplicit" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">8.</span>Jak nastavím vyhodnocování duplicitních předmětů ve více sekcích?<a href="#pr_sab_duplicit" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="pr_sab_duplicit" aria-hidden="true" id="wpzaa8-accordion"><p>Pokud
+ je předmět zařazen do více sekcí kontrolní šablony a student si musí 
+vybrat, pro kterou sekci chce splnění předmětu započítat, lze šablonu 
+označit speciálním příznakem, který změní algoritmus pro vyhodnocování 
+průchodu.
+      </p><div class="ok aplikaceisu">Informační systém <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Studium <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Plnění šablon</div><p></p>
+     <p>V místě, kde kontrolní šablona začíná, zaškrtněte „Zde začíná 
+kontrolní šablona“ a dále zaškrtněte "Šablona obsahuje duplicitní kódy 
+(studenti si musí vybrat ve které sekci splní duplicitní předmět)". 
+Student následně v aplikaci "Zařazení předmětů v kontrolní šabloně" 
+zvolí, kam chce předmět započítat.</p></div></li><li data-accordion-item="" id="pr_sab_editace" class="accordion-item  "><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="trnrxq-accordion" role="tab" id="pr_sab_editace" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">9.</span>Co znamenají grafické prvky v šablonách?<a href="#pr_sab_editace" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="pr_sab_editace" aria-hidden="true" id="trnrxq-accordion">Sekce
+ (neboli úrovně) a předměty jsou rozlišeny barvou pruhu – sekce jsou 
+označeny žlutým pruhem a předměty červenohnědým. Na jedné úrovni se 
+mohou nacházet další podúrovně i předměty.  
+        <p>
+	Vedle každé sekce či předmětu se nachází tři ikonky. První ikonka 
+slouží k přesunu sekce/předmětu v rámci úrovně, prostřední ikonka k 
+editaci vybrané položky a křížek ke smazání sekce/předmětu.
+	</p><p>
+	    </p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony_ikonky.png" border="1"></div></figure>
+	<p>
+	</p><div class="pruvodce_rozklik"><span class="barva3"><i class="isi-vykricnik" aria-hidden="true"></i>Note</span><p>Neuložené změny v šabloně jsou zobrazeny šedě. Vždy je zapotřebí změny uložit, aby nedošlo k jejich ztrátě.</p></div>
+
+	<p>
+Název aktuální úrovně změníte v horní části stránky. Tato část stránky odkazuje také do vyšších úrovní šablony.  
+       </p><p>
+            </p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony_urovne.png" border="1"></div></figure>
+        <p></p></div></li><li id="pr_sab_udrzovani" class="accordion-item  " data-accordion-item=""><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="we15uz-accordion" role="tab" id="pr_sab_udrzovani" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">10.</span>Jak udržovat kontrolní šablonu? Reakreditace oboru nebo kompletní změna kódů<a href="#pr_sab_udrzovani" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="pr_sab_udrzovani" aria-hidden="true" id="we15uz-accordion">Do staré kontrolní šablony doplňujete a párujete staré a nové kódy jako podmínku jedna ze dvou splněných. 
+       Nová šablona obsahuje již pouze předměty s novými kódy a podmínkami.
+        <p></p></div></li><li data-accordion-item="" id="pr_sab_podurovne" class="accordion-item  "><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="islptz-accordion" role="tab" id="pr_sab_podurovne" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">11.</span>Jak v kontrolní šabloně zadám změnu kódu či alternativu předmětu?<a href="#pr_sab_podurovne" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="pr_sab_podurovne" aria-hidden="true" id="islptz-accordion">Změnu
+ kódu předmětu či jeho alternativu můžete zadat prostřednictvím sekce 
+šablony, ve které nastavíte volbu „Nutno splnit předmětů/podmínek“ na 
+„1“, například:
+      	<p>
+	     </p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony_alternativy.png" border="1"></div></figure>
+    	 <p>
+	Pokud šablona obsahuje nepojmenovanou podúroveň (sekci), automaticky se
+ jí při uložení nastaví příznak „Tuto šablonu již vypisovat včetně 
+obsahu
+podúrovní“. Tato volba zajistí, aby v registraci či prohlídce šablon 
+student viděl nikoliv klikací odkazy na nepojmenované podšablony, ale 
+přímo jejich obsah (předměty).
+    	 </p><p></p></div></li><li data-accordion-item="" id="pr_sab_kopirovani" class="accordion-item  "><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="fvijur-accordion" role="tab" id="pr_sab_kopirovani" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">12.</span>Jak postupovat při kopírování šablon?<a href="#pr_sab_kopirovani" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="pr_sab_kopirovani" aria-hidden="true" id="fvijur-accordion">Do aktuální úrovně lze zkopírovat vybranou šablonu pomocí možnosti „Zkopírovat sem vybranou sekci“.
+         <p>
+	 </p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony07.png" border="1"></div></figure>
+	 <figcaption><p><span class="cislo">1</span> Volba pro kopírování sekce.</p></figcaption>
+         <p>
+V novém okně poté stačí vybrat danou šablonu a změny uložit.  <br>
+        Kopírování šablon je pokročilá funkce, nesprávně užití může 
+narušit přehlednost šablon. Vždy se ujistěte, že kopírujete správnou
+        šablonu.  
+        </p><p></p></div></li><li data-accordion-item="" class="accordion-item  " id="pr_sab_hromadne"><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="2156no-accordion" role="tab" id="pr_sab_hromadne" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">13.</span>Jak vložím předměty hromadně pomocí nastavených atributů?<a href="#pr_sab_hromadne" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="pr_sab_hromadne" aria-hidden="true" id="2156no-accordion">Předměty lze do šablony vložit hromadně dle nastavených atributů pomocí tlačítka „Předvyplnit předměty dle atributů“.
+        V rozbalené nabídce je následně možno vybrat jeden či více atributů.
+         <p>
+	 </p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony08.png" border="1"></div></figure>
+         <p>
+         Dále je možno upřesnit, dle kterých hodnot atributů předměty 
+vybírat nebo ve kterých obdobích předměty s atributem vyhledávat.
+         </p><p>
+	 </p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony09.png" border="1"></div></figure>
+	 <figcaption><p><span class="cislo">1</span> Upřesnění hodnot atributů.</p>
+		 <p><span class="cislo">2</span> Upřesnění období.</p></figcaption>
+         <p></p></div></li><li data-accordion-item="" class="accordion-item  " id="pr_sab_kontrola"><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="dds4fc-accordion" role="tab" id="pr_sab_kontrola" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">14.</span>Jak probíhá kontrola splnění šablony?<a href="#pr_sab_kontrola" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="pr_sab_kontrola" aria-hidden="true" id="dds4fc-accordion">Kontrolu studia dle dané kontrolní šablony může provést student v aplikaci
+         <div class="ok aplikaceisu">Informační systém <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Student <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Kontrola průchodu studiem</div>
+         či osoba s právem s_studium v aplikaci
+         <div class="ok aplikaceisu">Informační systém <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Studijní <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Kontrola studia</div>     
+         <p>
+          Po výběru kontrolní šablony a stisknutí tlačítka „Zkontrolovat
+ studium“ zobrazí systém strom kontrolní šablony s aktuální informací o 
+splnění šablony. 
+          </p><p>
+	  </p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony10.png" border="1"></div></figure>
+	  <figcaption><p><span class="cislo">1</span> Červené křížky znamenají v daném studiu nesplněnou položku šablony.</p>
+                      <p><span class="cislo">2</span> Zelená kolečka označují splněné položky.</p>
+                      <p><span class="cislo">3</span> Oranžové otazníky označují právě zapsané předměty (s požadovaným ukončením).</p>
+                      <p><span class="cislo">4</span> Modrá kolečka označují předměty splněné se stejným nebo vyšším typem
+			      ukončení ve vašem jiném studiu.</p></figcaption>
+          <p>
+          V případě sdružených (dvouoborových) studií lze pro navíc pro 
+kontrolu splnění kontrolní šablony použít přiřazení předmětů k oborům.
+          </p><div class="ok aplikaceisu">Informační systém <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Student <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Během studia <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Přiřazení předmětů k oborům</div>
+          Při vyhodnocení splnění šablony se uvažuje i obor, ke kterému si student předmět přiřadil.
+          Pokud se neshoduje s oborem šablony, tak se takový předmět považuje za nesplněný.
+          Pokud předmět není přiřazen k žádnému oboru, tak se v kontrole považuje také za nesplněný.         
+          <p> 
+          </p><figure class="img"><div class="bgbarva-seda1"><img src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/sablony_kontrola_studia_2.png" border="1"></div></figure>
+          <p>
+          
+           </p><p>Pokud šablona obsahuje duplicitní kódy a je 
+požadováno, aby si student zvolil, do které sekce se mu započítají, 
+nastaví si jejich zařazení přes
+            </p><div class="ok aplikaceisu">Informační systém <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Student <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Během studia <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Zařazení předmětů v kontrolní šabloně</div><p></p></div></li></ul></div>
+	<div class="small-12 text-right column"><a href="#" class="accordion-sbalit print-hide"><i class="isi-sbalit-vse isi-inline" aria-hidden="true"></i>Hide</a><a href="#" class="accordion-rozbalit print-hide"><i class="isi-rozbalit-vse isi-inline" aria-hidden="true"></i>Show</a></div>
+</div><p>
+</p><hr><p>Provided you have failed to find the information you were searching for, you can contact us at <nobr class="postovni_adresa"><a href="mailto:istech@fi.muni.cz">istech@fi.muni.cz</a></nobr>.</p>
+</main></div>
+		
+		<div class="foundation-design-z foot_clear">
+			
+	<div class="row">
+		
+	</div>
+	<footer id="paticka" class="">
+		<div class="row">
+			<div class="columns small-12 medium-6 paticka_logo">
+	<a href="https://is.muni.cz/?lang=en"><span class="show-for-sr">IS MU</span></a>
+	<div>
+		The Information&nbsp;System of Masaryk University
+		<div class="footer_about">
+			<a href="https://is.muni.cz/nas_system/?lang=en">More about IS MU</a>, administered by <a href="https://www.fi.muni.cz/">Faculty of Informatics, MU</a>
+		</div>
+		
+	</div>
+</div>
+<div class="columns small-6 medium-3">
+	<div class="footer_podpora">
+	<a href="https://is.muni.cz/podpora/?lang=en">Do you need help?</a>
+	<span class="kont_email"><nobr class="postovni_adresa"><a href="mailto:istech@fi.muni.cz">istech@fi.muni.cz</a></nobr></span>
+</div>
+	<div class="footer_napoveda">
+		<a href="https://is.muni.cz/help/?lang=en">Help</a>
+	</div>
+	<div class="row">
+		<div class="columns small-12 display-none">
+			<div class="footer_zoomy">
+				<a href="" rel="nofollow"></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="columns small-6 medium-3 nastaveni_col">
+	<div class="footer_datum">
+		<span title="Today is 10. (even) week.">9/3/2025 <span style="padding: 0 0.6em">|</span> 20:34</span>
+		<a href="https://is.muni.cz/system/cas?lang=en" title="Today is 10. (even) week." class="footer_cas">Current date and&nbsp;time</a>
+	</div>
+	<div>
+	
+	<div class="footer_nastaveni"><a href="https://is.muni.cz/nas_system/ochrana_informaci?lang=en">Use of cookies</a><a href="https://is.muni.cz/system/pristupnost" class="footer_about">Accessibility</a></div>
+</div>
+</div>
+			<div class="right-border"></div>
+			<div class="left-border"></div>
+		</div>
+		<a href="#hlavicka" class="skip_up" title="takes you to the top of the page">
+			Go to top
+		</a>
+	</footer>
+
+		</div>
+	</div>
+</div>
+
+
+<script src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/is.js"></script>
+<script src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/jquery-ui-1.12.1-sortable-r6.min.js"></script>
+<script src="Kontroln%C3%AD,%20registra%C4%8Dn%C3%AD%20a%20akredita%C4%8Dn%C3%AD%20%C5%A1ablony_files/log-kliknuto.js"></script>
+<script>
+(function() {
+
+"use strict";
+
+is.Design.init({
+   "session" : {
+      "is_muni_cz" : "is.muni.cz",
+      "auth" : "",
+      "w_log_id" : "20591400832",
+      "uco" : null,
+      "vidim_kazdeho" : null,
+      "cgipar" : {
+         "lang" : [
+            "en"
+         ]
+      },
+      "skola_zkratka" : "MU",
+      "remote_user" : null,
+      "lang" : "en",
+      "sn" : "/napoveda/index.pl",
+      "server_time" : "9. 3. 2025 20:34:13",
+      "is_design_z" : "",
+      "pouzit_neoverene_udaje" : null,
+      "session_id" : "3352224700",
+      "skola_id" : "14",
+      "login" : null,
+      "ekurz" : false,
+      "debug" : 1
+   },
+   "js_init" : [
+      {
+         "params" : [],
+         "method" : "init",
+         "module" : "Accordion"
+      },
+      {
+         "module" : "MailTo",
+         "params" : [],
+         "method" : "decode_mail"
+      },
+      {
+         "method" : "init",
+         "params" : [],
+         "module" : "HashNavigation"
+      },
+      {
+         "module" : "Drobecky",
+         "method" : "init",
+         "params" : []
+      },
+      {
+         "params" : [],
+         "method" : "init",
+         "module" : "Forms"
+      },
+      {
+         "params" : [],
+         "method" : "init_header",
+         "module" : "Design"
+      },
+      {
+         "module" : "Design",
+         "params" : [],
+         "method" : "init_toolkit"
+      }
+   ],
+   "svatky" : {
+      "20171028" : 1,
+      "20060417" : 1,
+      "20180705" : 1,
+      "20150406" : 1,
+      "20170508" : 1,
+      "20151028" : 1,
+      "20100705" : 1,
+      "20110425" : 1,
+      "20081226" : 1,
+      "20151224" : 1,
+      "20001226" : 1,
+      "20161229" : 1,
+      "20220706" : 1,
+      "20101028" : 1,
+      "20200508" : 1,
+      "20051228" : 1,
+      "20211226" : 1,
+      "20101225" : 1,
+      "20121117" : 1,
+      "20080706" : 1,
+      "20121231" : 1,
+      "20001229" : 1,
+      "20041231" : 1,
+      "20041229" : 1,
+      "20240705" : 1,
+      "20210705" : 1,
+      "20111117" : 1,
+      "20220705" : 1,
+      "20100508" : 1,
+      "20210706" : 1,
+      "20091226" : 1,
+      "20111223" : 1,
+      "20051224" : 1,
+      "20220418" : 1,
+      "20021230" : 1,
+      "20120101" : 1,
+      "20201117" : 1,
+      "20260928" : 1,
+      "20080928" : 1,
+      "20220501" : 1,
+      "20121224" : 1,
+      "20041227" : 1,
+      "20221224" : 1,
+      "20061228" : 1,
+      "20151229" : 1,
+      "20221028" : 1,
+      "20081224" : 1,
+      "20210101" : 1,
+      "20020501" : 1,
+      "20231117" : 1,
+      "20181225" : 1,
+      "20190705" : 1,
+      "20131028" : 1,
+      "20001224" : 1,
+      "20190928" : 1,
+      "20080101" : 1,
+      "20171229" : 1,
+      "20120508" : 1,
+      "20141229" : 1,
+      "20231227" : 1,
+      "20180928" : 1,
+      "20260705" : 1,
+      "20131229" : 1,
+      "20040508" : 1,
+      "20141230" : 1,
+      "20131223" : 1,
+      "20211224" : 1,
+      "20210501" : 1,
+      "20160928" : 1,
+      "20230706" : 1,
+      "20240501" : 1,
+      "20191227" : 1,
+      "20131228" : 1,
+      "20171231" : 1,
+      "20020706" : 1,
+      "20021227" : 1,
+      "20010706" : 1,
+      "20131230" : 1,
+      "20131224" : 1,
+      "20060508" : 1,
+      "20021228" : 1,
+      "20051229" : 1,
+      "20171225" : 1,
+      "20151227" : 1,
+      "20261227" : 1,
+      "20070101" : 1,
+      "20230928" : 1,
+      "20171227" : 1,
+      "20221228" : 1,
+      "20120928" : 1,
+      "20150101" : 1,
+      "20040706" : 1,
+      "20181226" : 1,
+      "20071231" : 1,
+      "20121229" : 1,
+      "20121230" : 1,
+      "20140706" : 1,
+      "20220101" : 1,
+      "20040101" : 1,
+      "20111229" : 1,
+      "20070705" : 1,
+      "20141224" : 1,
+      "20131227" : 1,
+      "20241227" : 1,
+      "20010508" : 1,
+      "20011225" : 1,
+      "20200928" : 1,
+      "20061224" : 1,
+      "20180101" : 1,
+      "20111227" : 1,
+      "20141028" : 1,
+      "20181231" : 1,
+      "20141225" : 1,
+      "20210508" : 1,
+      "20040705" : 1,
+      "20081117" : 1,
+      "20130508" : 1,
+      "20231226" : 1,
+      "20011226" : 1,
+      "20161231" : 1,
+      "20211229" : 1,
+      "20070706" : 1,
+      "20231231" : 1,
+      "20160706" : 1,
+      "20161230" : 1,
+      "20261231" : 1,
+      "20040501" : 1,
+      "20250508" : 1,
+      "20150706" : 1,
+      "20211231" : 1,
+      "20190706" : 1,
+      "20031224" : 1,
+      "20011028" : 1,
+      "20030421" : 1,
+      "20231224" : 1,
+      "20081028" : 1,
+      "20001230" : 1,
+      "20191225" : 1,
+      "20260706" : 1,
+      "20241117" : 1,
+      "20161224" : 1,
+      "20231230" : 1,
+      "20141117" : 1,
+      "20041224" : 1,
+      "20071226" : 1,
+      "20111224" : 1,
+      "20110101" : 1,
+      "20201226" : 1,
+      "20131231" : 1,
+      "20170501" : 1,
+      "20011228" : 1,
+      "20131225" : 1,
+      "20130101" : 1,
+      "20260403" : 1,
+      "20061226" : 1,
+      "20021028" : 1,
+      "20221117" : 1,
+      "20251224" : 1,
+      "20251028" : 1,
+      "20101228" : 1,
+      "20141223" : 1,
+      "20240329" : 1,
+      "20051226" : 1,
+      "20121225" : 1,
+      "20141226" : 1,
+      "20050706" : 1,
+      "20171117" : 1,
+      "20100928" : 1,
+      "20011231" : 1,
+      "20200705" : 1,
+      "20040928" : 1,
+      "20030706" : 1,
+      "20250421" : 1,
+      "20071028" : 1,
+      "20041228" : 1,
+      "20260501" : 1,
+      "20241028" : 1,
+      "20190501" : 1,
+      "20251227" : 1,
+      "20140928" : 1,
+      "20230407" : 1,
+      "20070508" : 1,
+      "20171228" : 1,
+      "20130706" : 1,
+      "20181229" : 1,
+      "20211228" : 1,
+      "20141222" : 1,
+      "20110706" : 1,
+      "20211230" : 1,
+      "20101227" : 1,
+      "20021117" : 1,
+      "20101224" : 1,
+      "20091028" : 1,
+      "20161225" : 1,
+      "20251225" : 1,
+      "20210928" : 1,
+      "20201225" : 1,
+      "20201224" : 1,
+      "20240101" : 1,
+      "20001028" : 1,
+      "20200101" : 1,
+      "20101223" : 1,
+      "20231228" : 1,
+      "20221230" : 1,
+      "20001225" : 1,
+      "20160705" : 1,
+      "20191117" : 1,
+      "20091224" : 1,
+      "20020101" : 1,
+      "20170705" : 1,
+      "20231028" : 1,
+      "20101230" : 1,
+      "20251231" : 1,
+      "20151225" : 1,
+      "20221226" : 1,
+      "20150508" : 1,
+      "20221229" : 1,
+      "20131117" : 1,
+      "20190101" : 1,
+      "20261226" : 1,
+      "20110705" : 1,
+      "20121226" : 1,
+      "20051117" : 1,
+      "20131226" : 1,
+      "20191229" : 1,
+      "20151230" : 1,
+      "20051028" : 1,
+      "20061229" : 1,
+      "20080324" : 1,
+      "20161227" : 1,
+      "20071117" : 1,
+      "20220415" : 1,
+      "20100501" : 1,
+      "20061225" : 1,
+      "20261229" : 1,
+      "20141228" : 1,
+      "20031028" : 1,
+      "20160501" : 1,
+      "20020508" : 1,
+      "20251229" : 1,
+      "20181227" : 1,
+      "20051230" : 1,
+      "20150928" : 1,
+      "20241225" : 1,
+      "20050928" : 1,
+      "20140421" : 1,
+      "20101117" : 1,
+      "20181224" : 1,
+      "20041028" : 1,
+      "20071229" : 1,
+      "20140705" : 1,
+      "20061227" : 1,
+      "20181028" : 1,
+      "20031117" : 1,
+      "20001227" : 1,
+      "20101226" : 1,
+      "20010416" : 1,
+      "20250706" : 1,
+      "20040412" : 1,
+      "20121228" : 1,
+      "20191223" : 1,
+      "20071227" : 1,
+      "20140101" : 1,
+      "20021225" : 1,
+      "20030705" : 1,
+      "20060501" : 1,
+      "20050328" : 1,
+      "20070409" : 1,
+      "20080508" : 1,
+      "20090413" : 1,
+      "20050508" : 1,
+      "20180501" : 1,
+      "20110928" : 1,
+      "20100101" : 1,
+      "20220508" : 1,
+      "20050501" : 1,
+      "20050101" : 1,
+      "20241226" : 1,
+      "20070501" : 1,
+      "20250418" : 1,
+      "20021223" : 1,
+      "20171223" : 1,
+      "20150501" : 1,
+      "20111028" : 1,
+      "20211225" : 1,
+      "20091225" : 1,
+      "20041226" : 1,
+      "20151226" : 1,
+      "20130928" : 1,
+      "20241228" : 1,
+      "20060928" : 1,
+      "20090705" : 1,
+      "20250928" : 1,
+      "20161028" : 1,
+      "20041117" : 1,
+      "20240928" : 1,
+      "20191028" : 1,
+      "20071228" : 1,
+      "20140508" : 1,
+      "20201222" : 1,
+      "20151223" : 1,
+      "20211117" : 1,
+      "20110501" : 1,
+      "20231225" : 1,
+      "20001231" : 1,
+      "20240706" : 1,
+      "20091117" : 1,
+      "20111231" : 1,
+      "20140501" : 1,
+      "20161228" : 1,
+      "20090928" : 1,
+      "20241224" : 1,
+      "20200501" : 1,
+      "20110508" : 1,
+      "20250101" : 1,
+      "20080501" : 1,
+      "20170928" : 1,
+      "20060706" : 1,
+      "20260406" : 1,
+      "20261230" : 1,
+      "20231229" : 1,
+      "20160325" : 1,
+      "20251117" : 1,
+      "20180402" : 1,
+      "20001228" : 1,
+      "20151117" : 1,
+      "20221231" : 1,
+      "20120706" : 1,
+      "20170101" : 1,
+      "20261228" : 1,
+      "20181228" : 1,
+      "20170706" : 1,
+      "20191230" : 1,
+      "20061028" : 1,
+      "20020705" : 1,
+      "20180330" : 1,
+      "20051227" : 1,
+      "20241223" : 1,
+      "20190422" : 1,
+      "20180706" : 1,
+      "20030508" : 1,
+      "20251226" : 1,
+      "20030101" : 1,
+      "20161117" : 1,
+      "20071230" : 1,
+      "20100405" : 1,
+      "20230705" : 1,
+      "20201028" : 1,
+      "20060705" : 1,
+      "20011227" : 1,
+      "20010928" : 1,
+      "20130401" : 1,
+      "20230101" : 1,
+      "20121227" : 1,
+      "20011117" : 1,
+      "20210402" : 1,
+      "20090501" : 1,
+      "20241229" : 1,
+      "20090706" : 1,
+      "20021229" : 1,
+      "20200706" : 1,
+      "20181117" : 1,
+      "20171224" : 1,
+      "20250705" : 1,
+      "20010101" : 1,
+      "20160101" : 1,
+      "20120705" : 1,
+      "20020401" : 1,
+      "20021224" : 1,
+      "20211028" : 1,
+      "20260101" : 1,
+      "20130501" : 1,
+      "20200410" : 1,
+      "20061230" : 1,
+      "20171230" : 1,
+      "20221227" : 1,
+      "20220928" : 1,
+      "20261028" : 1,
+      "20201228" : 1,
+      "20071224" : 1,
+      "20011224" : 1,
+      "20061117" : 1,
+      "20021231" : 1,
+      "20021226" : 1,
+      "20191224" : 1,
+      "20100706" : 1,
+      "20011230" : 1,
+      "20141227" : 1,
+      "20180508" : 1,
+      "20241231" : 1,
+      "20121028" : 1,
+      "20161226" : 1,
+      "20151228" : 1,
+      "20010705" : 1,
+      "20150705" : 1,
+      "20080705" : 1,
+      "20251228" : 1,
+      "20201229" : 1,
+      "20121223" : 1,
+      "20240401" : 1,
+      "20011229" : 1,
+      "20151231" : 1,
+      "20260508" : 1,
+      "20111228" : 1,
+      "20221225" : 1,
+      "20081225" : 1,
+      "20171226" : 1,
+      "20030928" : 1,
+      "20211227" : 1,
+      "20191231" : 1,
+      "20071225" : 1,
+      "20190419" : 1,
+      "20210405" : 1,
+      "20191228" : 1,
+      "20261117" : 1,
+      "20230501" : 1,
+      "20010501" : 1,
+      "20201230" : 1,
+      "20160328" : 1,
+      "20111225" : 1,
+      "20261225" : 1,
+      "20051225" : 1,
+      "20130705" : 1,
+      "20181230" : 1,
+      "20141231" : 1,
+      "20241230" : 1,
+      "20201223" : 1,
+      "20050705" : 1,
+      "20160508" : 1,
+      "20201231" : 1,
+      "20161223" : 1,
+      "20230410" : 1,
+      "20101231" : 1,
+      "20250501" : 1,
+      "20041225" : 1,
+      "20090508" : 1,
+      "20120501" : 1,
+      "20240508" : 1,
+      "20070928" : 1,
+      "20200413" : 1,
+      "20030501" : 1,
+      "20111226" : 1,
+      "20041230" : 1,
+      "20261224" : 1,
+      "20190508" : 1,
+      "20251230" : 1,
+      "20031226" : 1,
+      "20060101" : 1,
+      "20090101" : 1,
+      "20111230" : 1,
+      "20031225" : 1,
+      "20201221" : 1,
+      "20020928" : 1,
+      "20170414" : 1,
+      "20120409" : 1,
+      "20230508" : 1,
+      "20191226" : 1,
+      "20170417" : 1,
+      "20101229" : 1
+   },
+   "ldb" : {
+      "rozbalit" : "Show",
+      "sbalit" : "Hide",
+      "byl_jste_odhlasen" : "You have been logged out.",
+      "chyba_503" : "The application is temporarily unavailable due to the System being overloaded.",
+      "chyba" : "An error has occurred. Try again or refresh the page.",
+      "byl_jste_odhlasen_prihlasit" : "Log in",
+      "modal_full" : "Full-screen view",
+      "byl_jste_odhlasen_zavrit" : "Close"
+   }
+}
+);
+})();
+</script>
+
+
+
+</body></html>

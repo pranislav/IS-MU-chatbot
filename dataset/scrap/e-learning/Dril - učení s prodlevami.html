@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html class="whatinput-types-initial whatinput-types-keyboard" lang="en" data-whatinput="keyboard" data-whatintent="keyboard"><head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>Dril - učení s prodlevami</title>
+<link href="https://is.muni.cz/favicon.ico" rel="icon" sizes="32x32">
+<link href="https://is.muni.cz/favicon.svg" rel="icon" type="image/svg+xml">
+<link href="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/foundation.min.css" media="screen,print" rel="stylesheet" type="text/css">
+<link href="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/foundation-icons.css" media="screen,print" rel="stylesheet" type="text/css">
+<link href="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/prvky.css" media="screen,print" rel="stylesheet" type="text/css">
+<link href="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/r6.css" media="screen,print" rel="stylesheet" type="text/css">
+<link href="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/1.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/r6-print.css" media="print" rel="stylesheet" type="text/css">
+<link href="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/napoveda.css" media="screen,print" rel="stylesheet" type="text/css">
+<script src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/jquery.js"></script>
+<script src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/error.js"></script>
+<script src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/foundation.js"></script>
+<meta class="foundation-mq"></head>
+<body class="en noauth skola_14 motiv-1 motiv-svetly">
+<a href="#sticky_panel" class="show-on-focus print-hide">Skip to top bar</a><a href="#hlavicka" class="show-on-focus print-hide">Skip to header</a><a href="#app_content" class="show-on-focus print-hide">Skip to content</a><a href="#paticka" class="show-on-focus print-hide">Skip to footer</a>
+<div id="content" class="">
+	<div id="zdurazneni-sticky" class="zdurazneni-sticky print-hide" role="alert" aria-atomic="true"></div>
+	<div id="rows_wrapper">
+		<div class="foundation-design-z">
+			<nav id="sticky_panel">
+	<div class="row">
+		<div class="column">
+			<div class="ikony">
+				<a href="https://is.muni.cz/?lang=en" class="sticky_home" title="Masaryk University Information System" aria-label="Masaryk University Information System"></a>
+				<a href="https://is.muni.cz/?lang=en" class="sticky-icon" title="Home" aria-label="Home"><i class="house isi-home" aria-hidden="true"></i></a><a href="#" class="sticky-icon prepinac-vyhl float-right" title="Search" aria-label="Search" data-toggle="is_search" aria-controls="is_search" data-is-focus="false" data-yeti-box="is_search" aria-haspopup="true" aria-expanded="false"><i class="isi-lupa" aria-hidden="true"></i></a><div id="is_search" class="dropdown-pane bottom search-dropdown" data-dropdown="64e3ie-dropdown" data-close-on-click="true" aria-hidden="true" data-yeti-box="is_search" aria-labelledby="vlme5s-dd-anchor">
+	<form method="POST" action="/vyhledavani/" role="search"><input type="hidden" name="lang" value="en">
+		<div class="input-group">
+			<input class="input-group-field input_text" type="search" name="search" autocomplete="off" role="searchbox">
+			<div id="is_search_x" class="is_input_x input-group-button"><i class="isi-x"></i></div>
+			<div class="input-group-button">
+				<input type="submit" class="button" value="Search">
+			</div>
+		</div>
+	</form>
+	<div id="is_search_results"></div>
+</div><span><a href="https://is.muni.cz/help/elearning/dril_uceni?lang=cs" class="sticky-item prepinac-jazyk jazyk-cs" aria-label="Přepnout do češtiny" title="Přepnout do češtiny">CS</a></span><a href="https://is.muni.cz/auth/help/elearning/dril_uceni?lang=en" class="sticky-icon float-right" title="IS MU Login" aria-label="IS MU Login"><i class="isi-postava" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+</nav>
+			
+			<header class="row hlavicka" id="hlavicka">
+	<div class="small-5 medium-3 columns znak skola14">
+		
+	</div>
+	<div id="is-prepinace" class="small-7 medium-9 columns">
+		
+		<div id="prepinace">
+        <ul aria-hidden="true" class="is-switch dropdown menu" data-dropdown-menu="m2hvar-dropdown-menu" data-click-open="true" data-closing-time="0" data-autoclose="false" data-disable-hover="true" data-close-on-click="true" data-force-follow="false" data-close-on-click-inside="false" data-alignment="right" role="menubar">
+                
+                
+                
+        </ul>
+        <ul class="show-for-sr">
+                
+                
+                
+        </ul>
+</div>
+	</div>
+</header>
+<div class="row" aria-hidden="true">
+	<div class="column">
+		<a href="#" class="app_header_motiv_switch show-for-medium" title="Change theme" aria-label="Change theme" data-open="motiv_reveal"><i class="isi-nastaveni isi-inline" aria-hidden="true"></i></a>
+		
+	</div>
+</div><div id="drobecky" class="row">
+	<div class="column">
+		<span class="wrap"><a href="https://is.muni.cz/?lang=en" title="MU Information System" accesskey="0" class="drobecek_logo"> </a><span class="sep"> <i class="isi-zobacek-vpravo"></i><span class="show-for-sr">&gt;</span> </span><a href="https://is.muni.cz/help?lang=en" accesskey="1" title="Help">Help</a><span class="sep"> <i class="isi-zobacek-vpravo"></i><span class="show-for-sr">&gt;</span> </span><a href="https://is.muni.cz/help/elearning?lang=en" title="E-learning" accesskey="2">E-learning</a><span class="sep last"> <i class="isi-zobacek-vpravo"></i><span class="show-for-sr">&gt;</span> </span><a title="Dril - učení s prodlevami" accesskey="3" class="drobecek_app">Dril - učení s prodlevami</a></span>
+	</div>
+</div><div id="app_header_wrapper" class="row align-justify show-for-medium">
+	<div class="medium-12 column">
+		<h1 id="app_header"><div class="large-9 xlarge-9"><span id="app_name">Dril - učení s prodlevami</span></div></h1>
+	</div>
+	<div class="shrink column">
+		<div id="app_header_image" style="width: 1360px;"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="column">
+		<div id="app_menu" class="empty">
+			
+		</div>
+	</div>
+</div><!--[if lt IE 9]><div class="zdurazneni varovani ie_warning"  ><h3 class="zdurazneni-nadpis">Warning:</h3><h3>Your browser Internet Explorer is out of date.</h3><p>It has known security flaws and may not display all features of this and other websites.</p></div>
+<![endif]-->
+		</div>
+		<div id="app_content_row" class="row"><main id="app_content" class="column" role="main"><a name="elearning/dril_uceni"></a>
+
+
+<!-- Nasleduje adresar='elearning', soubor='dril_uceni' -->
+
+<div class="row accordion-cover">
+	<div class="column"></div>
+	<div class="small-12 large-shrink accordion-sbalit-rozbalit column"><a href="#" class="accordion-sbalit print-hide"><i class="isi-sbalit-vse isi-inline" aria-hidden="true"></i>Hide</a><a href="#" class="accordion-rozbalit print-hide"><i class="isi-rozbalit-vse isi-inline" aria-hidden="true"></i>Show</a></div>
+	<div class="small-12 column"></div>
+	<div class="small-12 column"><ul data-multi-expand="true" data-update-history="true" class="accordion  " data-allow-all-closed="true" data-accordion="91s1jq-accordion" role="tablist"><li id="e_driluziv_co" data-accordion-item="" class="accordion-item  "><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="t28puu-accordion" role="tab" id="e_driluziv_co" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">1.</span>Kde najdu aplikaci Dril a co to vlastně je?<a href="#e_driluziv_co" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="e_driluziv_co" aria-hidden="true" id="t28puu-accordion">Aplikace je umístěna v
+      <p>
+      </p><div class="ok aplikaceisu">Informační systém <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Elportál <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Vstup do nepředmětových e-l aplikací <span class="oddelovac"><i class="isi-zobacek-vpravo"></i></span> Dril .. Vstup do drilové aplikace</div>
+      <p>
+      Dril je určen k memorování základních jednotlivých poznatků (např.
+ slovíček) nazpaměť. Je založen na psychologii učení, podle které si 
+poznatky rychleji a kvalitněji zapamatujeme, pokud
+si je připomínáme méně často, ale zároveň během delší doby. Aplikace 
+funguje na algoritmu, podle kterého jsou poznatky ke zopakování 
+předkládány v okamžiku, kdy je zhruba 90% šance, že si
+poznatek ještě vybavíme. Poznatky je pak třeba opakovat stále řidčeji a 
+za delší dobu, čímž se z krátkodobé paměti přesouvají do dlouhodobé. To 
+znamená, že jste si znalost již osvojili.
+      </p><p>
+      Dril má tři fáze:
+      </p><dl><dt><strong>fáze učení</strong>
+      </dt><dd>Slouží k učení (memorizaci) nového poznatku. Nezáleží na 
+tom, zda si v této fázi poznatek procvičujete jednou či vícekrát. 
+Zapomínat jej začnete okamžitě a po 15 dnech je až 50%
+pravděpodobnost, že jste jej zcela zapomněli.
+      </dd><dt><strong>fáze opakování</strong>
+      </dt><dd>Dochází k opakování/připomenutí nového poznatku. První 
+opakování by mělo nastat v okamžik, kdy si poznatek na 90% ještě 
+pamatujete, čehož se snaží docílit algoritmus v této aplikaci.
+Další opakování přichází vždy za o něco delší dobu. Pokud však systému 
+naznačíte (tlačítky 3 až 6 v aplikaci), že si poznatek nepamatujete tak,
+ jak předpokládal, upraví se algoritmus a
+opakování přichází v kratších intervalech.
+      </dd><dt><strong>fáze drilování</strong>
+      </dt><dd>V této fázi drilujete poznatky, které jste v předchozí 
+fázi označili tlačítky 3 až 6, tedy poznatky náročnější na zapamatování 
+či naučení. Je to nejdůležitější fáze celého učení,
+neboť poznatky se do dlouhodobé pamětí přesunují právě tím, že si je 
+opětovně vybavíte z krátkodobé paměti. Máte-li málo času, raději se 
+neučte nové kartičky, ale <strong>fázi drilu vždy
+dokončete!</strong></dd></dl>
+      <p></p></div></li><li id="e_driluziv_rozdeleni" data-accordion-item="" class="accordion-item  "><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="k6cmp7-accordion" role="tab" id="e_driluziv_rozdeleni" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">2.</span>Jak se mám v Drilu orientovat?<a href="#e_driluziv_rozdeleni" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="e_driluziv_rozdeleni" aria-hidden="true" id="k6cmp7-accordion">Aplikace
+ je rozdělena do několika pevných oblastí (např. Angličtina, 
+Španělština, Latina ... Jiné ...) a každá oblast může mít libovolný 
+počet učebnic. Učebnice jsou obvykle
+rozdělené do několika lekcí a každá lekce obsahuje libovolný počet 
+kartiček (vypisuje se u každé lekce). Nemusíte se učit celou oblast, ale
+ stačí si vybrat i jen několik lekcí z jedné učebnice.
+Lze kombinovat i více lekcí z více učebnic, vždy však pouze v rámci 
+jedné oblasti.
+      <p>
+      Oblasti do aplikace mohou přidávat pouze její správci. Jednotlivé 
+učebnice mohou vytvářet a importovat do systému sami uživatelé. Pokud 
+vám pro vaši učebnici nevyhovuje žádná z oblastí,
+kontaktujte správce na adrese iscor@fi.muni.cz, kde můžete požádat o 
+vytvoření nové oblasti.
+
+</p><p></p></div></li><li class="accordion-item  " id="e_driluziv_ucebnice" data-accordion-item=""><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="bo5s4d-accordion" role="tab" id="e_driluziv_ucebnice" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">3.</span>Jak si vyberu, co se budu učit?<a href="#e_driluziv_ucebnice" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="e_driluziv_ucebnice" aria-hidden="true" id="bo5s4d-accordion">Jste-
+li v Drilu poprvé, klikněte na titulní stránce drilu na 'Výběr oblasti a
+ učebnice'. Zobrazí se přehled oblastí s názvy jednotlivých učebnic. 
+Učebnice jsou seřazeny podle popularity, na začátku seznamu tak najdete 
+učebnice, ze kterých se učí nejvíce lidí. 
+      Pokud si nejste jistí, jestli vám bude určitá učebnice vyhovovat, 
+klikněte na možnost 'detaily' a zobrazí se vám podrobnosti o učebnici 
+(obsah, autor, počet lekcí atd.). 
+      <p>
+      </p><figure class="img"><div class="bgbarva-seda1"><img src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/dril_vyber_ucebnice.png" border="1"></div></figure>
+<figcaption><font color="red">[1]</font> výběr oblasti<br>
+	    <font color="red">[2]</font> tlačítko pro zobrazení detailů o učebnici</figcaption><p>
+      Kliknutím na název učebnice rozbalíte informace o učebnici a 
+rovnou si můžete zaškrtnutím políček aktivovat lekce, které se z 
+učebnice chcete začít učit. Výběr potvrďte tlačítkem 'Aktivovat lekce'.
+      </p><p>
+      </p><figure class="img"><div class="bgbarva-seda1"><img src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/dril_vyber_lekce.png" border="1"></div></figure>
+<figcaption><font color="red">[1]</font> zaškrtávací políčko pro výběr lekcí<br>
+            <font color="red">[2]</font> tlačítko pro aktivaci lekcí</figcaption><p>
+      Poté se dostanete na výpis aktivních oblastí a aktivních učebnic. 
+Pokud se chcete začít učit, klikněte na název některé z oblastí a můžete
+ začít! 
+       </p><p></p></div></li><li id="e_driluziv_jak_se_ucit" data-accordion-item="" class="accordion-item  "><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="hvk4d6-accordion" role="tab" id="e_driluziv_jak_se_ucit" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">4.</span>Jak se vlastně mám učit?<a href="#e_driluziv_jak_se_ucit" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="e_driluziv_jak_se_ucit" aria-hidden="true" id="hvk4d6-accordion">Na
+ titulní stránce Drilu si vyberete oblast, kterou se chcete učit a 
+vstoupíte do Drilu. Pokud máte v jedné oblasti aktivováno více učebnic, 
+můžete si drilování omezit na jednu konkrétní učebnici. Výběr učebnice 
+upřesníte volbou 'detaily', kterou najdete v tabulce s aktivovanými 
+oblastmi. Po vstupu do Drilu se vám zobrazí kartička s otázkou, vy si 
+pomyslíte odpověď a
+kliknete na tlačítko 'Ukázat odpověď'. Odpověď si můžete zkusit také 
+napsat do textového políčka. Vepsanou odpověď IS nijak nekontroluje, 
+vepsání je jen pomůcka při procvičování (např. spellingu).
+      <p></p><figure class="img"><div class="bgbarva-seda1"><img src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/dril_slovicko_potvrzeni.png" border="1"></div></figure>
+<figcaption><font color="red">[1]</font> tlačítko pro zobrazení odpovědi<br>
+            <font color="red">[2]</font> políčko pro vepsání odpovědi</figcaption><p>
+      Svou pomyšlenou odpověď porovnáte se zobrazenou správnou odpovědí a
+ kliknutím na některé z tlačítek 1 až 6 ohodnotíte, jak dobře jste znali
+ správnou odpověď. Aplikace podle toho spočítá,
+za kolik dní vám kartičku ukáže znovu. Hodnotit můžete také pomocí 
+klávesových zkratek 1-6 resp. Q – Z(Y) a  potvrdit 'mezerníkem'. Pokud 
+znáte odpověď  okamžitě, můžete ohodnotit klávesou 1 nebo  2 bez 
+zobrazení odpovědi.
+      </p><p></p><figure class="img"><div class="bgbarva-seda1"><img src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/dril_slovicko_hodnoceni.png" border="1"></div></figure>
+<figcaption><font color="red">[1]</font> správná odpověď<br>  
+            <font color="red">[2]</font> vaše odpověď (pokud jste ji vepsali do příslušného pole)<br>
+            <font color="red">[3]</font> tlačítka pro hodnocení odpovědi<br>
+            <font color="red">[4]</font> nápověda k významu tlačítek</figcaption><p>
+      Po odeslání hodnocení vaší odpovědi se opět načte další kartička s
+ otázkou, přičemž následný postup zůstává stejný - a to ve všech fázích 
+Drilu. Po dokončení poslední fáze si můžete
+zvolit učení dalších nových kartiček nebo odejít do Správy drilu, kde se
+ lze např. začít učit z jiné oblasti.
+      </p><p></p></div></li><li class="accordion-item  " id="e_driluziv_prizpusobeni" data-accordion-item=""><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="diu5xa-accordion" role="tab" id="e_driluziv_prizpusobeni" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">5.</span>Můžu si upravit průběh učení?<a href="#e_driluziv_prizpusobeni" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="e_driluziv_prizpusobeni" aria-hidden="true" id="diu5xa-accordion">Na
+ titulní stránce Drilu najdete seznam aktivních oblastí, které se můžete
+ učit. U každé oblasti najdete počet kartiček, které jsou pro vás 
+připravené ke drilování. 
+      <p></p><figure class="img"><div class="bgbarva-seda1"><img src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/dril_lekce_detaily.png" border="1"></div></figure>
+      <figcaption><font color="red">[1]</font> seznam aktivních oblastí<br>
+      <font color="red">[2]</font> počet kartiček ke drilování<br>
+      <font color="red">[3]</font> kliknutím na odkaz zobrazíte detaily k učení v této oblasti</figcaption><p>
+      </p><p>
+      Po použití volby 'detaily' si můžete přidat nové kartičky a vybrat
+ si z možností opakování kartiček. Např. pokud víte, že nebudete mít 
+další den na drilování čas, můžete si do opakování přidat i kartičky 
+naplánované na druhý den. Nebo pokud máte více času, můžete si do 
+opakování přidat kartičky, kterým se blíží naplánování. Počet kartiček, 
+které jsou připraveny ke drilování zjistíte kliknutím na volbu 
+'spočítat'.
+      </p><p>
+      </p><p></p><figure class="img"><div class="bgbarva-seda1"><img src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/dril_lekce_detaily_2.png" border="1"></div></figure>
+      <figcaption><font color="red">[1]</font> výběr a přidání nových kartiček<br>
+      <font color="red">[2]</font> možnosti pro změnu učení kartiček<br>
+      <font color="red">[3]</font> volba pro zobrazení počtu kartiček připravených ke drilování</figcaption><p></p></div></li><li class="accordion-item  " data-accordion-item="" id="e_driluziv_pridat"><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="le8g19-accordion" role="tab" id="e_driluziv_pridat" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">6.</span>Jak si přidám/odeberu další lekce/učebnice?<a href="#e_driluziv_pridat" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="e_driluziv_pridat" aria-hidden="true" id="le8g19-accordion">Pokud
+ už jste v Drilu byli a máte zvolené učebnice, ze kterých se učíte, 
+zobrazí se rovnou vaše Aktivní oblasti a Aktivní učebnice na titulní 
+stránce Drilu.
+      <p>
+      Chcete-li se z určité učebnice začít učit další lekce nebo je 
+deaktivovat, použijte volbu 'Aktivovat nebo deaktivovat lekce z této 
+učebnice'. Zobrazí se aktivované lekce, které můžete
+označením a volbou 'Deaktivovat lekce' deaktivovat, a neaktivované 
+lekce, které naopak označením a volbou 'Aktivovat lekce' aktivujete.
+      </p><p>
+      Učení z nových učebnic můžete přidat pomocí odkazu 'Aktivovat 
+další učebnice'. Učebnici odeberete deaktivováním všech jejích lekcí.
+      </p><p></p><figure class="img"><div class="bgbarva-seda1"><img src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/dril_aktivovat.png" border="1"></div></figure>
+      <figcaption><font color="red">[1]</font> kliknutím na odkaz zobrazíte jednotlivé oblasti se všemi učebnicemi, které lze aktivovat a studovat<br>
+      <font color="red">[2]</font> informace o této učebnici<br>
+      <font color="red">[3]</font> kliknutím na odkaz zobrazíte výběr lekcí z této učebnice k de/aktivaci</figcaption><p></p></div></li><li class="accordion-item  " data-accordion-item="" id="e_driluziv_casto"><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="puz27n-accordion" role="tab" id="e_driluziv_casto" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">7.</span>Jak často se mám učit?<a href="#e_driluziv_casto" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="e_driluziv_casto" aria-hidden="true" id="puz27n-accordion">Je
+ důležité učit se pravidelně, nejlépe každý den. Pokud dril používáte 
+jen občas, kartičky se vám nahromadí, ale také zapomínáte odpovědi a 
+musíte se kartičky učit znovu.
+      <p>
+      Můžete se učit i po chvilkách např. průběžně celý den. Důležité však je po posledním učení <strong>nevynechat fázi drilování</strong>!
+      </p><p>
+      Pokud např. týden nebudete mít čas se učit, systém vám po návratu 
+předloží velké množství zameškaných kartiček. Bude vám nabízet ty 
+nejvíce zameškané až po ty nejméně zameškané. Postupně
+zpoždění dožeňte.</p></div></li><li data-accordion-item="" id="e_driluziv_statistika" class="accordion-item  "><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="t16y2g-accordion" role="tab" id="e_driluziv_statistika" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">8.</span>Kde zjistím jak v učebnici postupuju?<a href="#e_driluziv_statistika" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="e_driluziv_statistika" aria-hidden="true" id="t16y2g-accordion">Informaci
+ o postupu v konkrétné učebnici zjistíte ve statistice učebnice, která 
+se zobrazuje u každé aktivované učebnice (aktivované učebnice najdete na
+ titulní stránce Drilu v sekci Aktivní učebnice). Ve statistice zjistíte
+ také kolik kartiček z celkového počtu jste již viděl/a, jaký je 
+průměrný interval zobrazování kartiček nebo průměrná obtížnost kartiček.
+ <p></p><figure class="img"><div class="bgbarva-seda1"><img src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/dril_ucebnice_prehled.png" border="1"></div></figure>
+ <figcaption><font color="red">[1]</font> statistiky učebnice</figcaption><p></p></div></li><li data-accordion-item="" id="e_driluziv_tyden" class="accordion-item  "><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="oi3d2l-accordion" role="tab" id="e_driluziv_tyden" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">9.</span>Potřebuji se za týden naučit 250 slovíček na písemku, pomůže mi dril?<a href="#e_driluziv_tyden" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="e_driluziv_tyden" aria-hidden="true" id="oi3d2l-accordion">Ne,
+ během takové krátké doby nelze využít efekt drilu, tedy učení s 
+prodlevami. Mozek takto nemá šanci poznat, že potřebujete znalost uložit
+ do dlouhodobé paměti, neboť ji
+nestihnete opakovat s prodlužujícími se prodlevami.<p></p></div></li><li class="accordion-item  " id="e_driluziv_uceni" data-accordion-item=""><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="8iel8k-accordion" role="tab" id="e_driluziv_uceni" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">10.</span>Jak probíhá učení v konkrétní den?<a href="#e_driluziv_uceni" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="e_driluziv_uceni" aria-hidden="true" id="8iel8k-accordion">Systém
+ vám nejdříve nabídne ke zopakování otázky, u kterých jste si v minulém 
+učení nebyli úplně jistí. Pak vám umožní učit se nové otázky a na závěr 
+přejdete ke drilování těch
+otázek, které jste označili tlačítky 3 až 6. Pokud máte čas a chcete se 
+učit více nových otázek, než vám napoprvé systém nabídne, zvolte si 
+další nové otázky a drilování nechte úplně na
+závěr.<p></p></div></li><li class="accordion-item  " id="e_driluziv_prubezny" data-accordion-item=""><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="4bsoh2-accordion" role="tab" id="e_driluziv_prubezny" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">11.</span>Co je to průběžný dril a jak funguje?<a href="#e_driluziv_prubezny" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="e_driluziv_prubezny" aria-hidden="true" id="4bsoh2-accordion">Průběžný
+ dril znamená, že se vám ve fázi učení nových kartiček či fázi opakování
+ mohou občas nabízet kartičky, které jste viděli před chvílí (zhruba 10 
+minut) a ohodnotili je
+tlačítky 3 až 6. Počet těchto kartiček je uveden v závorce za znakem 
+'+', např. takto <strong>(13 + 3)</strong>. Tím se vám do fáze konečného drilování nedostane tolik kartiček a počátečním častějším
+opakováním si můžete kartičku lépe zapamatovat.<p></p></div></li><li id="e_driluziv_kolik" data-accordion-item="" class="accordion-item  "><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="3tavkl-accordion" role="tab" id="e_driluziv_kolik" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">12.</span>Kolik nových kartiček denně se mám učit?<a href="#e_driluziv_kolik" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="e_driluziv_kolik" aria-hidden="true" id="3tavkl-accordion">To
+ je dost individuální. Začnětě např. se 30 kartičkami denně a sledujte, 
+jak je učení efektivní, tzn. jak vám to jde a kolik dostáváte kartiček 
+ke zopakování v dalších dnech. Podle
+toho, kolik času chcete učení věnovat, si můžete zvýšit nebo snížit 
+počet nových kartiček na den.<p></p></div></li><li class="accordion-item  " data-accordion-item="" id="e_driluziv_kdy"><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="k9x719-accordion" role="tab" id="e_driluziv_kdy" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">13.</span>Kdy je vhodné drilovat a kdy ne?<a href="#e_driluziv_kdy" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="e_driluziv_kdy" aria-hidden="true" id="k9x719-accordion">Rozhodně
+ není vhodné drilovat kartičku ihned poté, co jsme ji právě viděli. 
+Smyslem drilu je, aby si člověk vybavoval kartičky z paměti, takže pokud
+ máte ke drilování málo kartiček,
+je vhodné pár minut počkat a teprve poté je drilovat, aby se mozek 
+namáhal a kartičky se uložily do dlouhodobé paměti.<p></p></div></li><li class="accordion-item  " id="e_driluziv_zakaz" data-accordion-item=""><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="c1l7bp-accordion" role="tab" id="e_driluziv_zakaz" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">14.</span>Některé kartičky z učebnice se nechci učit.<a href="#e_driluziv_zakaz" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="e_driluziv_zakaz" aria-hidden="true" id="c1l7bp-accordion">Použijte volbu 'Zakázat kartičku'.<p>
+      </p><p></p><figure class="img"><div class="bgbarva-seda1"><img src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/dril_kart_zakaz.png" border="1"></div></figure>
+      <figcaption><font color="red">[1]</font> kliknutím na tuto volbu přidáte právě zobrazenou kartičku mezi zakázané</figcaption><p></p></div></li><li class="accordion-item  " data-accordion-item="" id="e_driluziv_smazat_oblast"><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="7f07pb-accordion" role="tab" id="e_driluziv_smazat_oblast" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">15.</span>Chci se začít učit určitou oblast znovu od začátku.<a href="#e_driluziv_smazat_oblast" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="e_driluziv_smazat_oblast" aria-hidden="true" id="7f07pb-accordion">Pokud
+ nechcete začít s učením všech oblastí a učebnic od začátku, můžete si z
+ titulní stránky drilu volbou 'Smazat mé údaje o oblasti' určit přímo 
+oblast, kde budou veškeré vaše
+údaje smazány, ale v ostatních oblastech zůstanou.
+      <p></p><figure class="img"><div class="bgbarva-seda1"><img src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/dril_smazat1.png" border="1"></div></figure>
+      <figcaption><font color="red">[1]</font> klikněte na odkaz pro postup k potvrzovacímu formuláři</figcaption>
+      <p>
+      </p><p></p><figure class="img"><div class="bgbarva-seda1"><img src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/dril_smazat2.png" border="1"></div></figure>
+      <figcaption><font color="red">[2]</font> z menu vyberte oblast, ve které chcete smazat své údaje<br>
+      <font color="red">[3]</font> volbu potvrďte kliknutím na tlačítko 'Smazat mé údaje'</figcaption>
+      <p></p></div></li><li id="e_driluziv_uprav_zadani" data-accordion-item="" class="accordion-item  "><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="k9pqra-accordion" role="tab" id="e_driluziv_uprav_zadani" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">16.</span>Jak upravím zadání kartičky?<a href="#e_driluziv_uprav_zadani" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="e_driluziv_uprav_zadani" aria-hidden="true" id="k9pqra-accordion">Je-
+li pro vás zadání kartičky nedostatečné či nejasné, můžete si pro sebe 
+kartičku upravit přímo během učení. U zobrazené kartičky použijte volbu 
+'Upravit tuto kartičku'.
+      V zadání můžete upřesnit otázku nebo odpověď, např. doplněním 
+fráze, ve které se slovíčko obvykle používá. Hodí se typicky, pokud na 
+zadání otázky existuje více možných odpovědí. Pokud
+jste kartičku měnili již v minulosti, nabídne se vám funkce na 
+odstranění změn. Veškeré prováděné změny se zobrazí pouze uživateli, 
+který změny zadal.<p>
+     Kartičku můžete upravit také globálně, změna se pak projeví u všech uživatelů. 
+</p><p>
+      </p><figure class="img"><div class="bgbarva-seda1"><img src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/dril_uprava_kart_glob.png" border="1"></div></figure>
+      <figcaption><font color="red">[1]</font> kliknutím na volbu otevřete nové okno s editory k úpravě kartičky<br>
+                  <font color="red">[2]</font> kliknutím na volbu otevřete nové okno s editory pro globální úpravu kartičky</figcaption>
+      <p></p></div></li><li data-accordion-item="" id="e_driluziv_smery" class="accordion-item  "><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="ezt19i-accordion" role="tab" id="e_driluziv_smery" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">17.</span>Zobrazí se mi v jeden den oba směry kartiček?<a href="#e_driluziv_smery" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="e_driluziv_smery" aria-hidden="true" id="ezt19i-accordion">Kartičky se v databázi nacházejí v obou směrech (<em>brother → bratr</em> i <em>bratr → brother</em>).
+ Systém je chápe jako dvě odlišné otázky. Jednu asi budete zvládat lépe
+(tu, která zkouší "co to znamená") a druhou hůře ("jak se to řekne"), 
+proto se velmi rychle vzdálí od sebe intervaly, ve kterých se kartičky 
+zobrazují.
+      <p>
+      Nepředepisuje se, který směr se má zobrazit nejdříve, vybírá se 
+náhodně. Systém pouze hlídá, že v určitý den se zobrazí z této dvojice 
+kartička maximálně z jednoho směru (a to i v
+případě, že i druhý směr má dle algoritmu předepsáno se v tento den 
+znovu zobrazit).
+      </p><p></p></div></li><li data-accordion-item="" id="e_driluziv_smazane" class="accordion-item  "><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="5qiydn-accordion" role="tab" id="e_driluziv_smazane" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">18.</span>Při drilování se mi u kartičky zobrazuje informace, že je 'smazaná'. Co to znamená?<a href="#e_driluziv_smazane" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="e_driluziv_smazane" aria-hidden="true" id="5qiydn-accordion">Autor
+ učebnice pravděpodobně naimportoval do lekce opravené kartičky, přičemž
+ předtím chybné kartičky smazal. Mazáním se kartičkám pouze nastaví 
+příznak "smazaná", ale zůstávají v
+databázi pro uživatele, kteří se je chtějí nadále učit. Pokud chcete, 
+aby se vám při drilování zobrazovaly jen nově naimportované kartičky 
+(tudíž ne kartičky s příznakem "smazaná"), deaktivujte
+si a znovu aktivujte lekci.<p></p></div></li><li data-accordion-item="" id="e_driluziv_zvuk" class="accordion-item  "><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="lzyi8i-accordion" role="tab" id="e_driluziv_zvuk" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">19.</span>Proč se mi nepřehrává zvuk v kartičce?<a href="#e_driluziv_zvuk" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="e_driluziv_zvuk" aria-hidden="true" id="lzyi8i-accordion">Pravděpodobně nemáte nainstalovaný QuickTime Player.<p></p></div></li><li id="e_driluziv_ie" data-accordion-item="" class="accordion-item  "><a class="accordion-title app-heading app-heading-ready" href="#" aria-controls="xbc01g-accordion" role="tab" id="e_driluziv_ie" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">20.</span>Co znamená hláška 'Mixed Content ...'?<a href="#e_driluziv_ie" class="isi-link-h30 app-heading-ico"></a></a><div data-tab-content="" class="accordion-content " role="tabpanel" aria-labelledby="e_driluziv_ie" aria-hidden="true" id="xbc01g-accordion">Prohlížeč
+ vás tímto upozorňuje, že nemáte povolený smíšený obsah (mixed content),
+ který v MS IE povolíte v záložce Tools. Klikněte na položku Internet 
+Options, poté na záložku
+Security tab a tlačítko Custom Level. V dialogovém okně Security 
+Settings najděte sekci Miscellaneous. V ní dohledejte Display mixed 
+content a zatrhněte možnost Enable. V dialogovém okně
+Security Settings klikněte na OK a poté znovu zvolte OK pro odchod z 
+Internet Options.
+      <p>
+      Poznámka: Jakmile povolíte smíšený obsah, budou se vám zobrazovat 
+stránky jak HTTPS, tak i obsah bez HTTPS, ale Internet Explorer již 
+nebude zobrazovat ikonu zámku.</p><p></p></div></li><li id="e_driluziv_vytvor_uceb" data-accordion-item="" class="accordion-item  "><a href="#" class="accordion-title app-heading app-heading-ready" aria-controls="uq90y7-accordion" role="tab" id="e_driluziv_vytvor_uceb" aria-expanded="false" aria-selected="false"><span class="cislo_otazky">21.</span>Jak vytvořím učebnici v Drilu?<a href="#e_driluziv_vytvor_uceb" class="isi-link-h30 app-heading-ico"></a></a><div class="accordion-content " data-tab-content="" role="tabpanel" aria-labelledby="e_driluziv_vytvor_uceb" aria-hidden="true" id="uq90y7-accordion">Návod k tvorbě učebnic a šablon pro formátování dat naleznete v Nápovědě <a href="https://is.muni.cz/napoveda/elearning/dril_spravce?lang=en">Dril - tvorba a úprava vlastní učebnice</a>.<p></p></div></li></ul></div>
+	<div class="small-12 text-right column"><a href="#" class="accordion-sbalit print-hide"><i class="isi-sbalit-vse isi-inline" aria-hidden="true"></i>Hide</a><a href="#" class="accordion-rozbalit print-hide"><i class="isi-rozbalit-vse isi-inline" aria-hidden="true"></i>Show</a></div>
+</div><p>
+</p><hr><p>Provided you have failed to find the information you were searching for, you can contact us at <nobr class="postovni_adresa"><a href="mailto:etech@fi.muni.cz">etech@fi.muni.cz</a></nobr>.</p>
+</main></div>
+		
+		<div class="foundation-design-z foot_clear">
+			
+	<div class="row">
+		
+	</div>
+	<footer id="paticka" class="">
+		<div class="row">
+			<div class="columns small-12 medium-6 paticka_logo">
+	<a href="https://is.muni.cz/?lang=en"><span class="show-for-sr">IS MU</span></a>
+	<div>
+		The Information&nbsp;System of Masaryk University
+		<div class="footer_about">
+			<a href="https://is.muni.cz/nas_system/?lang=en">More about IS MU</a>, administered by <a href="https://www.fi.muni.cz/">Faculty of Informatics, MU</a>
+		</div>
+		
+	</div>
+</div>
+<div class="columns small-6 medium-3">
+	<div class="footer_podpora">
+	<a href="https://is.muni.cz/podpora/?lang=en">Do you need help?</a>
+	<span class="kont_email"><nobr class="postovni_adresa"><a href="mailto:istech@fi.muni.cz">istech@fi.muni.cz</a></nobr></span>
+</div>
+	<div class="footer_napoveda">
+		<a href="https://is.muni.cz/help/?lang=en">Help</a>
+	</div>
+	<div class="row">
+		<div class="columns small-12 display-none">
+			<div class="footer_zoomy">
+				<a href="" rel="nofollow"></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="columns small-6 medium-3 nastaveni_col">
+	<div class="footer_datum">
+		<span title="Today is 10. (even) week.">9/3/2025 <span style="padding: 0 0.6em">|</span> 20:29</span>
+		<a href="https://is.muni.cz/system/cas?lang=en" title="Today is 10. (even) week." class="footer_cas">Current date and&nbsp;time</a>
+	</div>
+	<div>
+	
+	<div class="footer_nastaveni"><a href="https://is.muni.cz/nas_system/ochrana_informaci?lang=en">Use of cookies</a><a href="https://is.muni.cz/system/pristupnost" class="footer_about">Accessibility</a></div>
+</div>
+</div>
+			<div class="right-border"></div>
+			<div class="left-border"></div>
+		</div>
+		<a href="#hlavicka" class="skip_up" title="takes you to the top of the page">
+			Go to top
+		</a>
+	</footer>
+
+		</div>
+	</div>
+</div>
+
+
+<script src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/is.js"></script>
+<script src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/jquery-ui-1.12.1-sortable-r6.min.js"></script>
+<script src="Dril%20-%20u%C4%8Den%C3%AD%20s%20prodlevami_files/log-kliknuto.js"></script>
+<script>
+(function() {
+
+"use strict";
+
+is.Design.init({
+   "js_init" : [
+      {
+         "params" : [],
+         "module" : "Accordion",
+         "method" : "init"
+      },
+      {
+         "method" : "decode_mail",
+         "module" : "MailTo",
+         "params" : []
+      },
+      {
+         "params" : [],
+         "module" : "HashNavigation",
+         "method" : "init"
+      },
+      {
+         "params" : [],
+         "module" : "Drobecky",
+         "method" : "init"
+      },
+      {
+         "module" : "Forms",
+         "params" : [],
+         "method" : "init"
+      },
+      {
+         "params" : [],
+         "module" : "Design",
+         "method" : "init_header"
+      },
+      {
+         "params" : [],
+         "module" : "Design",
+         "method" : "init_toolkit"
+      }
+   ],
+   "svatky" : {
+      "20010416" : 1,
+      "20090508" : 1,
+      "20041229" : 1,
+      "20151117" : 1,
+      "20051228" : 1,
+      "20080705" : 1,
+      "20060501" : 1,
+      "20130705" : 1,
+      "20070501" : 1,
+      "20221230" : 1,
+      "20251227" : 1,
+      "20131229" : 1,
+      "20051230" : 1,
+      "20190501" : 1,
+      "20201028" : 1,
+      "20160325" : 1,
+      "20230410" : 1,
+      "20240329" : 1,
+      "20250706" : 1,
+      "20140706" : 1,
+      "20131226" : 1,
+      "20110706" : 1,
+      "20130401" : 1,
+      "20030928" : 1,
+      "20021231" : 1,
+      "20100706" : 1,
+      "20241231" : 1,
+      "20220508" : 1,
+      "20190928" : 1,
+      "20141229" : 1,
+      "20060417" : 1,
+      "20261226" : 1,
+      "20061228" : 1,
+      "20161028" : 1,
+      "20161226" : 1,
+      "20011231" : 1,
+      "20131230" : 1,
+      "20090501" : 1,
+      "20061224" : 1,
+      "20171226" : 1,
+      "20221228" : 1,
+      "20121230" : 1,
+      "20010101" : 1,
+      "20201230" : 1,
+      "20091225" : 1,
+      "20180402" : 1,
+      "20041225" : 1,
+      "20221117" : 1,
+      "20150706" : 1,
+      "20201229" : 1,
+      "20021230" : 1,
+      "20111229" : 1,
+      "20211231" : 1,
+      "20161117" : 1,
+      "20230705" : 1,
+      "20221224" : 1,
+      "20251117" : 1,
+      "20161227" : 1,
+      "20071231" : 1,
+      "20181231" : 1,
+      "20031224" : 1,
+      "20101227" : 1,
+      "20201117" : 1,
+      "20080324" : 1,
+      "20041117" : 1,
+      "20021028" : 1,
+      "20040706" : 1,
+      "20121223" : 1,
+      "20241225" : 1,
+      "20191228" : 1,
+      "20090928" : 1,
+      "20061028" : 1,
+      "20181225" : 1,
+      "20081224" : 1,
+      "20021227" : 1,
+      "20170417" : 1,
+      "20190706" : 1,
+      "20001224" : 1,
+      "20121224" : 1,
+      "20251028" : 1,
+      "20150705" : 1,
+      "20041227" : 1,
+      "20051224" : 1,
+      "20221227" : 1,
+      "20020508" : 1,
+      "20080101" : 1,
+      "20131224" : 1,
+      "20200413" : 1,
+      "20100405" : 1,
+      "20120706" : 1,
+      "20040501" : 1,
+      "20231028" : 1,
+      "20001230" : 1,
+      "20121225" : 1,
+      "20030501" : 1,
+      "20211117" : 1,
+      "20021229" : 1,
+      "20011224" : 1,
+      "20141117" : 1,
+      "20251230" : 1,
+      "20100101" : 1,
+      "20061225" : 1,
+      "20131028" : 1,
+      "20180508" : 1,
+      "20080501" : 1,
+      "20151225" : 1,
+      "20041231" : 1,
+      "20121227" : 1,
+      "20120409" : 1,
+      "20210705" : 1,
+      "20061226" : 1,
+      "20181028" : 1,
+      "20191225" : 1,
+      "20170501" : 1,
+      "20181224" : 1,
+      "20120705" : 1,
+      "20260403" : 1,
+      "20190422" : 1,
+      "20130508" : 1,
+      "20090101" : 1,
+      "20230508" : 1,
+      "20001228" : 1,
+      "20240706" : 1,
+      "20200508" : 1,
+      "20180705" : 1,
+      "20161231" : 1,
+      "20101224" : 1,
+      "20121229" : 1,
+      "20040412" : 1,
+      "20050928" : 1,
+      "20141222" : 1,
+      "20200410" : 1,
+      "20241223" : 1,
+      "20211028" : 1,
+      "20191223" : 1,
+      "20071117" : 1,
+      "20231230" : 1,
+      "20200501" : 1,
+      "20261117" : 1,
+      "20140508" : 1,
+      "20110101" : 1,
+      "20140705" : 1,
+      "20170928" : 1,
+      "20251231" : 1,
+      "20211229" : 1,
+      "20111117" : 1,
+      "20171225" : 1,
+      "20250421" : 1,
+      "20010501" : 1,
+      "20231227" : 1,
+      "20220928" : 1,
+      "20031226" : 1,
+      "20131225" : 1,
+      "20121226" : 1,
+      "20081028" : 1,
+      "20230407" : 1,
+      "20261230" : 1,
+      "20001229" : 1,
+      "20180330" : 1,
+      "20170414" : 1,
+      "20001028" : 1,
+      "20061229" : 1,
+      "20161224" : 1,
+      "20231231" : 1,
+      "20230706" : 1,
+      "20231228" : 1,
+      "20141223" : 1,
+      "20111227" : 1,
+      "20211227" : 1,
+      "20060508" : 1,
+      "20141230" : 1,
+      "20101226" : 1,
+      "20071230" : 1,
+      "20211225" : 1,
+      "20260501" : 1,
+      "20040101" : 1,
+      "20011028" : 1,
+      "20221231" : 1,
+      "20160508" : 1,
+      "20151226" : 1,
+      "20130501" : 1,
+      "20231225" : 1,
+      "20181117" : 1,
+      "20130101" : 1,
+      "20141224" : 1,
+      "20210402" : 1,
+      "20151028" : 1,
+      "20180706" : 1,
+      "20001226" : 1,
+      "20131228" : 1,
+      "20090706" : 1,
+      "20200101" : 1,
+      "20140101" : 1,
+      "20011225" : 1,
+      "20101230" : 1,
+      "20171231" : 1,
+      "20020705" : 1,
+      "20180101" : 1,
+      "20200706" : 1,
+      "20140421" : 1,
+      "20051225" : 1,
+      "20151230" : 1,
+      "20150101" : 1,
+      "20110425" : 1,
+      "20240501" : 1,
+      "20231117" : 1,
+      "20260406" : 1,
+      "20210101" : 1,
+      "20261028" : 1,
+      "20160706" : 1,
+      "20101028" : 1,
+      "20091028" : 1,
+      "20160328" : 1,
+      "20231229" : 1,
+      "20201226" : 1,
+      "20030706" : 1,
+      "20240508" : 1,
+      "20171117" : 1,
+      "20240928" : 1,
+      "20250705" : 1,
+      "20120101" : 1,
+      "20151231" : 1,
+      "20041226" : 1,
+      "20160705" : 1,
+      "20060706" : 1,
+      "20151224" : 1,
+      "20101225" : 1,
+      "20120928" : 1,
+      "20111226" : 1,
+      "20171227" : 1,
+      "20171028" : 1,
+      "20171223" : 1,
+      "20141227" : 1,
+      "20161230" : 1,
+      "20090413" : 1,
+      "20051227" : 1,
+      "20011230" : 1,
+      "20041230" : 1,
+      "20081117" : 1,
+      "20030508" : 1,
+      "20030101" : 1,
+      "20061230" : 1,
+      "20241028" : 1,
+      "20061117" : 1,
+      "20181226" : 1,
+      "20060928" : 1,
+      "20111224" : 1,
+      "20070706" : 1,
+      "20171224" : 1,
+      "20241230" : 1,
+      "20131223" : 1,
+      "20220415" : 1,
+      "20210706" : 1,
+      "20211230" : 1,
+      "20201222" : 1,
+      "20231224" : 1,
+      "20191229" : 1,
+      "20111225" : 1,
+      "20010705" : 1,
+      "20051229" : 1,
+      "20121117" : 1,
+      "20111228" : 1,
+      "20150501" : 1,
+      "20201228" : 1,
+      "20191227" : 1,
+      "20181228" : 1,
+      "20211224" : 1,
+      "20191028" : 1,
+      "20260705" : 1,
+      "20221226" : 1,
+      "20001225" : 1,
+      "20011229" : 1,
+      "20051028" : 1,
+      "20060705" : 1,
+      "20011226" : 1,
+      "20250928" : 1,
+      "20210501" : 1,
+      "20191224" : 1,
+      "20070705" : 1,
+      "20111231" : 1,
+      "20131117" : 1,
+      "20151227" : 1,
+      "20261229" : 1,
+      "20160501" : 1,
+      "20210405" : 1,
+      "20031117" : 1,
+      "20170706" : 1,
+      "20211226" : 1,
+      "20070508" : 1,
+      "20030705" : 1,
+      "20191231" : 1,
+      "20041228" : 1,
+      "20261227" : 1,
+      "20191226" : 1,
+      "20141226" : 1,
+      "20201224" : 1,
+      "20181229" : 1,
+      "20161225" : 1,
+      "20190101" : 1,
+      "20201223" : 1,
+      "20211228" : 1,
+      "20151228" : 1,
+      "20120501" : 1,
+      "20010928" : 1,
+      "20050705" : 1,
+      "20170705" : 1,
+      "20111230" : 1,
+      "20020401" : 1,
+      "20150406" : 1,
+      "20241227" : 1,
+      "20050508" : 1,
+      "20131231" : 1,
+      "20251229" : 1,
+      "20121228" : 1,
+      "20250418" : 1,
+      "20050501" : 1,
+      "20241229" : 1,
+      "20130706" : 1,
+      "20251228" : 1,
+      "20051226" : 1,
+      "20110508" : 1,
+      "20200705" : 1,
+      "20101231" : 1,
+      "20140501" : 1,
+      "20180928" : 1,
+      "20190508" : 1,
+      "20131227" : 1,
+      "20101223" : 1,
+      "20210928" : 1,
+      "20220101" : 1,
+      "20021228" : 1,
+      "20251224" : 1,
+      "20141225" : 1,
+      "20230928" : 1,
+      "20080706" : 1,
+      "20230101" : 1,
+      "20141228" : 1,
+      "20150928" : 1,
+      "20021117" : 1,
+      "20100705" : 1,
+      "20241228" : 1,
+      "20110705" : 1,
+      "20100508" : 1,
+      "20220501" : 1,
+      "20241224" : 1,
+      "20260101" : 1,
+      "20100501" : 1,
+      "20260706" : 1,
+      "20010706" : 1,
+      "20071226" : 1,
+      "20100928" : 1,
+      "20021226" : 1,
+      "20240101" : 1,
+      "20020101" : 1,
+      "20091226" : 1,
+      "20060101" : 1,
+      "20200928" : 1,
+      "20040705" : 1,
+      "20021225" : 1,
+      "20090705" : 1,
+      "20191230" : 1,
+      "20161223" : 1,
+      "20001231" : 1,
+      "20050328" : 1,
+      "20110501" : 1,
+      "20191117" : 1,
+      "20101228" : 1,
+      "20171229" : 1,
+      "20080508" : 1,
+      "20091224" : 1,
+      "20010508" : 1,
+      "20221225" : 1,
+      "20001227" : 1,
+      "20201225" : 1,
+      "20121028" : 1,
+      "20250101" : 1,
+      "20050101" : 1,
+      "20160928" : 1,
+      "20170508" : 1,
+      "20011227" : 1,
+      "20220706" : 1,
+      "20021223" : 1,
+      "20220705" : 1,
+      "20141028" : 1,
+      "20210508" : 1,
+      "20201221" : 1,
+      "20020928" : 1,
+      "20030421" : 1,
+      "20161229" : 1,
+      "20071227" : 1,
+      "20071028" : 1,
+      "20221028" : 1,
+      "20091117" : 1,
+      "20041224" : 1,
+      "20011117" : 1,
+      "20190705" : 1,
+      "20040508" : 1,
+      "20111223" : 1,
+      "20031028" : 1,
+      "20221229" : 1,
+      "20230501" : 1,
+      "20261224" : 1,
+      "20240401" : 1,
+      "20171228" : 1,
+      "20021224" : 1,
+      "20260928" : 1,
+      "20241117" : 1,
+      "20201231" : 1,
+      "20040928" : 1,
+      "20151223" : 1,
+      "20250501" : 1,
+      "20050706" : 1,
+      "20081226" : 1,
+      "20070409" : 1,
+      "20051117" : 1,
+      "20080928" : 1,
+      "20150508" : 1,
+      "20020706" : 1,
+      "20161228" : 1,
+      "20071228" : 1,
+      "20041028" : 1,
+      "20240705" : 1,
+      "20081225" : 1,
+      "20141231" : 1,
+      "20220418" : 1,
+      "20190419" : 1,
+      "20170101" : 1,
+      "20151229" : 1,
+      "20121231" : 1,
+      "20120508" : 1,
+      "20070928" : 1,
+      "20171230" : 1,
+      "20071224" : 1,
+      "20250508" : 1,
+      "20261228" : 1,
+      "20071225" : 1,
+      "20180501" : 1,
+      "20020501" : 1,
+      "20070101" : 1,
+      "20251226" : 1,
+      "20130928" : 1,
+      "20101229" : 1,
+      "20111028" : 1,
+      "20241226" : 1,
+      "20181227" : 1,
+      "20261225" : 1,
+      "20140928" : 1,
+      "20261231" : 1,
+      "20251225" : 1,
+      "20071229" : 1,
+      "20011228" : 1,
+      "20031225" : 1,
+      "20101117" : 1,
+      "20061227" : 1,
+      "20110928" : 1,
+      "20231226" : 1,
+      "20181230" : 1,
+      "20260508" : 1,
+      "20160101" : 1
+   },
+   "session" : {
+      "w_log_id" : "20591366794",
+      "session_id" : "3352224700",
+      "server_time" : "9. 3. 2025 20:29:45",
+      "uco" : null,
+      "ekurz" : false,
+      "is_muni_cz" : "is.muni.cz",
+      "skola_id" : "14",
+      "login" : null,
+      "cgipar" : {
+         "lang" : [
+            "en"
+         ]
+      },
+      "is_design_z" : "",
+      "pouzit_neoverene_udaje" : null,
+      "sn" : "/napoveda/index.pl",
+      "vidim_kazdeho" : null,
+      "lang" : "en",
+      "remote_user" : null,
+      "skola_zkratka" : "MU",
+      "debug" : 1,
+      "auth" : ""
+   },
+   "ldb" : {
+      "rozbalit" : "Show",
+      "byl_jste_odhlasen" : "You have been logged out.",
+      "byl_jste_odhlasen_prihlasit" : "Log in",
+      "chyba_503" : "The application is temporarily unavailable due to the System being overloaded.",
+      "byl_jste_odhlasen_zavrit" : "Close",
+      "modal_full" : "Full-screen view",
+      "sbalit" : "Hide",
+      "chyba" : "An error has occurred. Try again or refresh the page."
+   }
+}
+);
+})();
+</script>
+
+
+
+</body></html>
