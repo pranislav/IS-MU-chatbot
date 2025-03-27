@@ -1,31 +1,26 @@
-# Dataset
+# Dataset (WIP)
 All pages were scraped from [Help](https://is.muni.cz/napoveda/?lang=en).
+There are numerous cavities wich must be resolved during data cleansing:
+ - One page is in a different format, so we cannot load it using this script.
+ - Some pages marked as English are in Czech.
+ - Some answers include images.
+ - Some answers have some visual styling.
 
-## Data Filtering
-There were numerous problems with provided data that must be resolved to
-obtain usable training data for our model:
- - Some pages were not translated and were kept in czech.
- - One page is in pdf file format and does not follow the same structure.
- - Quetions can also contain some image or use some html styling.
-
-## Format
-Raw data are stored in a JSON file `raw.json` with following format:
+## Raw Format
+Final JSON format of raw parsed dataset is:
 ```json
 [
     {
-        "category": "student",
+        "category": "Student",
         "topic": "Study Planner",
-        "questions" : [
+        "questions": [
             {
-                "number": 1,
-                "question": "What is the Study Planner?",
-                "answer": "Study Planner is an ...",
+                "url": "https://is.muni.cz/...",
+                "title": "What is the Study Planner?",
+                "answer": "Study Planner is an...",
                 "has_image": false
             }
         ]
     }
-]```
-
-## TODO
- - [ ] Extract Q&A dataset from the pages.
- - [ ] Translate extracted data.
+]
+```
