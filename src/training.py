@@ -4,26 +4,28 @@ from peft import LoraConfig, get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, DataCollatorWithPadding
 
 # Load dataset (replace with your dataset path or name)
-dataset = load_dataset("json", data_files="raw_QA.json")
+dataset = load_dataset("json", data_files="dataset/raw_QA.json")
 
 def format_qa(example):
-    example["input_text"] = f"Question: {example['question']}"
-    example["target_text"] = f"Answer: {example['answer']}"
+    messages = [
+        {"role": "user", "content": example["question"]},
+        {"role": "assistant", "content": example["answer"]},
+    ]
+    example["formatted_text"] = tokenizer.apply_chat_template(messages, tokenize=False)
     return example
 
 dataset = dataset.map(format_qa)
 
 dataset = dataset["train"].train_test_split(test_size=0.2)  # Train-validation split
 
-# Load distilGPT2 tokenizer and model
-model = AutoModelForCausalLM.from_pretrained("distilgpt2")
-tokenizer = AutoTokenizer.from_pretrained("distilgpt2")
-tokenizer.pad_token = tokenizer.eos_token
+
+model = AutoModelForCausalLM.from_pretrained("google/gemma-3-4b-it")
+tokenizer = AutoTokenizer.from_pretrained("google/gemma-3-4b-it")
 
 
 # Tokenize dataset
 def preprocess_function(example):
-    return tokenizer(example["input_text"], truncation=True, padding=True, max_length=256)
+    return tokenizer(example["input_text"], truncation=True, padding=False)
 
 
 tokenized_datasets = dataset.map(preprocess_function, batched=True)
@@ -32,9 +34,10 @@ tokenized_datasets = dataset.map(preprocess_function, batched=True)
 lora_config = LoraConfig(
     r=8,  # Rank of the LoRA matrices
     lora_alpha=16,
-    # target_modules=["query", "value"],  # Target attention layers
+    target_modules=["q_proj", "k_proj", "v_proj", "out_proj"],
     lora_dropout=0.1,
-    bias="none"
+    bias="none",
+    task_type="CAUSAL_LM",
 )
 
 # Wrap model with LoRA adapter
@@ -77,5 +80,5 @@ trainer = Trainer(
 trainer.train()
 
 # Save final model
-model.save_pretrained("./fine_tuned_tinybert")
-tokenizer.save_pretrained("./fine_tuned_tinybert")
+model.save_pretrained("./models/IS-tuned_gemma3-4b-it")
+tokenizer.save_pretrained("./models/IS-tuned_gemma3-4b-it")
