@@ -12,7 +12,10 @@ bnb_config = BitsAndBytesConfig(
 # It is strongly recommended to train Gemma3 models with the
 # `eager` attention implementation instead of `sdpa`. Use `eager` with
 # `AutoModelForCausalLM.from_pretrained('<path-to-checkpoint>', attn_implementation='eager')`.
-model = AutoModelForCausalLM.from_pretrained("google/gemma-3-4b-it", attn_implementation='eager', quantization_config=bnb_config)
+model = AutoModelForCausalLM.from_pretrained("google/gemma-3-4b-it",
+                                             attn_implementation='eager',
+                                             #quantization_config=bnb_config # caused troubles with gradient computing
+                                             )
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-3-4b-it")
 
 
@@ -64,20 +67,23 @@ model = get_peft_model(model, lora_config)
 # Training arguments
 training_args = TrainingArguments(
     output_dir="./results",
+    learning_rate=1e-5,
+    # warmup_steps=100,
     eval_strategy="epoch",
     save_strategy="epoch",
     save_total_limit=2,
+    fp16=True,
+    fp16_full_eval=True,
     gradient_accumulation_steps=4,  # Accumulate over 4 small batches
     per_device_train_batch_size=1,  # Reduce per-GPU batch size
     per_device_eval_batch_size=8,
-    num_train_epochs=3,
+    num_train_epochs=1,
     logging_dir="./logs",
     logging_steps=10,
     load_best_model_at_end=True,
     metric_for_best_model="loss",
     greater_is_better=False,
     save_on_each_node=False,
-    fp16=True if torch.cuda.is_available() else False,
     report_to="none"
 )
 
