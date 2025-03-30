@@ -7,7 +7,7 @@ warnings.filterwarnings("ignore", message="Found missing adapter keys while load
 # Chat function with chat template
 def chat(model, tokenizer, question):
     messages = [{"role": "user", "content": question}]
-    formatted_text = tokenizer.apply_chat_template(messages, tokenize=False)
+    formatted_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     print(formatted_text)
 
     inputs = tokenizer(formatted_text, return_tensors="pt").to("cuda")
