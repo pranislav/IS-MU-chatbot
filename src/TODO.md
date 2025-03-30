@@ -1,0 +1,9 @@
+- [ ] Implement dynamic padding (global padding to longest causes memory issue)
+- [ ] Split the computations to more GPUs
+- [ ] Implement early stopping (instead of fixed amount of epochs)
+- [ ] Check if the adapter works properly in chat.py (missing keys error)
+- [ ] Refactor to enable hyperparam tuning
+- [ ] Quantization issue
+- [ ] Gradient checkppointing? (should help with memory issue)
+- [ ] Add warmup
+- [ ] Check if the apply_chat_template makes any difference
