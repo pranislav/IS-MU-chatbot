@@ -1,5 +1,6 @@
 import argparse
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from peft import PeftModel
 import warnings
 warnings.filterwarnings("ignore", message="Found missing adapter keys while loading the checkpoint") #TODO
 
@@ -27,14 +28,12 @@ def load_model(adapter_path=None):
     # Load model and tokenizer
     model_name = "google/gemma-3-4b-it"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    
-    # Load the model
-    model = AutoModelForCausalLM.from_pretrained(model_name).to("cuda")
 
-    # If an adapter path is provided, load the adapter
+    model = AutoModelForCausalLM.from_pretrained(model_name)    
     if adapter_path:
-        model.load_adapter(adapter_path, load_as="lora")
-        model.set_active_adapters("lora")
+        model = PeftModel.from_pretrained(model, adapter_path)
+
+    model.to("cuda")
 
     return model, tokenizer
 
