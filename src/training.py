@@ -9,17 +9,15 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_use_double_quant=True,  # Further reduce memory
 )
 
-# It is strongly recommended to train Gemma3 models with the
-# `eager` attention implementation instead of `sdpa`. Use `eager` with
-# `AutoModelForCausalLM.from_pretrained('<path-to-checkpoint>', attn_implementation='eager')`.
+
 model = AutoModelForCausalLM.from_pretrained("google/gemma-3-4b-it",
-                                             attn_implementation='eager',
+                                             attn_implementation='eager', # commandline says so
                                              #quantization_config=bnb_config # caused troubles with gradient computing
                                              )
 tokenizer = AutoTokenizer.from_pretrained("google/gemma-3-4b-it")
 
 
-# Load dataset (replace with your dataset path or name)
+# Load dataset
 dataset = load_dataset("json", data_files="dataset/raw_QA.json")
 
 def format_qa(example):
@@ -66,18 +64,18 @@ model = get_peft_model(model, lora_config)
 
 # Training arguments
 training_args = TrainingArguments(
-    output_dir="./results",
     learning_rate=1e-5,
     # warmup_steps=100,
     eval_strategy="epoch",
-    save_strategy="epoch",
+    save_strategy="no",
+    output_dir="./checkpoints",
     save_total_limit=2,
     fp16=True,
     fp16_full_eval=True,
     gradient_accumulation_steps=4,  # Accumulate over 4 small batches
     per_device_train_batch_size=1,  # Reduce per-GPU batch size
     per_device_eval_batch_size=8,
-    num_train_epochs=1,
+    num_train_epochs=8,
     logging_dir="./logs",
     logging_steps=10,
     load_best_model_at_end=True,
@@ -105,5 +103,5 @@ trainer = Trainer(
 trainer.train()
 
 # Save final model
-model.save_pretrained("./models/IS-tuned_gemma3-4b-it")
-tokenizer.save_pretrained("./models/IS-tuned_gemma3-4b-it")
+model.save_pretrained("./models/IS-tuned_gemma-3-4b-it_try")
+tokenizer.save_pretrained("./models/IS-tuned_gemma-3-4b-it_try")
