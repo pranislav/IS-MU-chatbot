@@ -1,5 +1,6 @@
 # trained models
-models/
+adapters/
+checkpoints/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
