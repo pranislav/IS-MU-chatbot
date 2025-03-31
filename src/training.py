@@ -1,7 +1,12 @@
 import torch
 from datasets import load_dataset
 from peft import LoraConfig, get_peft_model
-from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, DataCollatorWithPadding, BitsAndBytesConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, DataCollatorWithPadding, EarlyStoppingCallback, BitsAndBytesConfig
+import time
+
+
+ADAPTER_PATH = f"./adapters/IS-tuned_gemma-3-4b-it_{time.strftime('%Y%m%d-%H%M%S')}"
+
 
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,  # Use 4-bit quantization
@@ -65,24 +70,24 @@ model = get_peft_model(model, lora_config)
 # Training arguments
 training_args = TrainingArguments(
     learning_rate=1e-5,
-    # warmup_steps=100,
-    eval_strategy="epoch",
-    save_strategy="no",
-    output_dir="./checkpoints",
+    warmup_steps=100,
+    eval_strategy="steps",
+    eval_steps=100,
+    output_dir=f"./checkpoints/run_{time.strftime('%Y%m%d-%H%M%S')}",
     save_total_limit=2,
     fp16=True,
     fp16_full_eval=True,
     gradient_accumulation_steps=4,  # Accumulate over 4 small batches
-    per_device_train_batch_size=1,  # Reduce per-GPU batch size
+    per_device_train_batch_size=1,
     per_device_eval_batch_size=8,
     num_train_epochs=8,
-    logging_dir="./logs",
+    logging_dir=f"{ADAPTER_PATH}/logs",
     logging_steps=10,
     load_best_model_at_end=True,
     metric_for_best_model="loss",
     greater_is_better=False,
     save_on_each_node=False,
-    report_to="none"
+    report_to="tensorboard",    
 )
 
 
@@ -97,11 +102,13 @@ trainer = Trainer(
     eval_dataset=tokenized_datasets["test"],
     tokenizer=tokenizer,
     data_collator=data_collator,
+    callbacks=[EarlyStoppingCallback(early_stopping_patience=3)],
+
 )
 
 # Fine-tune the model
 trainer.train()
 
 # Save final model
-model.save_pretrained("./models/IS-tuned_gemma-3-4b-it_try")
-tokenizer.save_pretrained("./models/IS-tuned_gemma-3-4b-it_try")
+model.save_pretrained(ADAPTER_PATH)
+tokenizer.save_pretrained(ADAPTER_PATH)
