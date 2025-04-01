@@ -4,7 +4,9 @@ from pathlib import Path
 import bs4
 import diskcache
 import json
+import logging
 import requests
+import shutil
 
 
 BASE_URL = 'https://is.muni.cz'
@@ -12,11 +14,12 @@ HELP_URL_CZ = f'{BASE_URL}/help/?lang=cz'
 HELP_URL_EN = f'{BASE_URL}/help/?lang=en'
 
 PROJECT_DIR = Path(__file__).parent
+CACHE_DIR = PROJECT_DIR / 'cache'
 CZ_FILE = PROJECT_DIR / 'data_cz.json'
 EN_FILE = PROJECT_DIR / 'data_en.json'
 
 
-CACHE = diskcache.Cache('cache')
+LOGGER = logging.getLogger(__name__)
 
 
 class Topic(NamedTuple):
@@ -32,14 +35,16 @@ class Topic(NamedTuple):
 
 
 def load_page_body(url: str) -> Optional[bs4.Tag]:
+    cache = diskcache.Cache(CACHE_DIR.name)
+
     if '.pdf' in url:
         return None
 
-    if url in CACHE:
-        page = CACHE[url]
+    if url in cache:
+        page = cache[url]
     else:
         page = requests.get(url)
-        CACHE[url] = page
+        cache[url] = page
 
     assert isinstance(page, requests.Response)
 
@@ -77,11 +82,11 @@ def find_topics(tag: bs4.Tag) -> Generator[tuple[str, bs4.Tag, str]]:
         try:
             body = load_page_body(url)
         except requests.ConnectionError:
-            print(f'[ERROR] Could not load page: {url}.')
+            logging.error(f'Could not load page: {url}.')
             continue
 
         if body is None:
-            print(f'[ERROR] Invalid page: {url}.')
+            logging.error(f'Invalid page: {url}.')
             continue
 
         yield name_tag.text, body, url
@@ -93,7 +98,7 @@ def find_questions(tag: bs4.Tag, base_url: str) -> Generator[Topic.Question]:
     questions = tag.find_all('li', class_='accordion-item')
 
     if len(questions) == 0:
-        print(f'[WARNING] Page missing questions: {base_url}.')
+        logging.warning(f'Page missing questions: {base_url}.')
 
     for question in questions:
         assert isinstance(question, bs4.Tag)
@@ -112,7 +117,7 @@ def find_questions(tag: bs4.Tag, base_url: str) -> Generator[Topic.Question]:
         answer = '\n'.join(a.get_text(separator='\n') for a in answer_tags)
 
         if len(answer_tags) != 1:
-            print(f'[INFO] Multiple content elements: {url}.')
+            logging.info(f'Multiple content elements: {url}.')
 
         yield Topic.Question(url=url,
                              title=question,
@@ -124,7 +129,7 @@ def process_help(url: str) -> Generator[Topic]:
     help_page_html = load_page_body(url)
 
     if help_page_html is None:
-        print(f'[ERROR] Missing categories: {url}.')
+        logging.error(f'Missing categories: {url}.')
         return
 
     for category_name, category_tag in find_categories(help_page_html):
@@ -135,7 +140,31 @@ def process_help(url: str) -> Generator[Topic]:
                                                             topic_url)))
 
 
+def user_choice(question: str) -> bool:
+    for _ in range(3):
+        match input(question + ' [y/n]: ').lower():
+            case 'y': return True
+            case 'n': return False
+            case _: continue
+
+    LOGGER.error('User did not choose an option, defaulting to False.')
+    return False
+
+
 def main() -> None:
+    logging.basicConfig(filename='processing.log',
+                        filemode='w',
+                        level=logging.INFO)
+
+    if (CACHE_DIR.is_dir()
+        and user_choice('There are cached IS Help pages, should I delete them?')):
+        shutil.rmtree(CACHE_DIR)
+        logging.info('Removing cached IS Help pages.')
+
+    logging.info('Found cached data, will use them.'
+                 if CACHE_DIR.is_dir() else
+                 'No cached data, will download and cache pages.')
+
     for file, url in ((CZ_FILE, HELP_URL_CZ), (EN_FILE, HELP_URL_EN)):
         topics = list(process_help(url))
 

@@ -1,5 +1,10 @@
 # IS MU Chatbot: AI-Powered Assistance for Masaryk University IS
 
+## TODO
+ - [ ] Finish data processing (handle images and tables).
+ - [ ] Split requirements per sub-project.
+ - [ ] Add README for each sub-project.
+
 ## Project Overview
 This project aims to fine-tune a language model to assist users in navigating the Information System of Masaryk University (IS MU). The goal is to enhance the model with IS-specific knowledge, making it easier for users to get help with IS-related tasks without having to search through extensive Help pages.
 
