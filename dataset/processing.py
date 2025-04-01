@@ -109,19 +109,16 @@ def find_questions(tag: bs4.Tag, base_url: str) -> Generator[Topic.Question]:
         number_tag = header_tag.find('span')
         assert isinstance(number_tag, bs4.Tag)
 
-        answer_tags = list(tag.find_all('div', class_='accordion-content'))
+        answer_tag = question.find('div', class_='accordion-content')
+        assert isinstance(answer_tag, bs4.Tag)
 
         url = f'{base_url}#{question['id']}'
         question = header_tag.text.removeprefix(number_tag.text)
-        has_image = question.find('img') != None
-        answer = '\n'.join(a.get_text(separator='\n') for a in answer_tags)
-
-        if len(answer_tags) != 1:
-            logging.info(f'Multiple content elements: {url}.')
+        has_image = (answer_tag.find('img') != None)
 
         yield Topic.Question(url=url,
                              title=question,
-                             answer=answer,
+                             answer=answer_tag.text,
                              has_image=has_image)
 
 
@@ -166,15 +163,13 @@ def main() -> None:
                  'No cached data, will download and cache pages.')
 
     for file, url in ((CZ_FILE, HELP_URL_CZ), (EN_FILE, HELP_URL_EN)):
-        topics = list(process_help(url))
-
         data = [
             {
                 'category': topic.category,
                 'topic': topic.topic,
                 'questions': list(map(lambda x: x._asdict(), topic.questions))
             }
-            for topic in topics
+            for topic in process_help(url)
         ]
 
         file.write_text(json.dumps(data, indent=2, ensure_ascii=False))
