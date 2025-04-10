@@ -1,15 +1,11 @@
 import argparse
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModel
-import warnings
-warnings.filterwarnings("ignore", message="Found missing adapter keys while loading the checkpoint") #TODO
-
 
 # Chat function with chat template
 def chat(model, tokenizer, question):
     messages = [{"role": "user", "content": question}]
     formatted_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-    print(formatted_text)
 
     inputs = tokenizer(formatted_text, return_tensors="pt").to("cuda")
     output = model.generate(**inputs, max_new_tokens=100)
@@ -38,7 +34,12 @@ def load_model(adapter_path=None):
     return model, tokenizer
 
 def main():
-    parser = argparse.ArgumentParser(description="Chat with the model. Just last question is in the context window. Provide path to LoRA adapter or leave empty for original model. Toggle between input formatted with chat template and simple input by typing 'switch' in the input.")
+    parser = argparse.ArgumentParser(description='''Chat with the model. 
+                                     There is just last question is in the context window. 
+                                     Provide path to LoRA adapter or leave empty 
+                                     for original model. Toggle between input 
+                                     formatted with chat template and 
+                                     simple input by typing 'switch' in the input.''')
     parser.add_argument("--model_name", type=str, default="google/gemma-3-4b-it", help="Name of the model to load.")
     parser.add_argument("--adapter_path", type=str, default=None, help="Path to the LoRA adapter.")
     args = parser.parse_args()
