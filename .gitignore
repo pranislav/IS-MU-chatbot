@@ -1,6 +1,8 @@
 # trained models
 adapters/
 checkpoints/
+index/
+transformed_for_llamaindex.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
