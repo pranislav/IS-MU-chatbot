@@ -103,7 +103,7 @@ def find_questions(tag: bs4.Tag, base_url: str) -> Generator[Topic.Question]:
     for question in questions:
         assert isinstance(question, bs4.Tag)
 
-        header_tag = tag.find('a', class_='accordion-title')
+        header_tag = question.find('a', class_='accordion-title')
         assert isinstance(header_tag, bs4.Tag)
 
         number_tag = header_tag.find('span')
