@@ -7,20 +7,10 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.prompts import PromptTemplate
 
 
+documents = JSONReader().load_data("dataset/transformed_for_llamaindex.json")
+PERSIST_DIR = "./dataset/index"
+
 model_name = "google/gemma-3-4b-it"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
-
-
-# Connect to LlamaIndex
-llm = HuggingFaceLLM(
-    model=model,
-    tokenizer=tokenizer,
-    context_window=8192,
-    max_new_tokens=512,
-    generate_kwargs={"do_sample": False, "top_k": None, "top_p": None},
-    # system_prompt="You are a helpful university assistant."
-)
 
 
 class E5Embedding(HuggingFaceEmbedding):
@@ -30,40 +20,56 @@ class E5Embedding(HuggingFaceEmbedding):
     def _get_text_embedding(self, text: str):
         return super()._get_text_embedding(f"passage: {text}")
 
-embed_model = E5Embedding(model_name="intfloat/multilingual-e5-base")
 
-PERSIST_DIR = "./dataset/index"
+def load_or_create_index(PERSIST_DIR, documents):
+    if os.path.exists(PERSIST_DIR) and os.listdir(PERSIST_DIR):
+        print("🔄 Loading existing index...")
+        storage_context = StorageContext.from_defaults(persist_dir=PERSIST_DIR)
+        embed_model = E5Embedding(model_name="intfloat/multilingual-e5-base")
+        index = load_index_from_storage(storage_context, embed_model=embed_model)
+    else:
+        print("✨ Creating new index...")
+        index = VectorStoreIndex.from_documents(
+            documents,
+            embed_model=embed_model,
+        )
+        index.storage_context.persist(persist_dir=PERSIST_DIR)
+        print("index created")
 
-if os.path.exists(PERSIST_DIR) and os.listdir(PERSIST_DIR):
-    print("🔄 Loading existing index...")
-    storage_context = StorageContext.from_defaults(persist_dir=PERSIST_DIR)
-    index = load_index_from_storage(storage_context, embed_model=embed_model)
-else:
-    print("✨ Creating new index...")
-    documents = JSONReader().load_data("dataset/transformed_for_llamaindex.json")
-    index = VectorStoreIndex.from_documents(
-        documents,
-        embed_model=embed_model,
-    )
-    index.storage_context.persist(persist_dir=PERSIST_DIR)
-    print("index created")
 
-def prompt_template_content():
+def format_prompt(query, context_str, tokenizer):
     system_msg = '''Jsi nápomocný chatbot Masarykovy univerzity. Tvým úkolem je pomáhat uživatelům orientovat se v Informačním systému (IS MU) a poskytovat rady, jak provést požadované akce v systému.
-        Níže jsou oficiální dokumenty nápovědy IS MU, které mohou obsahovat užitečné informace:
-        {context_str}
-        Pokud informace ve zdrojích nejsou dostatečné, řekni to upřímně.'''
+    Níže jsou oficiální dokumenty nápovědy IS MU, které mohou obsahovat užitečné informace:
+    {context_str}
+    Pokud informace ve zdrojích nejsou dostatečné, řekni to upřímně.'''
+    
     messages = [
-        {"role": "system", "content": system_msg},
-        {"role": "user", "content": "{query_str}"}
+        {"role": "system", "content": system_msg.format(context_str=context_str)},
+        {"role": "user", "content": query}
     ]
-    text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-    return text
+    
+    return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
-cz_prompt = PromptTemplate(prompt_template_content)
 
-query_engine = index.as_query_engine(
-    llm=llm,
-    text_qa_template=cz_prompt)
-response = query_engine.query("Kde najdu muj rozvrh?")
+def query_is_muni(query, index, tokenizer, pipeline):
+    # Retrieve documents (get context)
+    query_engine = index.as_query_engine(similarity_top_k=3, response_mode="compact", llm=None)
+    retrieved_nodes = query_engine.retrieve(query)
+    context_str = "\n\n".join([n.node.get_content() for n in retrieved_nodes])
+    
+    # Format the prompt
+    formatted_prompt = format_prompt(query, context_str, tokenizer)
+    
+    # Generate response
+    response = pipeline(formatted_prompt, max_length=100, do_sample=True)["generated_text"]
+    
+    return response
+
+
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+pipeline = pipeline("text-generation", model=model_name)
+index = load_or_create_index(PERSIST_DIR, documents)
+query = "Kde najdu muj rozvrh?"
+
+response = query_is_muni(query, index, tokenizer, pipeline)
 print(response)
