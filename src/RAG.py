@@ -5,7 +5,6 @@ import os
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.prompts import PromptTemplate
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 
 
 model_name = "google/gemma-3-4b-it"
@@ -49,20 +48,19 @@ else:
     index.storage_context.persist(persist_dir=PERSIST_DIR)
     print("index created")
 
-cz_prompt = PromptTemplate(
-    '''<bos>
-    <start_of_turn>system
-    Jsi nápomocný chatbot Masarykovy univerzity. Tvým úkolem je pomáhat uživatelům orientovat se v Informačním systému (IS MU) a poskytovat rady, jak provést požadované akce v systému.
-    Níže jsou oficiální dokumenty nápovědy IS MU, které mohou obsahovat užitečné informace:
-    {context_str}
-    Pokud informace ve zdrojích nejsou dostatečné, řekni to upřímně.
-    <end_of_turn>
-    <start_of_turn>user
-    {query_str}
-    <end_of_turn>
-    <start_of_turn>model
-    '''
-)
+def prompt_template_content():
+    system_msg = '''Jsi nápomocný chatbot Masarykovy univerzity. Tvým úkolem je pomáhat uživatelům orientovat se v Informačním systému (IS MU) a poskytovat rady, jak provést požadované akce v systému.
+        Níže jsou oficiální dokumenty nápovědy IS MU, které mohou obsahovat užitečné informace:
+        {context_str}
+        Pokud informace ve zdrojích nejsou dostatečné, řekni to upřímně.'''
+    messages = [
+        {"role": "system", "content": system_msg},
+        {"role": "user", "content": "{query_str}"}
+    ]
+    text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    return text
+
+cz_prompt = PromptTemplate(prompt_template_content)
 
 query_engine = index.as_query_engine(
     llm=llm,
