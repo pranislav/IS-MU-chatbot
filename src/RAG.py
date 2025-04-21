@@ -50,11 +50,18 @@ else:
     print("index created")
 
 cz_prompt = PromptTemplate(
-    "Jsi nápomocný chatbot Masarykovy univerzity. Tvým úkolem je pomáhat uživatelům orientovat se v Informačním systému (IS MU) a poskytovat rady, jak provést požadované akce v systému.\n\n"
-    "Níže jsou oficiální dokumenty nápovědy IS MU, které mohou obsahovat užitečné informace:\n"
-    "{context_str}\n\n"
-    "Dotaz uživatele: {query_str}\n\n"
-    "Odpověz stručně, přesně a česky. Pokud informace ve zdrojích nejsou dostatečné, řekni to upřímně."
+    '''<bos>
+    <start_of_turn>system
+    Jsi nápomocný chatbot Masarykovy univerzity. Tvým úkolem je pomáhat uživatelům orientovat se v Informačním systému (IS MU) a poskytovat rady, jak provést požadované akce v systému.
+    Níže jsou oficiální dokumenty nápovědy IS MU, které mohou obsahovat užitečné informace:
+    {context_str}
+    Pokud informace ve zdrojích nejsou dostatečné, řekni to upřímně.
+    <end_of_turn>
+    <start_of_turn>user
+    {query_str}
+    <end_of_turn>
+    <start_of_turn>model
+    '''
 )
 
 query_engine = index.as_query_engine(
