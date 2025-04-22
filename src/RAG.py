@@ -35,6 +35,7 @@ def load_or_create_index(PERSIST_DIR, documents):
         )
         index.storage_context.persist(persist_dir=PERSIST_DIR)
         print("index created")
+    return index
 
 
 def format_prompt(query, context_str, tokenizer):
@@ -53,8 +54,9 @@ def format_prompt(query, context_str, tokenizer):
 
 def query_is_muni(query, index, tokenizer, pipeline):
     # Retrieve documents (get context)
-    query_engine = index.as_query_engine(similarity_top_k=3, response_mode="compact", llm=None)
-    retrieved_nodes = query_engine.retrieve(query)
+    retriever = index.as_retriever(similarity_top_k=3)
+
+    retrieved_nodes = retriever.retrieve(query)
     context_str = "\n\n".join([n.node.get_content() for n in retrieved_nodes])
     
     # Format the prompt
