@@ -1,4 +1,5 @@
 import argparse
+import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModel
 
@@ -8,7 +9,7 @@ def chat(model, tokenizer, question):
     formatted_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
     inputs = tokenizer(formatted_text, return_tensors="pt").to("cuda")
-    output = model.generate(**inputs, max_new_tokens=100)
+    output = model.generate(**inputs, max_new_tokens=400)
     return tokenizer.decode(output[0], skip_special_tokens=True)
 
 
@@ -20,31 +21,29 @@ def chat_simple(model, tokenizer, question):
     output = model.generate(**inputs, max_new_tokens=100)
     return tokenizer.decode(output[0], skip_special_tokens=True)
 
-def load_model(adapter_path=None):
-    # Load model and tokenizer
-    model_name = "google/gemma-3-4b-it"
+def load_model(model_name, adapter_path=None):
     tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(model_name,
+                                                 device_map='auto',
+                                                 torch_dtype=torch.bfloat16)
 
-    model = AutoModelForCausalLM.from_pretrained(model_name)    
     if adapter_path:
         model = PeftModel.from_pretrained(model, adapter_path)
-
-    model.to("cuda")
 
     return model, tokenizer
 
 def main():
-    parser = argparse.ArgumentParser(description='''Chat with the model. 
-                                     There is just last question is in the context window. 
-                                     Provide path to LoRA adapter or leave empty 
-                                     for original model. Toggle between input 
-                                     formatted with chat template and 
+    parser = argparse.ArgumentParser(description='''Chat with the model.
+                                     There is just last question in the context window.
+                                     Provide path to LoRA adapter or leave empty
+                                     for original model. Toggle between input
+                                     formatted with chat template and
                                      simple input by typing 'switch' in the input.''')
     parser.add_argument("--model_name", type=str, default="google/gemma-3-4b-it", help="Name of the model to load.")
     parser.add_argument("--adapter_path", type=str, default=None, help="Path to the LoRA adapter.")
     args = parser.parse_args()
 
-    model, tokenizer = load_model(args.adapter_path)
+    model, tokenizer = load_model(args.model_name, args.adapter_path)
 
     print("Start chatting with the model (type 'quit' to exit)...")
 
