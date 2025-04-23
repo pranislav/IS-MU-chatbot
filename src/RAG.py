@@ -22,10 +22,10 @@ class E5Embedding(HuggingFaceEmbedding):
 
 
 def load_or_create_index(PERSIST_DIR, documents):
+    embed_model = E5Embedding(model_name="intfloat/multilingual-e5-base")
     if os.path.exists(PERSIST_DIR) and os.listdir(PERSIST_DIR):
         print("🔄 Loading existing index...")
         storage_context = StorageContext.from_defaults(persist_dir=PERSIST_DIR)
-        embed_model = E5Embedding(model_name="intfloat/multilingual-e5-base")
         index = load_index_from_storage(storage_context, embed_model=embed_model)
     else:
         print("✨ Creating new index...")
@@ -63,7 +63,7 @@ def query_is_muni(query, index, tokenizer, pipeline):
     formatted_prompt = format_prompt(query, context_str, tokenizer)
     
     # Generate response
-    response = pipeline(formatted_prompt, max_length=100, do_sample=True)["generated_text"]
+    response = pipeline(formatted_prompt, max_new_tokens=400, do_sample=True)[0]["generated_text"]
     
     return response
 
