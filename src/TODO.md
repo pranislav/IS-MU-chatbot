@@ -1,9 +1,10 @@
 ## RAG branch
 
 ### Basic pipeline
-- [ ] fix gemma prompting (does not behave like an assistant)
+- [x] fix gemma prompting (does not behave like an assistant)
 - [ ] add LangSmith to see what is happening inside
 - [ ] chatting (attach history to the context window)
+- [ ] index - chunk the documents by topic/title
 
 ### Advanced stuff
 - [ ] Query translation
