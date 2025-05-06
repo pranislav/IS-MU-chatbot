@@ -1,13 +1,14 @@
-from llama_index.core import VectorStoreIndex, StorageContext, load_index_from_storage
+from llama_index.core import VectorStoreIndex, Document, StorageContext, load_index_from_storage
 from llama_index.llms.huggingface import HuggingFaceLLM
-from llama_index.core.readers.json import JSONReader
+import json
 import os
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.prompts import PromptTemplate
 
-
-documents = JSONReader().load_data("dataset/transformed_for_llamaindex.json")
+with open("dataset/transformed_for_llamaindex.json", "r", encoding="utf-8") as f:
+    data = json.load(f)
+documents = [Document(text=block["text"], metadata=block.get("metadata", {})) for block in data]
 PERSIST_DIR = "./dataset/index"
 
 model_name = "google/gemma-3-4b-it"
@@ -54,7 +55,7 @@ def format_prompt(query, context_str, tokenizer):
 
 def query_is_muni(query, index, tokenizer, pipeline):
     # Retrieve documents (get context)
-    retriever = index.as_retriever(similarity_top_k=3)
+    retriever = index.as_retriever(similarity_top_k=1)
 
     retrieved_nodes = retriever.retrieve(query)
     context_str = "\n\n".join([n.node.get_content() for n in retrieved_nodes])
@@ -71,7 +72,7 @@ def query_is_muni(query, index, tokenizer, pipeline):
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 pipeline = pipeline("text-generation", model=model_name)
 index = load_or_create_index(PERSIST_DIR, documents)
-query = "Kde najdu muj rozvrh?"
+query = "Neumim najit muj rozvrh. Kde ho mam hledat?"
 
 response = query_is_muni(query, index, tokenizer, pipeline)
 print(response)
