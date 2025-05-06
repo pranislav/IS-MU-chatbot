@@ -41,9 +41,11 @@ def load_or_create_index(PERSIST_DIR, documents):
 
 def format_prompt(query, context_str, tokenizer):
     system_msg = '''Jsi nápomocný chatbot Masarykovy univerzity. Tvým úkolem je pomáhat uživatelům orientovat se v Informačním systému (IS MU) a poskytovat rady, jak provést požadované akce v systému.
-    Níže jsou oficiální dokumenty nápovědy IS MU, které mohou obsahovat užitečné informace:
+    Níže jsou oficiální dokumenty nápovědy IS MU, které mohou obsahovat užitečné informace. Pokud informace ve zdrojích nejsou dostatečné, řekni to upřímně.
+    Začátek nalezených dokumentů:
     {context_str}
-    Pokud informace ve zdrojích nejsou dostatečné, řekni to upřímně.'''
+    Konec nalezených dokumentů.
+    Moje otázka:'''
     
     messages = [
         {"role": "system", "content": system_msg.format(context_str=context_str)},
