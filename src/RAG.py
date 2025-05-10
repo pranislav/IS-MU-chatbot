@@ -16,7 +16,7 @@ class E5Embedding(HuggingFaceEmbedding):
         return super()._get_text_embedding(f"passage: {text}")
 
 
-def load_or_create_index(PERSIST_DIR, documents):
+def load_or_create_index(PERSIST_DIR):
     embed_model = E5Embedding(model_name="intfloat/multilingual-e5-base")
     if os.path.exists(PERSIST_DIR) and os.listdir(PERSIST_DIR):
         print("🔄 Loading existing index...")
@@ -24,6 +24,9 @@ def load_or_create_index(PERSIST_DIR, documents):
         index = load_index_from_storage(storage_context, embed_model=embed_model)
     else:
         print("✨ Creating new index...")
+        with open("dataset/transformed_for_llamaindex.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+            documents = [Document(text=block["text"], metadata=block.get("metadata", {})) for block in data]
         index = VectorStoreIndex.from_documents(
             documents,
             embed_model=embed_model,
@@ -66,15 +69,12 @@ def query_is_muni(query, index, tokenizer, pipeline):
 
 
 def main():
-    with open("dataset/transformed_for_llamaindex.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-    documents = [Document(text=block["text"], metadata=block.get("metadata", {})) for block in data]
     PERSIST_DIR = "./dataset/index"
     model_name = "google/gemma-3-4b-it"
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     my_pipeline = pipeline("text-generation", model=model_name)
-    index = load_or_create_index(PERSIST_DIR, documents)
+    index = load_or_create_index(PERSIST_DIR)
 
     while True:
         query = input("Zadejte dotaz nebo 'q' pro ukončení: ")
