@@ -51,20 +51,38 @@ def format_prompt(query, context_str, tokenizer):
     
     return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
+def query_augment_prompt(query, tokenizer):
+    prompt = "Vygeneruj 3 různé varianty následujícího dotazu, které mají stejný význam, ale jinou formulaci. Výsledek vrať výhradně jako JSON seznam řetězců, bez jakéhokoliv formátování kódu (nepoužívej ``` ani žádné značky).\nDotaz: {query}"
+    messages = [
+        {"role": "user", "content": prompt.format(query=query)},
+    ]
+    return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+
+def augment_query(query, tokenizer, pipeline):
+    augmented_query = pipeline(query_augment_prompt(query, tokenizer), max_new_tokens=400, do_sample=True, return_full_text=False)[0]["generated_text"]
+    augmented_query_list = json.loads(augmented_query)
+    return augmented_query_list
+
+
+def retrieve_documents(index, list_of_queries):
+    unique_retrieved_docs_ids = set()
+    unique_retrieverd_nodes = []
+    retriever = index.as_retriever(similarity_top_k=3)
+    for query in list_of_queries:
+        retrieved_nodes = retriever.retrieve(query)
+        for node in retrieved_nodes:
+            if node.metadata["id"] not in unique_retrieved_docs_ids:
+                unique_retrieved_docs_ids.add(node.metadata["id"])
+                unique_retrieverd_nodes.append(node)
+    return unique_retrieverd_nodes
+
 
 def query_is_muni(query, index, tokenizer, pipeline):
-    # Retrieve documents (get context)
-    retriever = index.as_retriever(similarity_top_k=3)
-
-    retrieved_nodes = retriever.retrieve(query)
+    list_of_queries = augment_query(query, tokenizer, pipeline)
+    retrieved_nodes = retrieve_documents(index, list_of_queries)
     context_str = "\n\n".join([n.node.get_content() for n in retrieved_nodes])
-    
-    # Format the prompt
     formatted_prompt = format_prompt(query, context_str, tokenizer)
-    
-    # Generate response
     response = pipeline(formatted_prompt, max_new_tokens=400, do_sample=True, return_full_text=False)[0]["generated_text"]
-    
     return response
 
 
