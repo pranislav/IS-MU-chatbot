@@ -5,13 +5,7 @@ import os
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.prompts import PromptTemplate
-
-with open("dataset/transformed_for_llamaindex.json", "r", encoding="utf-8") as f:
-    data = json.load(f)
-documents = [Document(text=block["text"], metadata=block.get("metadata", {})) for block in data]
-PERSIST_DIR = "./dataset/index"
-
-model_name = "google/gemma-3-4b-it"
+import torch
 
 
 class E5Embedding(HuggingFaceEmbedding):
@@ -57,7 +51,7 @@ def format_prompt(query, context_str, tokenizer):
 
 def query_is_muni(query, index, tokenizer, pipeline):
     # Retrieve documents (get context)
-    retriever = index.as_retriever(similarity_top_k=1)
+    retriever = index.as_retriever(similarity_top_k=3)
 
     retrieved_nodes = retriever.retrieve(query)
     context_str = "\n\n".join([n.node.get_content() for n in retrieved_nodes])
@@ -71,10 +65,24 @@ def query_is_muni(query, index, tokenizer, pipeline):
     return response
 
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-pipeline = pipeline("text-generation", model=model_name)
-index = load_or_create_index(PERSIST_DIR, documents)
-query = "Neumim najit muj rozvrh. Kde ho mam hledat?"
+def main():
+    with open("dataset/transformed_for_llamaindex.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+    documents = [Document(text=block["text"], metadata=block.get("metadata", {})) for block in data]
+    PERSIST_DIR = "./dataset/index"
+    model_name = "google/gemma-3-4b-it"
 
-response = query_is_muni(query, index, tokenizer, pipeline)
-print(response)
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    my_pipeline = pipeline("text-generation", model=model_name)
+    index = load_or_create_index(PERSIST_DIR, documents)
+
+    while True:
+        query = input("Zadejte dotaz nebo 'q' pro ukončení: ")
+        if query.lower() == 'q':
+            break
+        response = query_is_muni(query, index, tokenizer, my_pipeline)
+        print(response)
+
+
+if __name__ == "__main__":
+    main()
