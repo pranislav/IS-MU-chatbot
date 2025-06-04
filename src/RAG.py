@@ -82,7 +82,7 @@ def query_is_muni(query, index, tokenizer, pipeline):
     retrieved_nodes = retrieve_documents(index, list_of_queries)
     context_str = "\n\n".join([n.node.get_content() for n in retrieved_nodes])
     formatted_prompt = format_prompt(query, context_str, tokenizer)
-    response = pipeline(formatted_prompt, max_new_tokens=400, do_sample=True, return_full_text=False)[0]["generated_text"]
+    response = pipeline(formatted_prompt, max_new_tokens=1024, do_sample=True, return_full_text=False)[0]["generated_text"]
     return response
 
 
