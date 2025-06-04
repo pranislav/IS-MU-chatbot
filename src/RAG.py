@@ -6,6 +6,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.prompts import PromptTemplate
 import torch
+import gradio as gr
 
 
 class E5Embedding(HuggingFaceEmbedding):
@@ -71,7 +72,7 @@ def retrieve_documents(index, list_of_queries):
     for query in list_of_queries:
         retrieved_nodes = retriever.retrieve(query)
         for node in retrieved_nodes:
-            if node.metadata["id"] not in unique_retrieved_docs_ids:
+            if 'id' in node.metadata and node.metadata["id"] not in unique_retrieved_docs_ids:
                 unique_retrieved_docs_ids.add(node.metadata["id"])
                 unique_retrieverd_nodes.append(node)
     return unique_retrieverd_nodes
@@ -102,5 +103,23 @@ def main():
         print(response)
 
 
+def main_server():
+    PERSIST_DIR = "./dataset/index"
+    model_name = "google/gemma-3-4b-it"
+
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    my_pipeline = pipeline("text-generation", model=model_name)
+    index = load_or_create_index(PERSIST_DIR)
+
+    prompt = lambda x: query_is_muni(x, index, tokenizer, my_pipeline)
+    gr.Interface(fn=prompt,
+            inputs="text",
+            outputs="text",
+            ).launch(
+            server_name='0.0.0.0', server_port=1337, share=True
+                    )
+
+
 if __name__ == "__main__":
-    main()
+    # main()
+    main_server()
