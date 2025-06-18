@@ -53,7 +53,7 @@ def format_prompt(query, context_str, tokenizer):
     return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
 def query_augment_prompt(query, tokenizer):
-    prompt = "Vygeneruj 3 různé varianty následujícího dotazu, které mají stejný význam, ale jinou formulaci. Výsledek vrať výhradně jako JSON seznam řetězců, bez jakéhokoliv formátování kódu (nepoužívej ``` ani žádné značky).\nDotaz: {query}"
+    prompt = "Vygeneruj 3 různé varianty následujícího dotazu, které mají stejný význam, ale jinou formulaci. Dotaz pravděpodobně souvisí s universitním informačním systémem, studiem nebo universitou. Ten, kdo se ptá, může být student i učitel. Výsledek vrať výhradně jako JSON seznam řetězců, bez jakéhokoliv formátování kódu (nepoužívej ``` ani žádné značky).\nDotaz: {query}"
     messages = [
         {"role": "user", "content": prompt.format(query=query)},
     ]
