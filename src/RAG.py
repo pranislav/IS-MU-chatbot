@@ -6,6 +6,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.prompts import PromptTemplate
 import torch
+import argparse
 
 
 class E5Embedding(HuggingFaceEmbedding):
@@ -65,34 +66,35 @@ def augment_query(query, tokenizer, pipeline):
     return augmented_query_list
 
 
-def retrieve_documents(index, list_of_queries):
+def retrieve_documents(index, list_of_queries, print_retrieved):
+    p = print_retrieved
     unique_retrieved_docs_ids = set()
     unique_retrieverd_nodes = []
     retriever = index.as_retriever(similarity_top_k=3)
     delimiter = "\n\n------------------------\n\n"
     for query in list_of_queries:
-        print(delimiter, "query: \n", query, "\n")
+        if p: print(delimiter, "query: \n", query, "\n")
         retrieved_nodes = retriever.retrieve(query)
-        print("retrieved docs: ",delimiter, delimiter.join([n.node.get_content() for n in retrieved_nodes]))
+        if p: print("retrieved docs: ",delimiter, delimiter.join([n.node.get_content() for n in retrieved_nodes]))
         for node in retrieved_nodes:
             if node.metadata["id"] not in unique_retrieved_docs_ids:
                 unique_retrieved_docs_ids.add(node.metadata["id"])
                 unique_retrieverd_nodes.append(node)
-        print(delimiter)
-    print(delimiter)
+        if p: print(delimiter)
+    if p: print(delimiter)
     return unique_retrieverd_nodes
 
 
-def query_is_muni(query, index, tokenizer, pipeline):
+def query_is_muni(query, index, tokenizer, pipeline, print_retrieved):
     list_of_queries = augment_query(query, tokenizer, pipeline)
-    retrieved_nodes = retrieve_documents(index, list_of_queries)
+    retrieved_nodes = retrieve_documents(index, list_of_queries, print_retrieved)
     context_str = "\n\n".join([n.node.get_content() for n in retrieved_nodes])
     formatted_prompt = format_prompt(query, context_str, tokenizer)
     response = pipeline(formatted_prompt, max_new_tokens=1024, do_sample=True, return_full_text=False)[0]["generated_text"]
     return response
 
 
-def main():
+def main(print_retrieved):
     PERSIST_DIR = "./dataset/index"
     model_name = "google/gemma-3-4b-it"
 
@@ -104,9 +106,13 @@ def main():
         query = input("Zadejte dotaz nebo 'q' pro ukončení: ")
         if query.lower() == 'q':
             break
-        response = query_is_muni(query, index, tokenizer, my_pipeline)
+        response = query_is_muni(query, index, tokenizer, my_pipeline, print_retrieved)
         print(response)
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p', '--print_retrieved', action='store_true', help='prints augmented questions with their retrieved documents')
+    args = parser.parse_args()
+
+    main(args.print_retrieved)
