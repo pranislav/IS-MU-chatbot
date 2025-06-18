@@ -61,6 +61,7 @@ def query_augment_prompt(query, tokenizer):
 def augment_query(query, tokenizer, pipeline):
     augmented_query = pipeline(query_augment_prompt(query, tokenizer), max_new_tokens=400, do_sample=True, return_full_text=False)[0]["generated_text"]
     augmented_query_list = json.loads(augmented_query)
+    augmented_query_list.append(query)
     return augmented_query_list
 
 
@@ -68,12 +69,17 @@ def retrieve_documents(index, list_of_queries):
     unique_retrieved_docs_ids = set()
     unique_retrieverd_nodes = []
     retriever = index.as_retriever(similarity_top_k=3)
+    delimiter = "\n\n------------------------\n\n"
     for query in list_of_queries:
+        print(delimiter, "query: \n", query, "\n")
         retrieved_nodes = retriever.retrieve(query)
+        print("retrieved docs: ",delimiter, delimiter.join([n.node.get_content() for n in retrieved_nodes]))
         for node in retrieved_nodes:
             if node.metadata["id"] not in unique_retrieved_docs_ids:
                 unique_retrieved_docs_ids.add(node.metadata["id"])
                 unique_retrieverd_nodes.append(node)
+        print(delimiter)
+    print(delimiter)
     return unique_retrieverd_nodes
 
 
