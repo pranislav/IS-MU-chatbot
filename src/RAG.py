@@ -60,7 +60,14 @@ def query_augment_prompt(query, tokenizer):
     return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
 def augment_query(query, tokenizer, pipeline):
-    augmented_query = pipeline(query_augment_prompt(query, tokenizer), max_new_tokens=400, do_sample=True, return_full_text=False)[0]["generated_text"]
+    augmented_query = pipeline(
+        query_augment_prompt(query, tokenizer),
+        max_new_tokens=400,
+        do_sample=False,
+        top_k=None,
+        top_p=None,
+        return_full_text=False
+    )[0]["generated_text"]
     augmented_query_list = json.loads(augmented_query)
     augmented_query_list.append(query)
     return augmented_query_list
