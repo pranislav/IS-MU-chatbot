@@ -113,7 +113,7 @@ def main(print_retrieved, use_fe=False):
     my_pipeline = pipeline("text-generation", model=model_name)
     index = load_or_create_index(PERSIST_DIR)
 
-    if use_fe:
+    if not use_fe:
         while True:
             query = input("Zadejte dotaz nebo 'q' pro ukončení: ")
             if query.lower() == 'q':
