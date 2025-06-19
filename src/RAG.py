@@ -7,6 +7,7 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.prompts import PromptTemplate
 import torch
 import gradio as gr
+import argparse
 
 
 class E5Embedding(HuggingFaceEmbedding):
@@ -53,41 +54,58 @@ def format_prompt(query, context_str, tokenizer):
     return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
 def query_augment_prompt(query, tokenizer):
-    prompt = "Vygeneruj 3 různé varianty následujícího dotazu, které mají stejný význam, ale jinou formulaci. Výsledek vrať výhradně jako JSON seznam řetězců, bez jakéhokoliv formátování kódu (nepoužívej ``` ani žádné značky).\nDotaz: {query}"
+    prompt = "Vygeneruj 3 různé varianty následujícího dotazu, které mají stejný význam, ale jinou formulaci. Dotaz pravděpodobně souvisí s universitním informačním systémem, studiem nebo universitou. Ten, kdo se ptá, může být student i učitel. Výsledek vrať výhradně jako JSON seznam řetězců, bez jakéhokoliv formátování kódu (nepoužívej ``` ani žádné značky).\nDotaz: {query}"
     messages = [
         {"role": "user", "content": prompt.format(query=query)},
     ]
     return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
 def augment_query(query, tokenizer, pipeline):
-    augmented_query = pipeline(query_augment_prompt(query, tokenizer), max_new_tokens=400, do_sample=True, return_full_text=False)[0]["generated_text"]
+    augmented_query = pipeline(
+        query_augment_prompt(query, tokenizer),
+        max_new_tokens=400,
+        do_sample=False,
+        top_k=None,
+        top_p=None,
+        return_full_text=False
+    )[0]["generated_text"]
     augmented_query_list = json.loads(augmented_query)
+    augmented_query_list.append(query)
     return augmented_query_list
 
 
-def retrieve_documents(index, list_of_queries):
+def retrieve_documents(index, list_of_queries, print_retrieved):
+    p = print_retrieved
     unique_retrieved_docs_ids = set()
     unique_retrieverd_nodes = []
     retriever = index.as_retriever(similarity_top_k=3)
+    delimiter = "\n\n------------------------\n\n"
     for query in list_of_queries:
+        if p: print(delimiter, "query: \n", query, "\n")
         retrieved_nodes = retriever.retrieve(query)
+        if p: print("retrieved docs: ",delimiter, delimiter.join([n.node.get_content() for n in retrieved_nodes]))
         for node in retrieved_nodes:
             if 'id' in node.metadata and node.metadata["id"] not in unique_retrieved_docs_ids:
                 unique_retrieved_docs_ids.add(node.metadata["id"])
                 unique_retrieverd_nodes.append(node)
+        if p: print(delimiter)
+    if p: print(delimiter)
     return unique_retrieverd_nodes
 
 
-def query_is_muni(query, index, tokenizer, pipeline):
+def query_is_muni(query, index, tokenizer, pipeline, print_retrieved):
     list_of_queries = augment_query(query, tokenizer, pipeline)
-    retrieved_nodes = retrieve_documents(index, list_of_queries)
+    retrieved_nodes = retrieve_documents(index, list_of_queries, print_retrieved)
     context_str = "\n\n".join([n.node.get_content() for n in retrieved_nodes])
     formatted_prompt = format_prompt(query, context_str, tokenizer)
-    response = pipeline(formatted_prompt, max_new_tokens=400, do_sample=True, return_full_text=False)[0]["generated_text"]
+    response = pipeline(formatted_prompt, max_new_tokens=1024, do_sample=True, return_full_text=False)[0]["generated_text"]
     return response
 
 
-def main():
+def main(print_retrieved, use_fe=False):
+    def _query_is_muni(query):
+        return query_is_muni(query, index, tokenizer, my_pipeline, print_retrieved)
+
     PERSIST_DIR = "./dataset/index"
     model_name = "google/gemma-3-4b-it"
 
@@ -95,31 +113,23 @@ def main():
     my_pipeline = pipeline("text-generation", model=model_name)
     index = load_or_create_index(PERSIST_DIR)
 
-    while True:
-        query = input("Zadejte dotaz nebo 'q' pro ukončení: ")
-        if query.lower() == 'q':
-            break
-        response = query_is_muni(query, index, tokenizer, my_pipeline)
-        print(response)
-
-
-def main_server():
-    PERSIST_DIR = "./dataset/index"
-    model_name = "google/gemma-3-4b-it"
-
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    my_pipeline = pipeline("text-generation", model=model_name)
-    index = load_or_create_index(PERSIST_DIR)
-
-    prompt = lambda x: query_is_muni(x, index, tokenizer, my_pipeline)
-    gr.Interface(fn=prompt,
-            inputs="text",
-            outputs="text",
-            ).launch(
-            server_name='0.0.0.0', server_port=1337, share=True
-                    )
+    if use_fe:
+        while True:
+            query = input("Zadejte dotaz nebo 'q' pro ukončení: ")
+            if query.lower() == 'q':
+                break
+            response = query_is_muni(query, index, tokenizer, my_pipeline, print_retrieved)
+            print(response)
+    else:
+        server = gr.Interface(fn=_query_is_muni,
+                              inputs="text",
+                              outputs="text")
+        server.launch(server_name='0.0.0.0', server_port=1337, share=True)
 
 
 if __name__ == "__main__":
-    # main()
-    main_server()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p', '--print_retrieved', action='store_true', help='prints augmented questions with their retrieved documents')
+    args = parser.parse_args()
+
+    main(args.print_retrieved, use_fe=True)
