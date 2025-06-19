@@ -74,31 +74,34 @@ def augment_query(query, tokenizer, pipeline):
     return augmented_query_list
 
 
-def retrieve_documents(index, list_of_queries, print_retrieved):
-    p = print_retrieved
+def retrieve_documents(index, list_of_queries):
     unique_retrieved_docs_ids = set()
     unique_retrieverd_nodes = []
     retriever = index.as_retriever(similarity_top_k=3)
-    delimiter = "\n\n------------------------\n\n"
     for query in list_of_queries:
-        if p: print(delimiter, "query: \n", query, "\n")
         retrieved_nodes = retriever.retrieve(query)
-        if p: print("retrieved docs: ",delimiter, delimiter.join([n.node.get_content() for n in retrieved_nodes]))
         for node in retrieved_nodes:
             if 'id' in node.metadata and node.metadata["id"] not in unique_retrieved_docs_ids:
                 unique_retrieved_docs_ids.add(node.metadata["id"])
                 unique_retrieverd_nodes.append(node)
-        if p: print(delimiter)
-    if p: print(delimiter)
     return unique_retrieverd_nodes
 
 
 def query_is_muni(query, index, tokenizer, pipeline, print_retrieved):
     list_of_queries = augment_query(query, tokenizer, pipeline)
-    retrieved_nodes = retrieve_documents(index, list_of_queries, print_retrieved)
+    retrieved_nodes = retrieve_documents(index, list_of_queries)
     context_str = "\n\n".join([n.node.get_content() for n in retrieved_nodes])
+    if print_retrieved:
+        print(query)
+        print('-'*79)
+        print(context_str)
+        print(f'Total number of retrieved nodes: {len(retrieved_nodes)}')
+        print('-'*79)
     formatted_prompt = format_prompt(query, context_str, tokenizer)
     response = pipeline(formatted_prompt, max_new_tokens=1024, do_sample=True, return_full_text=False)[0]["generated_text"]
+    if print_retrieved:
+        print(response)
+        print('='*79)
     return response
 
 
