@@ -121,9 +121,11 @@ def check_input_len(input_str, tokenizer, pipeline):
 def save_session(timestamp, query, response, context_str, list_of_queries):
     delimiter = "\n\n" + "-" * 69 + "\n\n"
     base = Path(__file__).parent.parent
-    session_logs_dir = "session_logs"
-    Path(f"{base}/{session_logs_dir}").mkdir(exist_ok=True)
-    file = f"{base}/{session_logs_dir}/{timestamp}"
+    session_logs_dir = f"{base}/session_logs"
+    Path(session_logs_dir).mkdir(exist_ok=True)
+    if len(os.listdir(session_logs_dir)) > 1000:
+        return
+    file = f"{session_logs_dir}/{timestamp}"
     with open(file, "w") as f:
         f.write(f"Query:\n{query}{delimiter}")
         f.write(f"Response:\n\n{response}{delimiter}")
