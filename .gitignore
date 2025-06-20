@@ -1,3 +1,5 @@
+.gradio/
+
 # logged contexts and responses
 session_logs/
 
