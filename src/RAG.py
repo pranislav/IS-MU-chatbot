@@ -103,7 +103,14 @@ def query_is_muni(query, index, tokenizer, pipeline):
     )[0]["generated_text"]
     timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
     save_session(timestamp, query, response, context_str, list_of_queries)
-    return response
+    form_link = create_link(timestamp)
+    return response, form_link
+
+
+def create_link(timestamp):
+    link = f"https://docs.google.com/forms/d/e/1FAIpQLSfeUp4MTpqv7q_Ww7Z_TvWWMApf_FAFYafQjMId_U5uoV8IUw/viewform?usp=pp_url&entry.1665816165={timestamp}"
+    return f'<a href={link} target="_blank"><button>Zpětná vazba k téhle odpovědi</button></a>'
+
 
 def check_input_len(input_str, tokenizer, pipeline):
     tokenized = tokenizer(input_str, return_tensors="pt", add_special_tokens=False)
@@ -145,8 +152,9 @@ def main(use_cli):
             print(response)
     else:
         server = gr.Interface(fn=_query_is_muni,
-                              inputs="text",
-                              outputs="text")
+                              inputs=gr.Textbox(label="Otázka"),
+                              outputs=[gr.Textbox(label="ISbot"), gr.HTML()],
+                              flagging_mode='never')
         server.launch(server_name='0.0.0.0', server_port=1337, share=True)
 
 
