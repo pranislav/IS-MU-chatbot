@@ -8,6 +8,8 @@ from llama_index.core.prompts import PromptTemplate
 import torch
 import gradio as gr
 import argparse
+from datetime import datetime
+from pathlib import Path
 
 
 class E5Embedding(HuggingFaceEmbedding):
@@ -87,27 +89,45 @@ def retrieve_documents(index, list_of_queries):
     return unique_retrieverd_nodes
 
 
-def query_is_muni(query, index, tokenizer, pipeline, print_retrieved):
+def query_is_muni(query, index, tokenizer, pipeline):
     list_of_queries = augment_query(query, tokenizer, pipeline)
     retrieved_nodes = retrieve_documents(index, list_of_queries)
-    context_str = "\n\n".join([n.node.get_content() for n in retrieved_nodes])
-    if print_retrieved:
-        print(query)
-        print('-'*79)
-        print(context_str)
-        print(f'Total number of retrieved nodes: {len(retrieved_nodes)}')
-        print('-'*79)
+    context_str = ("\n\n" + "-"*69 + "\n\n").join([n.node.get_content() for n in retrieved_nodes])
     formatted_prompt = format_prompt(query, context_str, tokenizer)
-    response = pipeline(formatted_prompt, max_new_tokens=1024, do_sample=True, return_full_text=False)[0]["generated_text"]
-    if print_retrieved:
-        print(response)
-        print('='*79)
+    check_input_len(formatted_prompt, tokenizer, pipeline)
+    response = pipeline(
+        formatted_prompt,
+        max_new_tokens=1024,
+        do_sample=True,
+        return_full_text=False
+    )[0]["generated_text"]
+    timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+    save_session(timestamp, query, response, context_str, list_of_queries)
     return response
 
+def check_input_len(input_str, tokenizer, pipeline):
+    tokenized = tokenizer(input_str, return_tensors="pt", add_special_tokens=False)
+    input_len = tokenized.input_ids.shape[-1]
+    max_len = pipeline.model.config.max_position_embeddings
+    print(f"[DEBUG] Prompt tokens: {input_len}, Max allowed: {max_len}, Will generate: 1024")
 
-def main(print_retrieved, use_fe=False):
+def save_session(timestamp, query, response, context_str, list_of_queries):
+    delimiter = "\n\n" + "-" * 69 + "\n\n"
+    base = Path(__file__).parent.parent
+    session_logs_dir = "session_logs"
+    Path(f"{base}/{session_logs_dir}").mkdir(exist_ok=True)
+    file = f"{base}/{session_logs_dir}/{timestamp}"
+    with open(file, "w") as f:
+        f.write(f"Query:\n{query}{delimiter}")
+        f.write(f"Response:\n\n{response}{delimiter}")
+        queries_string = "\n".join(list_of_queries)
+        f.write(f"Augmented questions:\n\n{queries_string}{delimiter}")
+        f.write(f"Retrieved documents:{context_str}")
+
+
+def main(use_cli):
     def _query_is_muni(query):
-        return query_is_muni(query, index, tokenizer, my_pipeline, print_retrieved)
+        return query_is_muni(query, index, tokenizer, my_pipeline)
 
     PERSIST_DIR = "./dataset/index"
     model_name = "google/gemma-3-4b-it"
@@ -116,12 +136,12 @@ def main(print_retrieved, use_fe=False):
     my_pipeline = pipeline("text-generation", model=model_name)
     index = load_or_create_index(PERSIST_DIR)
 
-    if not use_fe:
+    if use_cli:
         while True:
             query = input("Zadejte dotaz nebo 'q' pro ukončení: ")
             if query.lower() == 'q':
                 break
-            response = query_is_muni(query, index, tokenizer, my_pipeline, print_retrieved)
+            response = query_is_muni(query, index, tokenizer, my_pipeline)
             print(response)
     else:
         server = gr.Interface(fn=_query_is_muni,
@@ -132,7 +152,7 @@ def main(print_retrieved, use_fe=False):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('-p', '--print_retrieved', action='store_true', help='prints augmented questions with their retrieved documents')
+    parser.add_argument('--cli', action='store_true', help='uses CLI instead of browser front end')
     args = parser.parse_args()
 
-    main(args.print_retrieved, use_fe=True)
+    main(use_cli=args.cli)
