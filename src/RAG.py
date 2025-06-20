@@ -94,7 +94,6 @@ def query_is_muni(query, index, tokenizer, pipeline):
     retrieved_nodes = retrieve_documents(index, list_of_queries)
     context_str = ("\n\n" + "-"*69 + "\n\n").join([n.node.get_content() for n in retrieved_nodes])
     formatted_prompt = format_prompt(query, context_str, tokenizer)
-    check_input_len(formatted_prompt, tokenizer, pipeline)
     response = pipeline(
         formatted_prompt,
         max_new_tokens=1024,
@@ -111,12 +110,6 @@ def create_link(timestamp):
     link = f"https://docs.google.com/forms/d/e/1FAIpQLSfeUp4MTpqv7q_Ww7Z_TvWWMApf_FAFYafQjMId_U5uoV8IUw/viewform?usp=pp_url&entry.1665816165={timestamp}"
     return f'<a href={link} target="_blank"><button>Zpětná vazba k téhle odpovědi</button></a>'
 
-
-def check_input_len(input_str, tokenizer, pipeline):
-    tokenized = tokenizer(input_str, return_tensors="pt", add_special_tokens=False)
-    input_len = tokenized.input_ids.shape[-1]
-    max_len = pipeline.model.config.max_position_embeddings
-    print(f"[DEBUG] Prompt tokens: {input_len}, Max allowed: {max_len}, Will generate: 1024")
 
 def save_session(timestamp, query, response, context_str, list_of_queries):
     delimiter = "\n\n" + "-" * 69 + "\n\n"
