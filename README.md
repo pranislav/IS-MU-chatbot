@@ -1,25 +1,34 @@
 # IS MU Chatbot: AI-Powered Assistance for Masaryk University IS
 
-## TODO
- - [ ] Finish data processing (handle images and tables).
- - [ ] Split requirements per sub-project.
- - [ ] Add README for each sub-project.
-
 ## Project Overview
-This project aims to fine-tune a language model to assist users in navigating the Information System of Masaryk University (IS MU). The goal is to enhance the model with IS-specific knowledge, making it easier for users to get help with IS-related tasks without having to search through extensive Help pages.
+This project aims to create a chatbot assistant for the Information System of Masaryk University (IS MU), using a retrieval-augmented generation (RAG) approach. The assistant draws information from official IS Help pages (Nápověda), making it easier for users to get relevant support without manually searching extensive documentation.
+
+## Current Status and Roadmap
+As of June 2025, the chatbot (ISbot) is in its initial phase. It:
+- responds to single-turn questions (no conversation memory),
+- primarily supports Czech language,
+- is not yet publicly accessible.
+
+Planned next steps:
+- Add chat mode with multi-turn memory,
+- Improve English support (currently limited due to untranslated help content),
+- Expand source documents to include:
+  - Study and Examination Regulations (Studijní a zkušební řád),
+  - Term Calendars by Faculties (Přehled harmonogramu období fakult),
+  - and possibly more.
+
+## Model
+The current prototype uses **Gemma 3 (4B)**, a multilingual open-source language model suitable for RAG-style applications.
 
 ## Motivation
-The IS MU is known to be complex and challenging to use, especially for beginners. Large language models, while powerful, cannot effectively assist users because they lack access to IS-specific information. This project seeks to bridge that gap by fine-tuning a language model with IS-related content, providing a more user-friendly and accessible solution for navigating the system.
-
-## Data Sources
-The training data for this project will primarily come from the official IS MU Help pages. Additionally, we will expand the dataset using a larger language model to generate more comprehensive responses.
+The IS MU system can be complex and overwhelming, especially for new users. General-purpose language models cannot reliably assist with IS-specific tasks due to their lack of domain knowledge. This project bridges that gap by combining a language model with official IS documents, making system navigation more user-friendly.
 
 ## Project Context
-This project was developed as part of the [**PA026 Artificial Intelligence Project**](https://is.muni.cz/predmet/fi/jaro2025/PA026) course at Masaryk University.
+This project originated within the [**PA026 Artificial Intelligence Project**](https://is.muni.cz/predmet/fi/jaro2025/PA026) course at Masaryk University.  
+<!-- It was also supported financially by Masaryk University through [Projekt na podporu AI ve výuce](https://www.fi.muni.cz/~foltynek/2_2_AI_podpora_vyzva_FINAL.pdf). -->
 
 ## License
 This project is licensed under the MIT License.
 
 ## Contact
-For any questions or contributions, please reach out via [484757@mail.muni.cz](mailto:484757@mail.muni.cz).
-
+For questions or contributions, contact [484757@mail.muni.cz](mailto:484757@mail.muni.cz).
